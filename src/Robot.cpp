@@ -1,23 +1,27 @@
 #include "WPILib.h"
-#include "Commands/Command.h"
-#include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
+
+//Commands used
+#include "Commands/DriveWithJoysticks.h"
 
 class Robot: public IterativeRobot
 {
 private:
 	std::unique_ptr<Command> autonomousCommand;
+	std::unique_ptr<Command> driveWithJoysticks;
 	SendableChooser *chooser;
 
 	void RobotInit()
 	{
 		CommandBase::init();
+
+		driveWithJoysticks.reset(new DriveWithJoysticks());
+
 		chooser = new SendableChooser();
-		chooser->AddDefault("Default Auto", new ExampleCommand());
+		//chooser->AddDefault("Do Nothing",new TestCommand());
 		//chooser->AddObject("My Auto", new MyAutoCommand());
 		SmartDashboard::PutData("Auto Modes", chooser);
 	}
-
 	/**
      * This function is called once each time the robot enters Disabled mode.
      * You can use it to reset any subsystem information you want to clear when
@@ -50,6 +54,9 @@ private:
 		// Makes sure Auto command is stopped
 		if (autonomousCommand != NULL)
 			autonomousCommand->Cancel();
+
+		//Start command you want to run in teleop
+		driveWithJoysticks.get()->Start();
 	}
 
 	void TeleopPeriodic()

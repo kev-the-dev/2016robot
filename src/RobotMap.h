@@ -19,5 +19,7 @@
 // number and the module. For example you with a rangefinder:
 //const int RANGE_FINDER_PORT = 1;
 //const int RANGE_FINDER_MODULE = 1;
-
+const int JOYSTICK_LEFT_PORT = 1;
+const int JOYSTICK_MIDDLE_PORT = 2;
+const int JOYSTICK_RIGHT_PORT = 3;
 #endif
