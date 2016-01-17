@@ -7,3 +7,11 @@ OI::OI()
 	stickMiddle = new Joystick(JOYSTICK_MIDDLE_PORT);
 	stickRight = new Joystick(JOYSTICK_RIGHT_PORT);
 }
+float OI::GetDriveY()
+{
+	return stickLeft->GetY();
+}
+float OI::GetDriveRotation()
+{
+	return stickMiddle->GetX();
+}

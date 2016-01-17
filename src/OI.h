@@ -12,6 +12,8 @@ private:
 	Joystick* stickRight;
 public:
 	OI();
+	float GetDriveY();
+	float GetDriveRotation();
 };
 
 #endif

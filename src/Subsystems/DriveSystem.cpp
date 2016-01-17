@@ -2,7 +2,7 @@
 #include "../RobotMap.h"
 
 DriveSystem::DriveSystem() :
-		Subsystem("ExampleSubsystem")
+		Subsystem("DriveSystem")
 {
 
 }
@@ -15,3 +15,7 @@ void DriveSystem::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
+void DriveSystem::Drive(float y, float rotation)
+{
+
+}

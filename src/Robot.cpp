@@ -1,7 +1,7 @@
 #include "WPILib.h"
 #include "CommandBase.h"
 
-//Commands used
+//Import commands used in Robot.cpp
 #include "Commands/DriveWithJoysticks.h"
 
 class Robot: public IterativeRobot
@@ -20,13 +20,10 @@ private:
 		chooser = new SendableChooser();
 		SmartDashboard::PutData("Auto Modes", chooser);
 	}
-	/**
-     * This function is called once each time the robot enters Disabled mode.
-     * You can use it to reset any subsystem information you want to clear when
-	 * the robot is disabled.
-     */
+
 	void DisabledInit()
 	{
+
 	}
 
 	void DisabledPeriodic()
