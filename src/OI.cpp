@@ -3,9 +3,9 @@
 OI::OI()
 {
 	// Process operator interface input here.
-	stickLeft = new Joystick(JOYSTICK_LEFT_PORT);
-	stickMiddle = new Joystick(JOYSTICK_MIDDLE_PORT);
-	stickRight = new Joystick(JOYSTICK_RIGHT_PORT);
+	stickLeft = new Joystick(1);
+	stickMiddle = new Joystick(2);
+	stickRight = new Joystick(3);
 }
 float OI::GetDriveY()
 {
