@@ -7,19 +7,17 @@
 class Robot: public IterativeRobot
 {
 private:
-	std::unique_ptr<Command> autonomousCommand;
-	std::unique_ptr<Command> driveWithJoysticks;
+	Command* autonomousCommand;
+	Command* driveWithJoysticks;
 	SendableChooser *chooser;
 
 	void RobotInit()
 	{
 		CommandBase::init();
 
-		driveWithJoysticks.reset(new DriveWithJoysticks());
+		driveWithJoysticks = new DriveWithJoysticks();
 
 		chooser = new SendableChooser();
-		//chooser->AddDefault("Do Nothing",new TestCommand());
-		//chooser->AddObject("My Auto", new MyAutoCommand());
 		SmartDashboard::PutData("Auto Modes", chooser);
 	}
 	/**
@@ -39,7 +37,7 @@ private:
 	void AutonomousInit()
 	{
 		//Grabs auto command from dashboard and runs it
-		autonomousCommand.reset((Command *)chooser->GetSelected());
+		autonomousCommand = (Command*) chooser->GetSelected();
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();
 	}
@@ -56,7 +54,7 @@ private:
 			autonomousCommand->Cancel();
 
 		//Start command you want to run in teleop
-		driveWithJoysticks.get()->Start();
+		driveWithJoysticks->Start();
 	}
 
 	void TeleopPeriodic()

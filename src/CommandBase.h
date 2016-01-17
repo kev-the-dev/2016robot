@@ -21,9 +21,10 @@ public:
 	CommandBase(const std::string &name);
 	CommandBase();
 	static void init();
+
 	// Create a single static instance of all of your subsystems
-	static std::unique_ptr<DriveSystem> driveSystem;
-	static std::unique_ptr<OI> oi;
+	static DriveSystem* driveSystem;
+	static OI* oi;
 };
 
 #endif

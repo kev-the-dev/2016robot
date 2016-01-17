@@ -4,7 +4,7 @@ DriveWithJoysticks::DriveWithJoysticks()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(driveSystem.get());
+	Requires(driveSystem);
 }
 
 // Called just before this Command runs the first time
