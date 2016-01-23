@@ -28,12 +28,12 @@ bool DriveWithJoysticks::IsFinished()
 // Called once after isFinished returns true
 void DriveWithJoysticks::End()
 {
-	driveSystem->Drive(0,0);
+	Initialize();
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void DriveWithJoysticks::Interrupted()
 {
-	driveSystem->Drive(0,0);
+	Initialize();
 }

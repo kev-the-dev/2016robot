@@ -2,20 +2,20 @@
 #include "CommandBase.h"
 
 //Import commands used in Robot.cpp
-#include "Commands/DriveWithJoysticks.h"
+#include "Commands/StartTeleCommands.h"
 
 class Robot: public IterativeRobot
 {
 private:
 	std::unique_ptr<Command> autonomousCommand;
-	std::unique_ptr<Command> driveWithJoysticks;
+	std::unique_ptr<Command> teleCommands;
 	std::unique_ptr<SendableChooser> chooser;
 
 	void RobotInit()
 	{
 		CommandBase::init();
 
-		driveWithJoysticks.reset(new DriveWithJoysticks());
+		teleCommands.reset(new StartTeleCommands());
 
 		chooser.reset(new SendableChooser());
 		SmartDashboard::PutData("Auto Modes", chooser.get());
@@ -54,7 +54,7 @@ private:
 			autonomousCommand->Cancel();
 
 		//Start command you want to run in teleop
-		driveWithJoysticks->Start();
+		teleCommands->Start();
 	}
 
 	void TeleopPeriodic()
@@ -70,4 +70,3 @@ private:
 };
 
 START_ROBOT_CLASS(Robot)
-
