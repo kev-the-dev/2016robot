@@ -1,39 +1,38 @@
-#include "Commands/DriveWithJoysticks.h"
+#include "ShiftHighGear.h"
 
-DriveWithJoysticks::DriveWithJoysticks()
+ShiftHighGear::ShiftHighGear()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	Requires(driveSystem.get());
 }
 
 // Called just before this Command runs the first time
-void DriveWithJoysticks::Initialize()
+void ShiftHighGear::Initialize()
 {
-	driveSystem->Drive(0,0);
+
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DriveWithJoysticks::Execute()
+void ShiftHighGear::Execute()
 {
-	driveSystem->Drive(-oi->GetDriveY(),oi->GetDriveRotation());
+	driveSystem->SetHighGear();
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DriveWithJoysticks::IsFinished()
+bool ShiftHighGear::IsFinished()
 {
-	return false;
+	return true;;
 }
 
 // Called once after isFinished returns true
-void DriveWithJoysticks::End()
+void ShiftHighGear::End()
 {
-	driveSystem->Drive(0,0);
+
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void DriveWithJoysticks::Interrupted()
+void ShiftHighGear::Interrupted()
 {
-	driveSystem->Drive(0,0);
+
 }

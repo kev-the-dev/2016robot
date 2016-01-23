@@ -6,6 +6,8 @@
 
 //Include all subsystems
 #include "Subsystems/DriveSystem.h"
+#include "Subsystems/Arm.h"
+#include "Subsystems/Shooter.h"
 
 #include "OI.h"
 #include "WPILib.h"
@@ -17,14 +19,18 @@
  */
 class CommandBase: public Command
 {
+private:
+	static void SetButtons();
+protected:
+	// Create a single static instance of all of your subsystems
+	static std::unique_ptr<DriveSystem> driveSystem;
+	static std::unique_ptr<Arm> arm;
+	static std::unique_ptr<OI> oi;
+	static std::unique_ptr<Shooter> shooter;
 public:
 	CommandBase(const std::string &name);
 	CommandBase();
 	static void init();
-
-	// Create a single static instance of all of your subsystems
-	static DriveSystem* driveSystem;
-	static OI* oi;
 };
 
 #endif

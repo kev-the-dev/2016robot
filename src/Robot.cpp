@@ -7,18 +7,18 @@
 class Robot: public IterativeRobot
 {
 private:
-	Command* autonomousCommand;
-	Command* driveWithJoysticks;
-	SendableChooser *chooser;
+	std::unique_ptr<Command> autonomousCommand;
+	std::unique_ptr<Command> driveWithJoysticks;
+	std::unique_ptr<SendableChooser> chooser;
 
 	void RobotInit()
 	{
 		CommandBase::init();
 
-		driveWithJoysticks = new DriveWithJoysticks();
+		driveWithJoysticks.reset(new DriveWithJoysticks());
 
-		chooser = new SendableChooser();
-		SmartDashboard::PutData("Auto Modes", chooser);
+		chooser.reset(new SendableChooser());
+		SmartDashboard::PutData("Auto Modes", chooser.get());
 	}
 
 	void DisabledInit()
@@ -34,7 +34,7 @@ private:
 	void AutonomousInit()
 	{
 		//Grabs auto command from dashboard and runs it
-		autonomousCommand = (Command*) chooser->GetSelected();
+		autonomousCommand.reset((Command*) chooser->GetSelected());
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();
 	}
@@ -46,6 +46,9 @@ private:
 
 	void TeleopInit()
 	{
+		//Starts compressing air at start of teleop
+		RobotMap::compressor->Start();
+
 		// Makes sure Auto command is stopped
 		if (autonomousCommand != NULL)
 			autonomousCommand->Cancel();
