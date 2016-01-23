@@ -15,7 +15,7 @@ void ShiftHighGear::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ShiftHighGear::Execute()
 {
-	driveSystem->SetHighGear();
+	driveTransmission->SetHighGear();
 }
 
 // Make this return true when this Command no longer needs to run execute()
