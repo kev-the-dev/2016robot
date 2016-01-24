@@ -4,7 +4,7 @@
 DriveSystem::DriveSystem() :
 		Subsystem("DriveSystem")
 {
-	drive.reset(new RobotDrive(RobotMap::leftOne,RobotMap::leftTwo,RobotMap::rightOne,RobotMap::rightTwo));
+	drive = RobotMap::drive;
 }
 
 void DriveSystem::InitDefaultCommand()
