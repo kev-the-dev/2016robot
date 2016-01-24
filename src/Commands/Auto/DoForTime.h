@@ -1,7 +1,7 @@
 #ifndef DoForTime_H
 #define DoForTime_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class DoForTime: public CommandBase
