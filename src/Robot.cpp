@@ -4,6 +4,7 @@
 //Import commands used in Robot.cpp
 #include "Commands/StartTeleCommands.h"
 
+//This is the robot class
 class Robot: public IterativeRobot
 {
 private:
