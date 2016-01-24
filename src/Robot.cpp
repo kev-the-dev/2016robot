@@ -35,7 +35,7 @@ private:
 	{
 		//Grabs auto command from dashboard and runs it
 		autonomousCommand.reset((Command*) chooser->GetSelected());
-		if (autonomousCommand != NULL)
+		if (autonomousCommand.get() != NULL)
 			autonomousCommand->Start();
 	}
 
@@ -50,7 +50,7 @@ private:
 		RobotMap::compressor->Start();
 
 		// Makes sure Auto command is stopped
-		if (autonomousCommand != NULL)
+		if (autonomousCommand.get() != NULL)
 			autonomousCommand->Cancel();
 
 		//Start command you want to run in teleop
