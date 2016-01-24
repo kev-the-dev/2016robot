@@ -11,6 +11,7 @@ OI::OI()
 
 	shiftHighButton.reset(new JoystickButton(stickRight.get(),4));
 
+	SetButtons();
 }
 float OI::GetDriveY()
 {

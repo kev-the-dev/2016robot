@@ -6,13 +6,23 @@
 class OI
 {
 private:
+	//Joysticks
 	std::unique_ptr<Joystick> stickLeft;
 	std::unique_ptr<Joystick> stickMiddle;
 	std::unique_ptr<Joystick> stickRight;
+
+	//Joystick Buttons
 	std::unique_ptr<JoystickButton> shiftLowButton;
 	std::unique_ptr<JoystickButton> shiftHighButton;
+
+	//Commands used by buttons
+	std::unique_ptr<Command> shiftLowGearCommand;
+	std::unique_ptr<Command> shiftHighGearCommand;
+
+	void SetButtons();
 public:
 	OI();
+
 	float GetDriveY();
 	float GetDriveRotation();
 };

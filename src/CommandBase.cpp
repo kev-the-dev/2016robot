@@ -21,8 +21,8 @@ CommandBase::CommandBase() :
 void CommandBase::init()
 {
 	RobotMap::init();
-	// Create a single static instance of all of your subsystems. The following
-	// line should be repeated for each subsystem in the project.
+
+	// Create a single static instance of all of your subsystems
 	driveSystem.reset(new DriveSystem());
 	arm.reset(new Arm());
 	shooter.reset(new Shooter());
@@ -30,9 +30,4 @@ void CommandBase::init()
 
 	//Setup OI
 	oi.reset(new OI());
-	SetButtons();
-}
-void CommandBase::SetButtons()
-{
-
 }
