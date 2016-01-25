@@ -4,16 +4,13 @@
 #include "CommandBase.h"
 #include "WPILib.h"
 
-class DoForTime: public CommandBase
+class DoForTime: public WaitCommand
 {
 private:
-	double time;
 	std::unique_ptr<Command> command;
 public:
 	DoForTime(Command* c,double t);
 	void Initialize();
-	void Execute();
-	bool IsFinished();
 	void End();
 	void Interrupted();
 };
