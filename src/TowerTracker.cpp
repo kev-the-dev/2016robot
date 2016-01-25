@@ -5,7 +5,7 @@ TowerTracker::TowerTracker() {
 	isRunning = false;
 }
 
-TowerTracker::~TrackTower()
+TowerTracker::~TowerTracker()
 {
 
 }
@@ -13,7 +13,7 @@ bool TowerTracker::IsRunning()
 {
 	return isRunning;
 }
-void TrackTower::run(TowerTracker* t)
+void TowerTracker::run(TowerTracker* t)
 {
 	cv::Mat frame;
 	t->Lock();
