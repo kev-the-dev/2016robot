@@ -1,5 +1,5 @@
-#ifndef SRC_TRACKTOWER_H_
-#define SRC_TRACKTOWER_H_
+#ifndef SRC_TOWERTRACKER_H_
+#define SRC_TOWERTRACKER_H_
 
 #include "WPILib.h"
 
@@ -8,24 +8,21 @@
 
 const double waitTime = 0.2;
 
-class TrackTower {
+class TowerTracker {
 private:
 	priority_mutex mut;
 	bool isRunning;
-	static void run(TrackTower* t);
+	static void run(TowerTracker* t);
 	std::unique_ptr<Task> task;
 public:
 	std::unique_ptr<cv::VideoCapture> cap;
-	TrackTower();
+	TowerTracker();
 	void Lock();
 	void Unlock();
 	void Stop();
 	void Start();
 	bool IsRunning();
-	virtual ~TrackTower();
+	virtual ~TowerTracker();
 };
 
 #endif /* SRC_TRACKTOWER_H_ */
-
-    Status API Training Shop Blog About Pricing
-

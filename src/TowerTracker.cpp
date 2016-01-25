@@ -1,19 +1,19 @@
-#include <TrackTower.h>
+#include <TowerTracker.h>
 
-TrackTower::TrackTower() {
+TowerTracker::TowerTracker() {
 	cap.reset(new cv::VideoCapture(0));
 	isRunning = false;
 }
 
-TrackTower::~TrackTower()
+TowerTracker::~TrackTower()
 {
 
 }
-bool TrackTower::IsRunning()
+bool TowerTracker::IsRunning()
 {
 	return isRunning;
 }
-void TrackTower::run(TrackTower* t)
+void TrackTower::run(TowerTracker* t)
 {
 	cv::Mat frame;
 	t->Lock();
@@ -34,22 +34,22 @@ void TrackTower::run(TrackTower* t)
 		t->Lock();
 	} while (t->IsRunning());
 }
-void TrackTower::Stop()
+void TowerTracker::Stop()
 {
 	isRunning = false;
 }
-void TrackTower::Start()
+void TowerTracker::Start()
 {
 	if (!isRunning) {
 		isRunning = true;
 		task.reset(new Task("RunVision",run,this));
 	}
 }
-void TrackTower::Lock()
+void TowerTracker::Lock()
 {
 	mut.lock();
 }
-void TrackTower::Unlock()
+void TowerTracker::Unlock()
 {
 	mut.unlock();
 }
