@@ -3,6 +3,7 @@
 
 //Import commands used in Robot.cpp
 #include "Commands/StartTeleCommands.h"
+#include "Commands/Auto/DoNothing.h"
 
 //This is the robot class
 class Robot: public IterativeRobot
@@ -17,14 +18,17 @@ private:
 		CommandBase::init();
 
 		teleCommands.reset(new StartTeleCommands());
-
 		chooser.reset(new SendableChooser());
+
+		//Autonomous choices
+		chooser->AddDefault("Do Nothing", (Command*) new DoNothing() );
+
 		SmartDashboard::PutData("Auto Modes", chooser.get());
 	}
 
 	void DisabledInit()
 	{
-
+		Scheduler::GetInstance()->RemoveAll();
 	}
 
 	void DisabledPeriodic()
