@@ -13,26 +13,26 @@ bool TowerTracker::IsRunning()
 {
 	return isRunning;
 }
-void TowerTracker::run(TowerTracker* t)
+void TowerTracker::run()
 {
 	cv::Mat frame;
-	t->Lock();
-	if (!t->cap->isOpened())
+	Lock();
+	if (!cap->isOpened())
 	{
-		t->cap->open(0);
+		cap->open(0);
 	}
 	do {
 		//Process a frame or a few
-		*t->cap >> frame;
+		cap->read(frame);
 
 
 		//Set data to be grabbed
 
 		//Ensure thread safety and a wait so not maxing cpu
-		t->Unlock();
+		Unlock();
 		Wait(waitTime);
-		t->Lock();
-	} while (t->IsRunning());
+		Lock();
+	} while (IsRunning());
 }
 void TowerTracker::Stop()
 {
@@ -42,7 +42,7 @@ void TowerTracker::Start()
 {
 	if (!isRunning) {
 		isRunning = true;
-		task.reset(new Task("RunVision",run,this));
+		task.reset(new Task("RunVision",&TowerTracker::run,this));
 	}
 }
 void TowerTracker::Lock()

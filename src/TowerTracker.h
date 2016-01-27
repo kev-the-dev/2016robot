@@ -12,7 +12,7 @@ class TowerTracker {
 private:
 	priority_mutex mut;
 	bool isRunning;
-	static void run(TowerTracker* t);
+	void run();
 	std::unique_ptr<Task> task;
 public:
 	std::unique_ptr<cv::VideoCapture> cap;
