@@ -4,6 +4,8 @@
 //Import commands used in Robot.cpp
 #include "Commands/StartTeleCommands.h"
 #include "Commands/Auto/DoNothing.h"
+#include "Commands/Auto/DoForTime.h"
+#include "Commands/Auto/DriveAuto.h"
 
 //This is the robot class
 class Robot: public IterativeRobot
@@ -22,6 +24,7 @@ private:
 
 		//Autonomous choices
 		chooser->AddDefault("Do Nothing", (Command*) new DoNothing() );
+		chooser->AddObject("Drive Forward",new DoForTime(std::unique_ptr<Command>(new DriveAuto(1,0)),1));
 
 		SmartDashboard::PutData("Auto Modes", chooser.get());
 	}
