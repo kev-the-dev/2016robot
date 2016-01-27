@@ -1,9 +1,9 @@
 #include "DoForTime.h"
 
 //Note: DoForTime deletes c when time is finished. Should be constructed with new command pointer
-DoForTime::DoForTime(Command* c,double t) : WaitCommand(t)
+DoForTime::DoForTime(std::unique_ptr<Command> c,double t) : WaitCommand(t)
 {
-	command.reset(c);
+	command = std::move(c);
 }
 
 // Called just before this Command runs the first time

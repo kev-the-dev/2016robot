@@ -9,7 +9,7 @@ class DoForTime: public WaitCommand
 private:
 	std::unique_ptr<Command> command;
 public:
-	DoForTime(Command* c,double t);
+	DoForTime(std::unique_ptr<Command> c,double t);
 	void Initialize();
 	void End();
 	void Interrupted();
