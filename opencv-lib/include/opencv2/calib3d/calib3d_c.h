@@ -44,7 +44,7 @@
 #ifndef __OPENCV_CALIB3D_C_H__
 #define __OPENCV_CALIB3D_C_H__
 
-#include "../../../../opencv/include/opencv2/core/core_c.h"
+#include "opencv2/core/core_c.h"
 
 #ifdef __cplusplus
 extern "C" {

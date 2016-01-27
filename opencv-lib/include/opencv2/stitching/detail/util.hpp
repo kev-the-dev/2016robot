@@ -44,8 +44,7 @@
 #define __OPENCV_STITCHING_UTIL_HPP__
 
 #include <list>
-
-#include "../../../../../opencv/include/opencv2/core.hpp"
+#include "opencv2/core.hpp"
 
 #ifndef ENABLE_LOG
 #define ENABLE_LOG 0
@@ -167,6 +166,6 @@ CV_EXPORTS int& stitchingLogLevel();
 } // namespace detail
 } // namespace cv
 
-#include "../../../../../opencv/include/opencv2/stitching/detail/util_inl.hpp"
+#include "util_inl.hpp"
 
 #endif // __OPENCV_STITCHING_UTIL_HPP__

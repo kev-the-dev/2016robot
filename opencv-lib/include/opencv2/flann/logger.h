@@ -34,7 +34,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 
-#include "../../../../opencv/include/opencv2/flann/defines.h"
+#include "defines.h"
 
 
 namespace cvflann

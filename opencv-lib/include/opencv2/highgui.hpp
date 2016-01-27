@@ -43,9 +43,9 @@
 #ifndef __OPENCV_HIGHGUI_HPP__
 #define __OPENCV_HIGHGUI_HPP__
 
-#include "../../../opencv/include/opencv2/core.hpp"
-#include "../../../opencv/include/opencv2/imgcodecs.hpp"
-#include "../../../opencv/include/opencv2/videoio.hpp"
+#include "opencv2/core.hpp"
+#include "opencv2/imgcodecs.hpp"
+#include "opencv2/videoio.hpp"
 
 /**
 @defgroup highgui High-level GUI
@@ -748,7 +748,7 @@ CV_EXPORTS int createButton( const String& bar_name, ButtonCallback on_change,
 } // cv
 
 #ifndef DISABLE_OPENCV_24_COMPATIBILITY
-#include "../../../opencv/include/opencv2/highgui/highgui_c.h"
+#include "opencv2/highgui/highgui_c.h"
 #endif
 
 #endif

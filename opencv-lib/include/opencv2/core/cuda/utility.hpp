@@ -43,8 +43,8 @@
 #ifndef __OPENCV_CUDA_UTILITY_HPP__
 #define __OPENCV_CUDA_UTILITY_HPP__
 
-#include "../../../../../opencv/include/opencv2/core/cuda/datamov_utils.hpp"
-#include "../../../../../opencv/include/opencv2/core/cuda/saturate_cast.hpp"
+#include "saturate_cast.hpp"
+#include "datamov_utils.hpp"
 
 /** @file
  * @deprecated Use @ref cudev instead.

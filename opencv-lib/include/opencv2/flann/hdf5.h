@@ -30,9 +30,9 @@
 #ifndef OPENCV_FLANN_HDF5_H_
 #define OPENCV_FLANN_HDF5_H_
 
-#include "../../../../opencv/include/opencv2/flann/hdf5.h"
+#include <hdf5.h>
 
-#include "../../../../opencv/include/opencv2/flann/matrix.h"
+#include "matrix.h"
 
 
 namespace cvflann

@@ -43,7 +43,7 @@
 #ifndef __OPENCV_IMGPROC_HPP__
 #define __OPENCV_IMGPROC_HPP__
 
-#include "../../../opencv/include/opencv2/core.hpp"
+#include "opencv2/core.hpp"
 
 /**
   @defgroup imgproc Image processing
@@ -4324,7 +4324,7 @@ Point LineIterator::pos() const
 } // cv
 
 #ifndef DISABLE_OPENCV_24_COMPATIBILITY
-#include "../../../opencv/include/opencv2/imgproc/imgproc_c.h"
+#include "opencv2/imgproc/imgproc_c.h"
 #endif
 
 #endif

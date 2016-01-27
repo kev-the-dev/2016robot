@@ -44,9 +44,8 @@
 #define __OPENCV_CUDA_PRED_VAL_REDUCE_DETAIL_HPP__
 
 #include <thrust/tuple.h>
-
-#include "../../../../../../opencv/include/opencv2/core/cuda/warp.hpp"
-#include "../../../../../../opencv/include/opencv2/core/cuda/warp_shuffle.hpp"
+#include "../warp.hpp"
+#include "../warp_shuffle.hpp"
 
 //! @cond IGNORED
 

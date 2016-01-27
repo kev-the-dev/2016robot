@@ -48,8 +48,7 @@
 #include <cmath>
 #include <float.h>
 #include <stdlib.h>
-
-#include "../../../../../opencv/include/opencv2/core/cvdef.h"
+#include "opencv2/core/cvdef.h"
 
 #define OPENCV_HAL_ADD(a, b) ((a) + (b))
 #define OPENCV_HAL_AND(a, b) ((a) & (b))
@@ -291,15 +290,15 @@ template <typename T> struct V_SIMD128Traits
 
 #if CV_SSE2
 
-#include "../../../../../opencv/include/opencv2/core/hal/intrin_sse.hpp"
+#include "opencv2/core/hal/intrin_sse.hpp"
 
 #elif CV_NEON
 
-#include "../../../../../opencv/include/opencv2/core/hal/intrin_neon.hpp"
+#include "opencv2/core/hal/intrin_neon.hpp"
 
 #else
 
-#include "../../../../../opencv/include/opencv2/core/hal/intrin_cpp.hpp"
+#include "opencv2/core/hal/intrin_cpp.hpp"
 
 #endif
 

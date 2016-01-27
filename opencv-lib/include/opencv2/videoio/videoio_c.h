@@ -42,7 +42,7 @@
 #ifndef __OPENCV_VIDEOIO_H__
 #define __OPENCV_VIDEOIO_H__
 
-#include "../../../../opencv/include/opencv2/core/core_c.h"
+#include "opencv2/core/core_c.h"
 
 #ifdef __cplusplus
 extern "C" {

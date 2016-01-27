@@ -43,9 +43,9 @@
 #ifndef __OPENCV_CUDA_TRANSFORM_DETAIL_HPP__
 #define __OPENCV_CUDA_TRANSFORM_DETAIL_HPP__
 
-#include "../../../../../../opencv/include/opencv2/core/cuda/common.hpp"
-#include "../../../../../../opencv/include/opencv2/core/cuda/functional.hpp"
-#include "../../../../../../opencv/include/opencv2/core/cuda/vec_traits.hpp"
+#include "../common.hpp"
+#include "../vec_traits.hpp"
+#include "../functional.hpp"
 
 //! @cond IGNORED
 

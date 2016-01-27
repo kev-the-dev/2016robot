@@ -41,7 +41,7 @@ typedef unsigned __int64 uint64_t;
 #include <stdint.h>
 #endif
 
-#include "../../../../opencv/include/opencv2/flann/defines.h"
+#include "defines.h"
 
 #if (defined WIN32 || defined _WIN32) && defined(_M_ARM)
 # include <Intrin.h>

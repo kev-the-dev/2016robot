@@ -43,7 +43,7 @@
 #ifndef __OPENCV_CUDA_COLOR_HPP__
 #define __OPENCV_CUDA_COLOR_HPP__
 
-#include "../../../../../opencv/include/opencv2/core/cuda/detail/color_detail.hpp"
+#include "detail/color_detail.hpp"
 
 /** @file
  * @deprecated Use @ref cudev instead.

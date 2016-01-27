@@ -46,8 +46,7 @@
 #include <cmath>
 #include <queue>
 #include <algorithm>
-
-#include "../../../../opencv/include/opencv2/core.hpp"
+#include "opencv2/core.hpp"
 
 namespace cv
 {
@@ -117,6 +116,6 @@ private:
 } // namespace videostab
 } // namespace cv
 
-#include "../../../../opencv/include/opencv2/videostab/fast_marching_inl.hpp"
+#include "fast_marching_inl.hpp"
 
 #endif

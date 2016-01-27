@@ -31,8 +31,8 @@
 #ifndef OPENCV_FLANN_GROUND_TRUTH_H_
 #define OPENCV_FLANN_GROUND_TRUTH_H_
 
-#include "../../../../opencv/include/opencv2/flann/dist.h"
-#include "../../../../opencv/include/opencv2/flann/matrix.h"
+#include "dist.h"
+#include "matrix.h"
 
 
 namespace cvflann

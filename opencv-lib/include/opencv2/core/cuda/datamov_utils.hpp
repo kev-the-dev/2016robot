@@ -43,7 +43,7 @@
 #ifndef __OPENCV_CUDA_DATAMOV_UTILS_HPP__
 #define __OPENCV_CUDA_DATAMOV_UTILS_HPP__
 
-#include "../../../../../opencv/include/opencv2/core/cuda/common.hpp"
+#include "common.hpp"
 
 /** @file
  * @deprecated Use @ref cudev instead.

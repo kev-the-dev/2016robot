@@ -12,10 +12,10 @@
  * Adapted for FLANN by Marius Muja
  */
 
+#include "defines.h"
 #include <stdexcept>
 #include <ostream>
 #include <typeinfo>
-#include "../../../../opencv/include/opencv2/flann/defines.h"
 
 namespace cvflann
 {

@@ -43,7 +43,7 @@
 #ifndef __OPENCV_CUDA_VEC_DISTANCE_DETAIL_HPP__
 #define __OPENCV_CUDA_VEC_DISTANCE_DETAIL_HPP__
 
-#include "../../../../../../opencv/include/opencv2/core/cuda/datamov_utils.hpp"
+#include "../datamov_utils.hpp"
 
 //! @cond IGNORED
 

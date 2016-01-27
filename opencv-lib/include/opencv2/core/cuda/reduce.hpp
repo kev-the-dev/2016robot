@@ -43,11 +43,9 @@
 #ifndef __OPENCV_CUDA_REDUCE_HPP__
 #define __OPENCV_CUDA_REDUCE_HPP__
 
-#include "../../../../../opencv/include/opencv2/core/cuda/detail/reduce.hpp"
-
 #include <thrust/tuple.h>
-
-#include "../../../../../opencv/include/opencv2/core/cuda/detail/reduce_key_val.hpp"
+#include "detail/reduce.hpp"
+#include "detail/reduce_key_val.hpp"
 
 /** @file
  * @deprecated Use @ref cudev instead.

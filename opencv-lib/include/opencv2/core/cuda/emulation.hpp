@@ -43,8 +43,8 @@
 #ifndef OPENCV_CUDA_EMULATION_HPP_
 #define OPENCV_CUDA_EMULATION_HPP_
 
-#include "../../../../../opencv/include/opencv2/core/cuda/common.hpp"
-#include "../../../../../opencv/include/opencv2/core/cuda/warp_reduce.hpp"
+#include "common.hpp"
+#include "warp_reduce.hpp"
 
 /** @file
  * @deprecated Use @ref cudev instead.

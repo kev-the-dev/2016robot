@@ -30,8 +30,8 @@
 #ifndef OPENCV_FLANN_SAMPLING_H_
 #define OPENCV_FLANN_SAMPLING_H_
 
-#include "../../../../opencv/include/opencv2/flann/matrix.h"
-#include "../../../../opencv/include/opencv2/flann/random.h"
+#include "matrix.h"
+#include "random.h"
 
 namespace cvflann
 {

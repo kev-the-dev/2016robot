@@ -47,15 +47,14 @@
 //#warning "This is a deprecated opencv header provided for compatibility. Please include a header from a corresponding opencv module"
 //#endif
 
-#include "../../../opencv/include/opencv/cv.h"
-
-#include "../../../opencv/include/opencv2/calib3d.hpp"
-#include "../../../opencv/include/opencv2/core.hpp"
-#include "../../../opencv/include/opencv2/features2d.hpp"
-#include "../../../opencv/include/opencv2/highgui.hpp"
-#include "../../../opencv/include/opencv2/imgproc.hpp"
-#include "../../../opencv/include/opencv2/objdetect.hpp"
-#include "../../../opencv/include/opencv2/photo.hpp"
-#include "../../../opencv/include/opencv2/video.hpp"
+#include "cv.h"
+#include "opencv2/core.hpp"
+#include "opencv2/imgproc.hpp"
+#include "opencv2/photo.hpp"
+#include "opencv2/video.hpp"
+#include "opencv2/highgui.hpp"
+#include "opencv2/features2d.hpp"
+#include "opencv2/calib3d.hpp"
+#include "opencv2/objdetect.hpp"
 
 #endif

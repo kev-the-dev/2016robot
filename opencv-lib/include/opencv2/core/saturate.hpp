@@ -45,8 +45,8 @@
 #ifndef __OPENCV_CORE_SATURATE_HPP__
 #define __OPENCV_CORE_SATURATE_HPP__
 
-#include "../../../../opencv/include/opencv2/core/cvdef.h"
-#include "../../../../opencv/include/opencv2/core/fast_math.hpp"
+#include "opencv2/core/cvdef.h"
+#include "opencv2/core/fast_math.hpp"
 
 namespace cv
 {

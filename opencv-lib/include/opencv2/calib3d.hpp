@@ -44,9 +44,9 @@
 #ifndef __OPENCV_CALIB3D_HPP__
 #define __OPENCV_CALIB3D_HPP__
 
-#include "../../../opencv/include/opencv2/core/affine.hpp"
-#include "../../../opencv/include/opencv2/core.hpp"
-#include "../../../opencv/include/opencv2/features2d.hpp"
+#include "opencv2/core.hpp"
+#include "opencv2/features2d.hpp"
+#include "opencv2/core/affine.hpp"
 
 /**
   @defgroup calib3d Camera Calibration and 3D Reconstruction
@@ -1995,7 +1995,7 @@ namespace fisheye
 } // cv
 
 #ifndef DISABLE_OPENCV_24_COMPATIBILITY
-#include "../../../opencv/include/opencv2/calib3d/calib3d_c.h"
+#include "opencv2/calib3d/calib3d_c.h"
 #endif
 
 #endif

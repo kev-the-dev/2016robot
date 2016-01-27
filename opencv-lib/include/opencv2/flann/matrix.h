@@ -33,7 +33,7 @@
 
 #include <stdio.h>
 
-#include "../../../../opencv/include/opencv2/flann/general.h"
+#include "general.h"
 
 namespace cvflann
 {

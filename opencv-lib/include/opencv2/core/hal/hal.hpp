@@ -45,8 +45,8 @@
 #ifndef __OPENCV_HAL_HPP__
 #define __OPENCV_HAL_HPP__
 
-#include "../../../../../opencv/include/opencv2/core/cvdef.h"
-#include "../../../../../opencv/include/opencv2/core/hal/interface.h"
+#include "opencv2/core/cvdef.h"
+#include "opencv2/core/hal/interface.h"
 
 //! @cond IGNORED
 #define CALL_HAL(name, fun, ...) \

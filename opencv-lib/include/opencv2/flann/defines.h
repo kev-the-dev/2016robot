@@ -30,7 +30,7 @@
 #ifndef OPENCV_FLANN_DEFINES_H_
 #define OPENCV_FLANN_DEFINES_H_
 
-#include "../../../../opencv/include/opencv2/flann/config.h"
+#include "config.h"
 
 #ifdef FLANN_EXPORT
 #undef FLANN_EXPORT

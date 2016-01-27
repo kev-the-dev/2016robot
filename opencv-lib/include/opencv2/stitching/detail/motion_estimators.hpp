@@ -43,10 +43,10 @@
 #ifndef __OPENCV_STITCHING_MOTION_ESTIMATORS_HPP__
 #define __OPENCV_STITCHING_MOTION_ESTIMATORS_HPP__
 
-#include "../../../../../opencv/include/opencv2/core.hpp"
-#include "../../../../../opencv/include/opencv2/stitching/detail/camera.hpp"
-#include "../../../../../opencv/include/opencv2/stitching/detail/matchers.hpp"
-#include "../../../../../opencv/include/opencv2/stitching/detail/util.hpp"
+#include "opencv2/core.hpp"
+#include "matchers.hpp"
+#include "util.hpp"
+#include "camera.hpp"
 
 namespace cv {
 namespace detail {

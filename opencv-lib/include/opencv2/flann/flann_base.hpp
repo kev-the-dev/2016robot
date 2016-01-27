@@ -35,11 +35,12 @@
 #include <cassert>
 #include <cstdio>
 
-#include "../../../../opencv/include/opencv2/flann/all_indices.h"
-#include "../../../../opencv/include/opencv2/flann/general.h"
-#include "../../../../opencv/include/opencv2/flann/matrix.h"
-#include "../../../../opencv/include/opencv2/flann/params.h"
-#include "../../../../opencv/include/opencv2/flann/saving.h"
+#include "general.h"
+#include "matrix.h"
+#include "params.h"
+#include "saving.h"
+
+#include "all_indices.h"
 
 namespace cvflann
 {

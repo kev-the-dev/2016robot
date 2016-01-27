@@ -44,9 +44,8 @@
 #define __OPENCV_STITCHING_UTIL_INL_HPP__
 
 #include <queue>
-
-#include "../../../../../opencv/include/opencv2/core.hpp"
-#include "../../../../../opencv/include/opencv2/stitching/detail/util.hpp" // Make your IDE see declarations
+#include "opencv2/core.hpp"
+#include "util.hpp" // Make your IDE see declarations
 
 //! @cond IGNORED
 

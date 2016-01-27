@@ -31,10 +31,10 @@
 #ifndef OPENCV_FLANN_NNINDEX_H
 #define OPENCV_FLANN_NNINDEX_H
 
-#include "../../../../opencv/include/opencv2/flann/general.h"
-#include "../../../../opencv/include/opencv2/flann/matrix.h"
-#include "../../../../opencv/include/opencv2/flann/params.h"
-#include "../../../../opencv/include/opencv2/flann/result_set.h"
+#include "general.h"
+#include "matrix.h"
+#include "result_set.h"
+#include "params.h"
 
 namespace cvflann
 {

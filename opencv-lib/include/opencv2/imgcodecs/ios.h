@@ -45,8 +45,7 @@
 #import <Accelerate/Accelerate.h>
 #import <AVFoundation/AVFoundation.h>
 #import <ImageIO/ImageIO.h>
-
-#include "../../../../opencv/include/opencv2/core/core.hpp"
+#include "opencv2/core/core.hpp"
 
 //! @addtogroup imgcodecs_ios
 //! @{

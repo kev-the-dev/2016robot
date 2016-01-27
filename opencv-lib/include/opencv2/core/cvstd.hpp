@@ -48,7 +48,7 @@
 #  error cvstd.hpp header must be compiled as C++
 #endif
 
-#include "../../../../opencv/include/opencv2/core/cvdef.h"
+#include "opencv2/core/cvdef.h"
 
 #include <cstddef>
 #include <cstring>
@@ -1064,6 +1064,6 @@ namespace cv
 }
 #endif
 
-#include "../../../../opencv/include/opencv2/core/ptr.inl.hpp"
+#include "opencv2/core/ptr.inl.hpp"
 
 #endif //__OPENCV_CORE_CVSTD_HPP__

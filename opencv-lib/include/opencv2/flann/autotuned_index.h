@@ -30,17 +30,17 @@
 #ifndef OPENCV_FLANN_AUTOTUNED_INDEX_H_
 #define OPENCV_FLANN_AUTOTUNED_INDEX_H_
 
-#include "../../../../opencv/include/opencv2/flann/composite_index.h"
-#include "../../../../opencv/include/opencv2/flann/general.h"
-#include "../../../../opencv/include/opencv2/flann/ground_truth.h"
-#include "../../../../opencv/include/opencv2/flann/index_testing.h"
-#include "../../../../opencv/include/opencv2/flann/kdtree_index.h"
-#include "../../../../opencv/include/opencv2/flann/kdtree_single_index.h"
-#include "../../../../opencv/include/opencv2/flann/kmeans_index.h"
-#include "../../../../opencv/include/opencv2/flann/linear_index.h"
-#include "../../../../opencv/include/opencv2/flann/logger.h"
-#include "../../../../opencv/include/opencv2/flann/nn_index.h"
-#include "../../../../opencv/include/opencv2/flann/sampling.h"
+#include "general.h"
+#include "nn_index.h"
+#include "ground_truth.h"
+#include "index_testing.h"
+#include "sampling.h"
+#include "kdtree_index.h"
+#include "kdtree_single_index.h"
+#include "kmeans_index.h"
+#include "composite_index.h"
+#include "linear_index.h"
+#include "logger.h"
 
 namespace cvflann
 {

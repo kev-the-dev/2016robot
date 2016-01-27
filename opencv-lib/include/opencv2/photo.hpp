@@ -43,8 +43,8 @@
 #ifndef __OPENCV_PHOTO_HPP__
 #define __OPENCV_PHOTO_HPP__
 
-#include "../../../opencv/include/opencv2/core.hpp"
-#include "../../../opencv/include/opencv2/imgproc.hpp"
+#include "opencv2/core.hpp"
+#include "opencv2/imgproc.hpp"
 
 /**
 @defgroup photo Computational Photography
@@ -864,7 +864,7 @@ CV_EXPORTS_W void stylization(InputArray src, OutputArray dst, float sigma_s = 6
 } // cv
 
 #ifndef DISABLE_OPENCV_24_COMPATIBILITY
-#include "../../../opencv/include/opencv2/photo/photo_c.h"
+#include "opencv2/photo/photo_c.h"
 #endif
 
 #endif

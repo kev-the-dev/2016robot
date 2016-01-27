@@ -48,8 +48,7 @@
 #include <limits>
 #include <cstring>
 #include <algorithm>
-
-#include "../../../../../opencv/include/opencv2/core/saturate.hpp"
+#include "opencv2/core/saturate.hpp"
 
 namespace cv
 {

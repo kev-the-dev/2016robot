@@ -30,10 +30,10 @@
 #ifndef OPENCV_FLANN_PARAMS_H_
 #define OPENCV_FLANN_PARAMS_H_
 
+#include "any.h"
+#include "general.h"
 #include <iostream>
 #include <map>
-#include "../../../../opencv/include/opencv2/flann/any.h"
-#include "../../../../opencv/include/opencv2/flann/general.h"
 
 
 namespace cvflann

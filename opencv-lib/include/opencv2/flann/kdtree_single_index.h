@@ -36,14 +36,14 @@
 #include <cassert>
 #include <cstring>
 
-#include "../../../../opencv/include/opencv2/flann/allocator.h"
-#include "../../../../opencv/include/opencv2/flann/general.h"
-#include "../../../../opencv/include/opencv2/flann/heap.h"
-#include "../../../../opencv/include/opencv2/flann/matrix.h"
-#include "../../../../opencv/include/opencv2/flann/nn_index.h"
-#include "../../../../opencv/include/opencv2/flann/random.h"
-#include "../../../../opencv/include/opencv2/flann/result_set.h"
-#include "../../../../opencv/include/opencv2/flann/saving.h"
+#include "general.h"
+#include "nn_index.h"
+#include "matrix.h"
+#include "result_set.h"
+#include "heap.h"
+#include "allocator.h"
+#include "random.h"
+#include "saving.h"
 
 namespace cvflann
 {

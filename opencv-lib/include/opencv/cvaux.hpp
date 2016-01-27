@@ -46,8 +46,7 @@
 //#warning "This is a deprecated opencv header provided for compatibility. Please include a header from a corresponding opencv module"
 //#endif
 
-#include "../../../opencv/include/opencv/cvaux.h"
-
-#include "../../../opencv/include/opencv2/core/utility.hpp"
+#include "cvaux.h"
+#include "opencv2/core/utility.hpp"
 
 #endif

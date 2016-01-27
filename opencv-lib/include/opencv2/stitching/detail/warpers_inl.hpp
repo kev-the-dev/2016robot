@@ -43,9 +43,9 @@
 #ifndef __OPENCV_STITCHING_WARPERS_INL_HPP__
 #define __OPENCV_STITCHING_WARPERS_INL_HPP__
 
+#include "opencv2/core.hpp"
+#include "warpers.hpp" // Make your IDE see declarations
 #include <limits>
-#include "../../../../../opencv/include/opencv2/core.hpp"
-#include "../../../../../opencv/include/opencv2/stitching/detail/warpers.hpp" // Make your IDE see declarations
 
 //! @cond IGNORED
 

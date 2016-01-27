@@ -31,8 +31,8 @@
 #ifndef OPENCV_FLANN_LINEAR_INDEX_H_
 #define OPENCV_FLANN_LINEAR_INDEX_H_
 
-#include "../../../../opencv/include/opencv2/flann/general.h"
-#include "../../../../opencv/include/opencv2/flann/nn_index.h"
+#include "general.h"
+#include "nn_index.h"
 
 namespace cvflann
 {

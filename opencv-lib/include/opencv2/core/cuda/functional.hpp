@@ -44,10 +44,9 @@
 #define __OPENCV_CUDA_FUNCTIONAL_HPP__
 
 #include <functional>
-
-#include "../../../../../opencv/include/opencv2/core/cuda/saturate_cast.hpp"
-#include "../../../../../opencv/include/opencv2/core/cuda/type_traits.hpp"
-#include "../../../../../opencv/include/opencv2/core/cuda/vec_traits.hpp"
+#include "saturate_cast.hpp"
+#include "vec_traits.hpp"
+#include "type_traits.hpp"
 #include "device_functions.h"
 
 /** @file

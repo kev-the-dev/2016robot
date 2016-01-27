@@ -53,8 +53,8 @@
 #include <math.h>
 #include <stddef.h>
 
-#include "../../../../opencv/include/opencv2/flann/dynamic_bitset.h"
-#include "../../../../opencv/include/opencv2/flann/matrix.h"
+#include "dynamic_bitset.h"
+#include "matrix.h"
 
 namespace cvflann
 {

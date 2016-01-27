@@ -48,19 +48,19 @@
 #  error this is a private header which should not be used from outside of the OpenCV library
 #endif
 
-#include "../../../../opencv/include/opencv2/cvconfig.h"
+#include "cvconfig.h"
 
-#include "../../../../opencv/include/opencv2/core/cvdef.h"
-#include "../../../../opencv/include/opencv2/core/base.hpp"
+#include "opencv2/core/cvdef.h"
+#include "opencv2/core/base.hpp"
 
-#include "../../../../opencv/include/opencv2/core/cuda.hpp"
+#include "opencv2/core/cuda.hpp"
 
 #ifdef HAVE_CUDA
 #  include <cuda.h>
 #  include <cuda_runtime.h>
 #  include <npp.h>
-#  include "../../../../opencv/include/opencv2/core/cuda_stream_accessor.hpp"
-#  include "../../../../opencv/include/opencv2/core/cuda/common.hpp"
+#  include "opencv2/core/cuda_stream_accessor.hpp"
+#  include "opencv2/core/cuda/common.hpp"
 
 #  define NPP_VERSION (NPP_VERSION_MAJOR * 1000 + NPP_VERSION_MINOR * 100 + NPP_VERSION_BUILD)
 

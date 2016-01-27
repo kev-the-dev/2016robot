@@ -42,8 +42,8 @@
 #ifndef __OPENCV_CORE_DIRECTX_HPP__
 #define __OPENCV_CORE_DIRECTX_HPP__
 
-#include "../../../../opencv/include/opencv2/core/mat.hpp"
-#include "../../../../opencv/include/opencv2/core/ocl.hpp"
+#include "mat.hpp"
+#include "ocl.hpp"
 
 #if !defined(__d3d11_h__)
 struct ID3D11Device;

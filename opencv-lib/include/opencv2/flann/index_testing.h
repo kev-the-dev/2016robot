@@ -35,11 +35,11 @@
 #include <cassert>
 #include <cmath>
 
-#include "../../../../opencv/include/opencv2/flann/logger.h"
-#include "../../../../opencv/include/opencv2/flann/matrix.h"
-#include "../../../../opencv/include/opencv2/flann/nn_index.h"
-#include "../../../../opencv/include/opencv2/flann/result_set.h"
-#include "../../../../opencv/include/opencv2/flann/timer.h"
+#include "matrix.h"
+#include "nn_index.h"
+#include "result_set.h"
+#include "logger.h"
+#include "timer.h"
 
 
 namespace cvflann

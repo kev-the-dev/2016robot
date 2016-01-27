@@ -43,8 +43,8 @@
 #ifndef __OPENCV_CUDA_VECMATH_HPP__
 #define __OPENCV_CUDA_VECMATH_HPP__
 
-#include "../../../../../opencv/include/opencv2/core/cuda/saturate_cast.hpp"
-#include "../../../../../opencv/include/opencv2/core/cuda/vec_traits.hpp"
+#include "vec_traits.hpp"
+#include "saturate_cast.hpp"
 
 /** @file
  * @deprecated Use @ref cudev instead.

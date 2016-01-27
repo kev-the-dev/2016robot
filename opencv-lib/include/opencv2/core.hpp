@@ -49,15 +49,15 @@
 #  error core.hpp header must be compiled as C++
 #endif
 
-#include "../../../opencv/include/opencv2/core/cvdef.h"
-#include "../../../opencv/include/opencv2/core/version.hpp"
-#include "../../../opencv/include/opencv2/core/base.hpp"
-#include "../../../opencv/include/opencv2/core/cvstd.hpp"
-#include "../../../opencv/include/opencv2/core/traits.hpp"
-#include "../../../opencv/include/opencv2/core/matx.hpp"
-#include "../../../opencv/include/opencv2/core/types.hpp"
-#include "../../../opencv/include/opencv2/core/mat.hpp"
-#include "../../../opencv/include/opencv2/core/persistence.hpp"
+#include "opencv2/core/cvdef.h"
+#include "opencv2/core/version.hpp"
+#include "opencv2/core/base.hpp"
+#include "opencv2/core/cvstd.hpp"
+#include "opencv2/core/traits.hpp"
+#include "opencv2/core/matx.hpp"
+#include "opencv2/core/types.hpp"
+#include "opencv2/core/mat.hpp"
+#include "opencv2/core/persistence.hpp"
 
 /**
 @defgroup core Core functionality
@@ -3160,9 +3160,9 @@ template<> struct ParamType<uchar>
 
 } //namespace cv
 
-#include "../../../opencv/include/opencv2/core/operations.hpp"
-#include "../../../opencv/include/opencv2/core/cvstd.inl.hpp"
-#include "../../../opencv/include/opencv2/core/utility.hpp"
-#include "../../../opencv/include/opencv2/core/optim.hpp"
+#include "opencv2/core/operations.hpp"
+#include "opencv2/core/cvstd.inl.hpp"
+#include "opencv2/core/utility.hpp"
+#include "opencv2/core/optim.hpp"
 
 #endif /*__OPENCV_CORE_HPP__*/

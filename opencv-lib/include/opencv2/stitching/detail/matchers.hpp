@@ -43,9 +43,10 @@
 #ifndef __OPENCV_STITCHING_MATCHERS_HPP__
 #define __OPENCV_STITCHING_MATCHERS_HPP__
 
-#include "../../../../../opencv/include/opencv2/core.hpp"
-#include "../../../../../opencv/include/opencv2/features2d.hpp"
-#include "../../../../../opencv/include/opencv2/opencv_modules.hpp"
+#include "opencv2/core.hpp"
+#include "opencv2/features2d.hpp"
+
+#include "opencv2/opencv_modules.hpp"
 
 #ifdef HAVE_OPENCV_XFEATURES2D
 #  include "opencv2/xfeatures2d/cuda.hpp"

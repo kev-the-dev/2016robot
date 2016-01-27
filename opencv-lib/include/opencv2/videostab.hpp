@@ -75,7 +75,7 @@ color inpainting. The method is implemented is a flexible way and it's made publ
 
 */
 
-#include "../../../opencv/include/opencv2/videostab/ring_buffer.hpp"
-#include "../../../opencv/include/opencv2/videostab/stabilizer.hpp"
+#include "opencv2/videostab/stabilizer.hpp"
+#include "opencv2/videostab/ring_buffer.hpp"
 
 #endif

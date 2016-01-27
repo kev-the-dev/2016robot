@@ -43,9 +43,9 @@
 #ifndef __OPENCV_CUDA_TRANSFORM_HPP__
 #define __OPENCV_CUDA_TRANSFORM_HPP__
 
-#include "../../../../../opencv/include/opencv2/core/cuda/common.hpp"
-#include "../../../../../opencv/include/opencv2/core/cuda/detail/transform_detail.hpp"
-#include "../../../../../opencv/include/opencv2/core/cuda/utility.hpp"
+#include "common.hpp"
+#include "utility.hpp"
+#include "detail/transform_detail.hpp"
 
 /** @file
  * @deprecated Use @ref cudev instead.
