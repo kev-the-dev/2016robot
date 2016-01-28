@@ -6,16 +6,16 @@
 //OpenCV test
 #include "opencv2/opencv.hpp"
 
-const double waitTime = 0.2;
+const double waitTime = 0.05;
 
 class TowerTracker {
 private:
 	priority_mutex mut;
 	bool isRunning;
 	void run();
-	std::unique_ptr<Task> task;
+	Task task;
+	cv::VideoCapture cap;
 public:
-	std::unique_ptr<cv::VideoCapture> cap;
 	TowerTracker();
 	void Lock();
 	void Unlock();

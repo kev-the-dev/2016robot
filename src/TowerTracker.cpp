@@ -1,7 +1,7 @@
 #include <TowerTracker.h>
 
 TowerTracker::TowerTracker() {
-	cap.reset(new cv::VideoCapture(0));
+	cap = cv::VideoCapture(0);
 	isRunning = false;
 }
 
@@ -17,13 +17,13 @@ void TowerTracker::run()
 {
 	cv::Mat frame;
 	Lock();
-	if (!cap->isOpened())
+	if (!cap.isOpened())
 	{
-		cap->open(0);
+		cap.open(0);
 	}
 	do {
 		//Process a frame or a few
-		cap->read(frame);
+		cap.read(frame);
 
 
 		//Set data to be grabbed
@@ -42,7 +42,7 @@ void TowerTracker::Start()
 {
 	if (!isRunning) {
 		isRunning = true;
-		task.reset(new Task("RunVision",&TowerTracker::run,this));
+		task = Task("RunVision",&TowerTracker::run,this);
 	}
 }
 void TowerTracker::Lock()
