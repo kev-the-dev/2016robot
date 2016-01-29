@@ -10,6 +10,7 @@ std::shared_ptr<Compressor> RobotMap::compressor;
 std::shared_ptr<DoubleSolenoid> RobotMap::leftTransmission;
 std::shared_ptr<DoubleSolenoid> RobotMap::rightTransmission;
 std::shared_ptr<SpeedController> RobotMap::armMotor;
+std::shared_ptr<Potentiometer> RobotMap::armPot;
 std::shared_ptr<SpeedController> RobotMap::shooterLeft;
 std::shared_ptr<SpeedController> RobotMap::shooterRight;
 
@@ -27,6 +28,7 @@ void RobotMap::init()
 	rightTransmission.reset(new DoubleSolenoid(0,2,3));
 
 	armMotor.reset(new Talon(4));
+	armPot.reset(new AnalogPotentiometer(0,1,1));
 
 	shooterLeft.reset(new Talon(5));
 	shooterRight.reset(new Talon(6));

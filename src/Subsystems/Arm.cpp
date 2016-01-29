@@ -1,10 +1,19 @@
 #include "Arm.h"
 #include "../RobotMap.h"
 
-Arm::Arm() :
-		Subsystem("Arm")
+double Arm::p = 0;
+double Arm::i = 0;
+double Arm::d = 0;
+
+Arm::Arm() : PIDSubsystem("Arm",p,i,d)
 {
-	std::shared_ptr<SpeedController> armMotor = RobotMap::armMotor;
+	armMotor = RobotMap::armMotor;
+	armPot = RobotMap::armPot;
+
+	SetInputRange(-1,1);
+	SetOutputRange(-1,1);
+
+	isOn = false;
 }
 
 void Arm::InitDefaultCommand()
@@ -15,7 +24,29 @@ void Arm::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void Arm::Set(float x)
+void Arm::Set(double x)
 {
 	armMotor->Set(x);
+}
+double Arm::ReturnPIDInput()
+{
+	return armPot->Get();
+}
+void Arm::UsePIDOutput(double output)
+{
+	Set(output);
+}
+void Arm::disable()
+{
+	isOn = false;
+	Disable();
+}
+void Arm::enable()
+{
+	isOn = true;
+	Enable();
+}
+bool Arm::isEnabled()
+{
+	return isOn;
 }

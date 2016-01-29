@@ -23,6 +23,7 @@ public:
 
 	//Arm
 	static std::shared_ptr<SpeedController> armMotor;
+	static std::shared_ptr<Potentiometer> armPot;
 
 	//Shooter
 	static std::shared_ptr<SpeedController> shooterLeft;
