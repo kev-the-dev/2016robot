@@ -1,19 +1,21 @@
 #include "Arm.h"
 #include "../RobotMap.h"
 
-double Arm::p = 0;
-double Arm::i = 0;
-double Arm::d = 0;
+float Arm::defP = 0;
+float Arm::defI = 0;
+float Arm::defD = 0;
 
-Arm::Arm() : PIDSubsystem("Arm",p,i,d)
+Arm::Arm() : Subsystem("Arm")
 {
 	armMotor = RobotMap::armMotor;
 	armPot = RobotMap::armPot;
 
-	SetInputRange(-1,1);
-	SetOutputRange(-1,1);
-
-	isOn = false;
+	P = defP;
+	I = defI;
+	D = defD;
+	armPID.reset(new PIDController(P,I,D,armPot.get(),armMotor.get()));
+	armPID->SetOutputRange(-1,1);
+	PIDenabled = false;
 }
 
 void Arm::InitDefaultCommand()
@@ -28,25 +30,21 @@ void Arm::Set(double x)
 {
 	armMotor->Set(x);
 }
-double Arm::ReturnPIDInput()
+void Arm::EnablePID()
 {
-	return armPot->Get();
+	armPID->Enable();
+	PIDenabled = true;
 }
-void Arm::UsePIDOutput(double output)
+void Arm::DisablePID()
 {
-	Set(output);
+	armPID->Disable();
+	PIDenabled = false;
 }
-void Arm::disable()
+bool Arm::IsPIDEnabled()
 {
-	isOn = false;
-	Disable();
+	return PIDenabled;
 }
-void Arm::enable()
+void Arm::SetSetpoint(double x)
 {
-	isOn = true;
-	Enable();
-}
-bool Arm::isEnabled()
-{
-	return isOn;
+	armPID->SetSetpoint(x);
 }

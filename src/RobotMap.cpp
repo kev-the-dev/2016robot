@@ -13,7 +13,8 @@ std::shared_ptr<SpeedController> RobotMap::armMotor;
 std::shared_ptr<Potentiometer> RobotMap::armPot;
 std::shared_ptr<SpeedController> RobotMap::shooterLeft;
 std::shared_ptr<SpeedController> RobotMap::shooterRight;
-
+std::shared_ptr<Encoder> RobotMap::shooterLeftEncoder;
+std::shared_ptr<Encoder> RobotMap::shooterRightEncoder;
 void RobotMap::init()
 {
 	//Init all sensors/actuators with proper port #, add to LiveWindow
@@ -32,4 +33,6 @@ void RobotMap::init()
 
 	shooterLeft.reset(new Talon(5));
 	shooterRight.reset(new Talon(6));
+	shooterLeftEncoder.reset(new Encoder(0,1));
+	shooterRightEncoder.reset(new Encoder(2,3));
 }

@@ -8,7 +8,7 @@ ArmGoTo::ArmGoTo(double a)
 // Called just before this Command runs the first time
 void ArmGoTo::Initialize()
 {
-	arm->Enable();
+	arm->EnablePID();
 	arm->SetSetpoint(angle);
 }
 

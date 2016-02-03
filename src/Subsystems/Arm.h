@@ -4,30 +4,32 @@
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 
-class Arm: public PIDSubsystem
+class Arm: public Subsystem
 {
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 	std::shared_ptr<SpeedController> armMotor;
 	std::shared_ptr<Potentiometer> armPot;
+	std::unique_ptr<PIDController> armPID;
 
-	static double p;
-	static double i;
-	static double d;
+	static float defP;
+	static float defI;
+	static float defD;
 
-	bool isOn;
+	float P;
+	float I;
+	float D;
+	bool PIDenabled;
 public:
 	Arm();
 	void Set(double x);
 	void InitDefaultCommand();
 
-	double ReturnPIDInput();
-	void UsePIDOutput(double output);
-
-	void enable();
-	void disable();
-	bool isEnabled();
+	void EnablePID();
+	void DisablePID();
+	bool IsPIDEnabled();
+	void SetSetpoint(double x);
 };
 
 #endif

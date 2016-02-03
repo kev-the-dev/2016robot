@@ -28,6 +28,8 @@ public:
 	//Shooter
 	static std::shared_ptr<SpeedController> shooterLeft;
 	static std::shared_ptr<SpeedController> shooterRight;
+	static std::shared_ptr<Encoder> shooterLeftEncoder;
+	static std::shared_ptr<Encoder> shooterRightEncoder;
 };
 
 #endif
