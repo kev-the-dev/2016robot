@@ -30,6 +30,7 @@ public:
 	void DisablePID();
 	bool IsPIDEnabled();
 	void SetSetpoint(double x);
+	double GetPot();
 };
 
 #endif

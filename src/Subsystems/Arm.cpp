@@ -16,6 +16,7 @@ Arm::Arm() : Subsystem("Arm")
 	armPID.reset(new PIDController(P,I,D,armPot.get(),armMotor.get()));
 	armPID->SetOutputRange(-1,1);
 	PIDenabled = false;
+
 }
 
 void Arm::InitDefaultCommand()
@@ -47,4 +48,8 @@ bool Arm::IsPIDEnabled()
 void Arm::SetSetpoint(double x)
 {
 	armPID->SetSetpoint(x);
+}
+double Arm::GetPot()
+{
+	return armPot->Get();
 }
