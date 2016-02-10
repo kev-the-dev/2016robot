@@ -20,3 +20,7 @@ void DriveSystem::Drive(float y, float rotation)
 {
 	drive->ArcadeDrive(y,rotation);
 }
+float DriveSystem::GyroAngle()
+{
+	return gyro->GetAngle();
+}

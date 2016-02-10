@@ -15,6 +15,7 @@ public:
 	DriveSystem();
 	void InitDefaultCommand();
 	void Drive(float y, float rotation);
+	float GyroAngle();
 };
 
 #endif
