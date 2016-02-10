@@ -33,7 +33,11 @@ public:
 	void InitDefaultCommand();
 	void EnablePID();
 	void DisablePID();
+	double LeftRate();
+	double RightRate();
 	bool IsPIDEnabled();
+	const double SHOOTING_RATE = 500;
+	const double INTAKE_RATE = -200;
 };
 
 #endif

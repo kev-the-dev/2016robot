@@ -4,6 +4,7 @@
 float Shooter::defP = 1;
 float Shooter::defI = 0;
 float Shooter::defD = 0;
+
 Shooter::Shooter() :
 		Subsystem("Arm")
 {
@@ -15,6 +16,10 @@ Shooter::Shooter() :
 	P = defP;
 	I = defI;
 	D = defD;
+
+	//Ensure encoder uses rate, not distance
+	shooterLeftEncoder->SetPIDSourceType(PIDSourceType::kRate);
+	shooterRightEncoder->SetPIDSourceType(PIDSourceType::kRate);
 
 	leftPID.reset(new PIDController(P,I,D,shooterLeftEncoder.get(),shooterLeft.get()));
 	leftPID->SetOutputRange(-1,1);
@@ -34,7 +39,6 @@ void Shooter::InitDefaultCommand()
 // here. Call these from Commands.
 void Shooter::Set(float x)
 {
-	if (IsPIDEnabled()) DisablePID();
 	shooterLeft->Set(x);
 	shooterRight->Set(x);
 }
@@ -53,4 +57,12 @@ void Shooter::DisablePID()
 bool Shooter::IsPIDEnabled()
 {
 	return PIDenabled;
+}
+double Shooter::LeftRate()
+{
+	return shooterLeftEncoder->GetRate();
+}
+double Shooter::RightRate()
+{
+	return shooterRightEncoder->GetRate();
 }
