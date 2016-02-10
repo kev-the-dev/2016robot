@@ -10,6 +10,7 @@ private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
 	std::shared_ptr<RobotDrive> drive;
+	std::shared_ptr<Gyro> gyro;
 public:
 	DriveSystem();
 	void InitDefaultCommand();

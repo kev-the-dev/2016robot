@@ -7,6 +7,6 @@ StartTeleCommands::StartTeleCommands()
 	smartDashboardInfo.reset(new SmartDashboardInfo());
 
 	//Start them all in parallel
-	//AddParallel(driveWithJoysticks.get());
+	AddParallel(driveWithJoysticks.get());
 	AddParallel(smartDashboardInfo.get());
 }

@@ -5,6 +5,7 @@ DriveSystem::DriveSystem() :
 		Subsystem("DriveSystem")
 {
 	drive = RobotMap::drive;
+	gyro = RobotMap::gyro;
 }
 
 void DriveSystem::InitDefaultCommand()

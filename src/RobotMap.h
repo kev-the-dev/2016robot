@@ -15,6 +15,7 @@ public:
 	static std::shared_ptr<SpeedController> rightOne;
 	static std::shared_ptr<SpeedController> rightTwo;
 	static std::shared_ptr<RobotDrive> drive;
+	static std::shared_ptr<Gyro> gyro;
 
 	//Pnuematics
 	static std::shared_ptr<Compressor> compressor;
