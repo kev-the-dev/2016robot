@@ -18,6 +18,7 @@ private:
 	//Commands used by buttons
 	std::unique_ptr<Command> shiftLowGearCommand;
 	std::unique_ptr<Command> shiftHighGearCommand;
+	std::unique_ptr<Command> liftToSwitchCommand;
 
 	void SetButtons();
 public:

@@ -8,6 +8,7 @@
 #include "Subsystems/DriveSystem.h"
 #include "Subsystems/Arm.h"
 #include "Subsystems/Shooter.h"
+#include "Subsystems/Lifter.h"
 
 #include "OI.h"
 #include "WPILib.h"
@@ -28,6 +29,7 @@ protected:
 	static std::unique_ptr<Arm> arm;
 	static std::unique_ptr<OI> oi;
 	static std::unique_ptr<Shooter> shooter;
+	static std::unique_ptr<Lifter> lifter;
 public:
 	CommandBase(const std::string &name);
 	CommandBase();

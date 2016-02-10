@@ -5,6 +5,7 @@ SmartDashboardInfo::SmartDashboardInfo()
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 	SmartDashboard::PutNumber("Pot",0);
+	SmartDashboard::PutBoolean("Bimba Switch",false);
 }
 
 // Called just before this Command runs the first time
@@ -17,6 +18,7 @@ void SmartDashboardInfo::Initialize()
 void SmartDashboardInfo::Execute()
 {
 	SmartDashboard::PutNumber("Pot",arm->GetPot());
+	SmartDashboard::PutBoolean("Bimba Switch",lifter->Switch());
 }
 
 // Make this return true when this Command no longer needs to run execute()

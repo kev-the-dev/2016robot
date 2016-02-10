@@ -29,6 +29,10 @@ public:
 	static std::shared_ptr<SpeedController> shooterRight;
 	static std::shared_ptr<Encoder> shooterLeftEncoder;
 	static std::shared_ptr<Encoder> shooterRightEncoder;
+
+	//Lifter
+	static std::shared_ptr<DoubleSolenoid> lifterPiston;
+	static std::shared_ptr<DigitalInput> lifterSwitch;
 };
 
 #endif
