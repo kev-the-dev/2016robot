@@ -1,6 +1,6 @@
 #include "DriveAtAngle.h"
 
-DriveAtAngle::DriveAtAngle()
+DriveAtAngle::DriveAtAngle() : PIDCommand(1,0,0)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
@@ -35,4 +35,12 @@ void DriveAtAngle::End()
 void DriveAtAngle::Interrupted()
 {
 
+}
+double DriveAtAngle::PIDGet()
+{
+	return driveSystem->GyroAngle();
+}
+void DriveAtAngle::PIDWrite(float output)
+{
+	driveSystem->Drive(0,output);
 }

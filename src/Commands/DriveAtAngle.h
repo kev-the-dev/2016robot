@@ -4,7 +4,7 @@
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class DriveAtAngle: public PIDCommand
+class DriveAtAngle: public PIDCommand,CommandBase
 {
 public:
 	void PIDWrite (float output);
