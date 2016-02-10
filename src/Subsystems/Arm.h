@@ -20,7 +20,6 @@ private:
 	float P;
 	float I;
 	float D;
-	bool PIDenabled;
 public:
 	Arm();
 	void Set(double x);

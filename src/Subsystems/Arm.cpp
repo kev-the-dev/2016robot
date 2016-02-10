@@ -9,14 +9,11 @@ Arm::Arm() : Subsystem("Arm")
 {
 	armMotor = RobotMap::armMotor;
 	armPot = RobotMap::armPot;
-
 	P = defP;
 	I = defI;
 	D = defD;
 	armPID.reset(new PIDController(P,I,D,armPot.get(),armMotor.get()));
 	armPID->SetOutputRange(-1,1);
-	PIDenabled = false;
-
 }
 
 void Arm::InitDefaultCommand()
@@ -34,16 +31,14 @@ void Arm::Set(double x)
 void Arm::EnablePID()
 {
 	armPID->Enable();
-	PIDenabled = true;
 }
 void Arm::DisablePID()
 {
 	armPID->Disable();
-	PIDenabled = false;
 }
 bool Arm::IsPIDEnabled()
 {
-	return PIDenabled;
+	return armPID->IsEnabled();
 }
 void Arm::SetSetpoint(double x)
 {
