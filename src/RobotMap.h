@@ -16,10 +16,8 @@ public:
 	static std::shared_ptr<SpeedController> rightTwo;
 	static std::shared_ptr<RobotDrive> drive;
 
-	//Shifting
+	//Pnuematics
 	static std::shared_ptr<Compressor> compressor;
-	static std::shared_ptr<DoubleSolenoid> leftTransmission;
-	static std::shared_ptr<DoubleSolenoid> rightTransmission;
 
 	//Arm
 	static std::shared_ptr<SpeedController> armMotor;

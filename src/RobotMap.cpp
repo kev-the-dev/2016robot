@@ -7,8 +7,6 @@ std::shared_ptr<SpeedController> RobotMap::rightOne;
 std::shared_ptr<SpeedController> RobotMap::rightTwo;
 std::shared_ptr<RobotDrive> RobotMap::drive;
 std::shared_ptr<Compressor> RobotMap::compressor;
-std::shared_ptr<DoubleSolenoid> RobotMap::leftTransmission;
-std::shared_ptr<DoubleSolenoid> RobotMap::rightTransmission;
 std::shared_ptr<SpeedController> RobotMap::armMotor;
 std::shared_ptr<Potentiometer> RobotMap::armPot;
 std::shared_ptr<SpeedController> RobotMap::shooterLeft;
@@ -26,8 +24,6 @@ void RobotMap::init()
 	drive.reset(new RobotDrive(leftOne,leftTwo,rightOne,rightTwo));
 
 	compressor.reset(new Compressor(0));
-	leftTransmission.reset(new DoubleSolenoid(0,0,1));
-	rightTransmission.reset(new DoubleSolenoid(0,2,3));
 
 	armMotor.reset(new Talon(4));
 	//AnalogPotentiometer (int channel, double fullRange=1.0, double offset=0.0)
