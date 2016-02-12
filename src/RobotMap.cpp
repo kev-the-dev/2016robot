@@ -6,6 +6,8 @@ std::shared_ptr<SpeedController> RobotMap::leftTwo;
 std::shared_ptr<SpeedController> RobotMap::rightOne;
 std::shared_ptr<SpeedController> RobotMap::rightTwo;
 std::shared_ptr<RobotDrive> RobotMap::drive;
+std::shared_ptr<Encoder> RobotMap::driveEncoderLeft;
+std::shared_ptr<Encoder> RobotMap::driveEncoderRight;
 std::shared_ptr<Gyro> RobotMap::gyro;
 std::shared_ptr<Compressor> RobotMap::compressor;
 std::shared_ptr<SpeedController> RobotMap::armMotor;
@@ -25,6 +27,8 @@ void RobotMap::init()
 	rightOne.reset(new Talon(2));
 	rightTwo.reset(new Talon(3));
 	drive.reset(new RobotDrive(leftOne,leftTwo,rightOne,rightTwo));
+	driveEncoderLeft.reset(new Encoder(4,5));
+	driveEncoderRight.reset(new Encoder(6,7));
 	gyro.reset(new AnalogGyro(0));
 
 	compressor.reset(new Compressor(0));
