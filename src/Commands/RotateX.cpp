@@ -1,38 +1,49 @@
-#include "LiftToSwitch.h"
+#include <Commands/RotateX.h>
 
-LiftToSwitch::LiftToSwitch()
+RotateX::RotateX(float a) : PIDCommand(1,0,0)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
+	angle = a;
+	driveY = 0;
+	SetSetpoint(a);
 }
 
 // Called just before this Command runs the first time
-void LiftToSwitch::Initialize()
+void RotateX::Initialize()
 {
-	lifter->Set(Lifter::kForward);
+
 }
 
 // Called repeatedly when this Command is scheduled to run
-void LiftToSwitch::Execute()
+void RotateX::Execute()
 {
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool LiftToSwitch::IsFinished()
+bool RotateX::IsFinished()
 {
-	return lifter->Switch();
+	return false;
 }
 
 // Called once after isFinished returns true
-void LiftToSwitch::End()
+void RotateX::End()
 {
-	lifter->Set(Lifter::kOn);
+
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void LiftToSwitch::Interrupted()
+void RotateX::Interrupted()
 {
-	End();
+
+}
+double RotateX::PIDGet()
+{
+	return driveSystem->GyroAngle();
+}
+void RotateX::PIDWrite(float output)
+{
+	driveSystem->Drive(0,driveY);
 }

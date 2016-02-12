@@ -14,7 +14,8 @@ std::shared_ptr<SpeedController> RobotMap::shooterLeft;
 std::shared_ptr<SpeedController> RobotMap::shooterRight;
 std::shared_ptr<Encoder> RobotMap::shooterLeftEncoder;
 std::shared_ptr<Encoder> RobotMap::shooterRightEncoder;
-std::shared_ptr<DoubleSolenoid> RobotMap::lifterPiston;
+std::shared_ptr<Solenoid> RobotMap::lifterPistonForward;
+std::shared_ptr<Solenoid> RobotMap::lifterPistonReverse;
 std::shared_ptr<DigitalInput> RobotMap::lifterSwitch;
 void RobotMap::init()
 {
@@ -37,6 +38,7 @@ void RobotMap::init()
 	shooterLeftEncoder.reset(new Encoder(0,1));
 	shooterRightEncoder.reset(new Encoder(2,3));
 
-	lifterPiston.reset(new DoubleSolenoid(0,1));
-	lifterSwitch.reset(new DigitalInput(0));
+	lifterPistonForward.reset(new Solenoid(1,2));
+	lifterPistonReverse.reset(new Solenoid(1,3));
+	lifterSwitch.reset(new DigitalInput(4));
 }

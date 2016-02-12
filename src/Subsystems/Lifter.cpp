@@ -4,35 +4,62 @@
 Lifter::Lifter() :
 		Subsystem("ExampleSubsystem")
 {
-	piston = RobotMap::lifterPiston;
+	pistonForward = RobotMap::lifterPistonForward;
+	pistonReverse = RobotMap::lifterPistonReverse;
 	bimbaSwitch = RobotMap::lifterSwitch;
+	state = kOff;
 }
 
 void Lifter::InitDefaultCommand()
 {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
-	state = DoubleSolenoid::Value::kOff;
+	pistonForward = RobotMap::lifterPistonForward;
+	pistonReverse = RobotMap::lifterPistonReverse;
 }
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 bool Lifter::Switch()
 {
-	return bimbaSwitch->Get();
+	return !bimbaSwitch->Get();
 }
 void Lifter::Off()
 {
-	piston->Set(DoubleSolenoid::Value::kOff);
-	state = DoubleSolenoid::Value::kOff;
+	pistonForward->Set(0);
+	pistonReverse->Set(0);
 }
-void Lifter::Extend()
+void Lifter::Forward()
 {
-	piston->Set(DoubleSolenoid::Value::kForward);
-	state = DoubleSolenoid::Value::kForward;
+	pistonForward->Set(1);
+	pistonReverse->Set(0);
 }
-void Lifter::Retract()
+void Lifter::Reverse()
 {
-	piston->Set(DoubleSolenoid::Value::kReverse);
-	state = DoubleSolenoid::Value::kReverse;
+	pistonForward->Set(0);
+	pistonReverse->Set(1);
+}
+void Lifter::On()
+{
+	pistonForward->Set(1);
+	pistonReverse->Set(1);
+}
+void Lifter::Set(Lifter::State s)
+{
+	state = s;
+	switch (s)
+	{
+	case kOn:
+		On();
+		break;
+	case kOff:
+		Off();
+		break;
+	case kForward:
+		Forward();
+		break;
+	case kReverse:
+		Reverse();
+		break;
+	}
 }

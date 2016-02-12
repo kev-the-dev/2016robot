@@ -3,7 +3,8 @@
 
 #include "WPILib.h"
 
-class RobotMap {
+class RobotMap
+{
 public:
 	static void init();
 
@@ -31,7 +32,8 @@ public:
 	static std::shared_ptr<Encoder> shooterRightEncoder;
 
 	//Lifter
-	static std::shared_ptr<DoubleSolenoid> lifterPiston;
+	static std::shared_ptr<Solenoid> lifterPistonForward;
+	static std::shared_ptr<Solenoid> lifterPistonReverse;
 	static std::shared_ptr<DigitalInput> lifterSwitch;
 };
 

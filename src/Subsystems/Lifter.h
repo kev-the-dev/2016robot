@@ -6,17 +6,26 @@
 
 class Lifter: public Subsystem
 {
+public:
+	enum State {
+		kOn,
+		kOff,
+		kForward,
+		kReverse
+	};
 private:
-	std::shared_ptr<DoubleSolenoid> piston;
+	std::shared_ptr<Solenoid> pistonForward;
+	std::shared_ptr<Solenoid> pistonReverse;
 	std::shared_ptr<DigitalInput> bimbaSwitch;
-	DoubleSolenoid::Value state;
+	void On();
+	void Off();
+	void Forward();
+	void Reverse();
+	State state;
 public:
 	Lifter();
 	bool Switch();
-	void Off();
-	void Extend();
-	void Retract();
-	DoubleSolenoid::Value State();
+	void Set(State s);
 	void InitDefaultCommand();
 };
 

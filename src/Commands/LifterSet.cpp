@@ -1,46 +1,39 @@
-#include "DriveAtAngle.h"
+#include "LifterSet.h"
 
-DriveAtAngle::DriveAtAngle() : PIDCommand(1,0,0)
+LifterSet::LifterSet(Lifter::State s)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
+	state = s;
 }
 
 // Called just before this Command runs the first time
-void DriveAtAngle::Initialize()
+void LifterSet::Initialize()
 {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void DriveAtAngle::Execute()
+void LifterSet::Execute()
 {
-
+	lifter->Set(state);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool DriveAtAngle::IsFinished()
+bool LifterSet::IsFinished()
 {
-	return false;
+	return true;
 }
 
 // Called once after isFinished returns true
-void DriveAtAngle::End()
+void LifterSet::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void DriveAtAngle::Interrupted()
+void LifterSet::Interrupted()
 {
 
-}
-double DriveAtAngle::PIDGet()
-{
-	return driveSystem->GyroAngle();
-}
-void DriveAtAngle::PIDWrite(float output)
-{
-	driveSystem->Drive(0,output);
 }
