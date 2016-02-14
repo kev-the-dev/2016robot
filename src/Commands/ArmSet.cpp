@@ -1,40 +1,40 @@
-#include "ShooterPIDSet.h"
+#include "ArmSet.h"
 
-ShooterPIDSet::ShooterPIDSet(double r)
+ArmSet::ArmSet(double x)
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	rate = r;
+	set_val = x;
 }
 
 // Called just before this Command runs the first time
-void ShooterPIDSet::Initialize()
+void ArmSet::Initialize()
 {
-	shooter->EnablePID();
-	shooter->PIDSet(rate);
+	arm->DisablePID();
+	arm->Set(set_val);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ShooterPIDSet::Execute()
+void ArmSet::Execute()
 {
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ShooterPIDSet::IsFinished()
+bool ArmSet::IsFinished()
 {
 	return true;
 }
 
 // Called once after isFinished returns true
-void ShooterPIDSet::End()
+void ArmSet::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ShooterPIDSet::Interrupted()
+void ArmSet::Interrupted()
 {
 
 }

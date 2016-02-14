@@ -37,6 +37,9 @@ public:
 	static std::shared_ptr<Solenoid> lifterPistonForward;
 	static std::shared_ptr<Solenoid> lifterPistonReverse;
 	static std::shared_ptr<DigitalInput> lifterSwitch;
+
+	//Shooter punch
+	static std::shared_ptr<DoubleSolenoid> shooterPunch;
 };
 
 #endif

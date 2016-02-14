@@ -48,3 +48,7 @@ double Arm::GetPot()
 {
 	return armPot->Get();
 }
+float Arm::GetPIDError()
+{
+	return armPID->GetError();
+}

@@ -6,6 +6,7 @@ std::unique_ptr<Arm> CommandBase::arm;
 std::unique_ptr<OI> CommandBase::oi;
 std::unique_ptr<Shooter> CommandBase::shooter;
 std::unique_ptr<Lifter> CommandBase::lifter;
+std::unique_ptr<ShooterPunch> CommandBase::shooterPunch;
 
 CommandBase::CommandBase(const std::string &name) :
 		Command(name)
@@ -27,6 +28,7 @@ void CommandBase::init()
 	arm.reset(new Arm());
 	shooter.reset(new Shooter());
 	lifter.reset(new Lifter());
+	shooterPunch.reset(new ShooterPunch());
 
 	//Setup OI
 	oi.reset(new OI());

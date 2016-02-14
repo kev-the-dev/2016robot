@@ -36,6 +36,8 @@ public:
 	void DisablePID();
 	double LeftRate();
 	double RightRate();
+	float LeftError();
+	float RightError();
 	bool IsPIDEnabled();
 	const double SHOOTING_RATE = 500;
 	const double INTAKE_RATE = -200;

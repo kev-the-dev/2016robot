@@ -29,6 +29,7 @@ public:
 	void DisablePID();
 	bool IsPIDEnabled();
 	void SetSetpoint(double x);
+	float GetPIDError();
 	double GetPot();
 };
 

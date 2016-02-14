@@ -1,40 +1,40 @@
-#include "ShooterPIDSet.h"
+#include "WaitForArm.h"
 
-ShooterPIDSet::ShooterPIDSet(double r)
+WaitForArm::WaitForArm()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
-	rate = r;
 }
 
+float WaitForArm::maxError = 1;
+
 // Called just before this Command runs the first time
-void ShooterPIDSet::Initialize()
+void WaitForArm::Initialize()
 {
-	shooter->EnablePID();
-	shooter->PIDSet(rate);
+	if (!arm->IsPIDEnabled()) Cancel();
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ShooterPIDSet::Execute()
+void WaitForArm::Execute()
 {
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ShooterPIDSet::IsFinished()
+bool WaitForArm::IsFinished()
 {
-	return true;
+	return (std::abs(arm->GetPIDError()) < maxError);
 }
 
 // Called once after isFinished returns true
-void ShooterPIDSet::End()
+void WaitForArm::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ShooterPIDSet::Interrupted()
+void WaitForArm::Interrupted()
 {
 
 }

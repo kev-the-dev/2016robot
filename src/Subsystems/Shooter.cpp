@@ -71,3 +71,11 @@ void Shooter::PIDSet(float rate)
 	leftPID->SetSetpoint(rate);
 	rightPID->SetSetpoint(rate);
 }
+float Shooter::LeftError()
+{
+	return leftPID->GetError();
+}
+float Shooter::RightError()
+{
+	return rightPID->GetError();
+}

@@ -19,6 +19,8 @@ std::shared_ptr<Encoder> RobotMap::shooterRightEncoder;
 std::shared_ptr<Solenoid> RobotMap::lifterPistonForward;
 std::shared_ptr<Solenoid> RobotMap::lifterPistonReverse;
 std::shared_ptr<DigitalInput> RobotMap::lifterSwitch;
+std::shared_ptr<DoubleSolenoid> RobotMap::shooterPunch;
+
 void RobotMap::init()
 {
 	//Init all sensors/actuators with proper port #, add to LiveWindow
@@ -42,7 +44,9 @@ void RobotMap::init()
 	shooterLeftEncoder.reset(new Encoder(0,1));
 	shooterRightEncoder.reset(new Encoder(2,3));
 
-	lifterPistonForward.reset(new Solenoid(1,2));
-	lifterPistonReverse.reset(new Solenoid(1,3));
+	lifterPistonForward.reset(new Solenoid(1,0));
+	lifterPistonReverse.reset(new Solenoid(1,1));
 	lifterSwitch.reset(new DigitalInput(4));
+
+	shooterPunch.reset(new DoubleSolenoid(1,2,3));
 }
