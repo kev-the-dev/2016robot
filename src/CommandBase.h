@@ -23,14 +23,13 @@ class CommandBase: public Command
 {
 private:
 	static void SetButtons();
-protected:
+public:
 	// Create a single static instance of all of your subsystems
 	static std::unique_ptr<DriveSystem> driveSystem;
 	static std::unique_ptr<Arm> arm;
-	static std::unique_ptr<OI> oi;
 	static std::unique_ptr<Shooter> shooter;
 	static std::unique_ptr<Lifter> lifter;
-public:
+	static std::unique_ptr<OI> oi;
 	CommandBase(const std::string &name);
 	CommandBase();
 	static void init();

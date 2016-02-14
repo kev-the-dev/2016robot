@@ -22,14 +22,14 @@ std::shared_ptr<DigitalInput> RobotMap::lifterSwitch;
 void RobotMap::init()
 {
 	//Init all sensors/actuators with proper port #, add to LiveWindow
-	leftOne.reset(new Talon(0));
-	leftTwo.reset(new Talon(1));
-	rightOne.reset(new Talon(2));
-	rightTwo.reset(new Talon(3));
+	leftOne.reset(new Talon(2));
+	leftTwo.reset(new Talon(3));
+	rightOne.reset(new Talon(4));
+	rightTwo.reset(new Talon(5));
 	drive.reset(new RobotDrive(leftOne,leftTwo,rightOne,rightTwo));
 	driveEncoderLeft.reset(new Encoder(4,5));
 	driveEncoderRight.reset(new Encoder(6,7));
-	gyro.reset(new AnalogGyro(0));
+	gyro.reset(new ADXRS450_Gyro());
 
 	compressor.reset(new Compressor(0));
 

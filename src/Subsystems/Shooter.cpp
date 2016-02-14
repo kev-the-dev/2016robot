@@ -66,3 +66,8 @@ double Shooter::RightRate()
 {
 	return shooterRightEncoder->GetRate();
 }
+void Shooter::PIDSet(float rate)
+{
+	leftPID->SetSetpoint(rate);
+	rightPID->SetSetpoint(rate);
+}

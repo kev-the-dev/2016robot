@@ -6,15 +6,22 @@ RotateX::RotateX(float a) : PIDCommand(1,0,0)
 	// eg. Requires(chassis);
 	angle = a;
 	driveY = 0;
+	p = .0014;
+	i = 0;
+	d = 0;
 	SetSetpoint(a);
 }
 
 // Called just before this Command runs the first time
 void RotateX::Initialize()
 {
-
+	p = SmartDashboard::GetNumber("p",p);
+	i = SmartDashboard::GetNumber("i",i);
+	d = SmartDashboard::GetNumber("d",d);
+	angle = SmartDashboard::GetNumber("Angle",angle);
+	SetSetpoint(angle);
+	GetPIDController()->SetPID(p,i,d);
 }
-
 // Called repeatedly when this Command is scheduled to run
 void RotateX::Execute()
 {
@@ -39,11 +46,11 @@ void RotateX::Interrupted()
 {
 
 }
-double RotateX::PIDGet()
+double RotateX::ReturnPIDInput()
 {
-	return driveSystem->GyroAngle();
+	return CommandBase::driveSystem->GyroAngle();
 }
-void RotateX::PIDWrite(float output)
+void RotateX::UsePIDOutput(double output)
 {
-	driveSystem->Drive(0,driveY);
+	CommandBase::driveSystem->Drive(driveY,output);
 }

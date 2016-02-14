@@ -7,7 +7,7 @@ class OI
 {
 private:
 	//Joysticks
-	std::unique_ptr<Joystick> stickLeft;
+
 	std::unique_ptr<Joystick> stickMiddle;
 	std::unique_ptr<Joystick> stickRight;
 
@@ -21,9 +21,10 @@ private:
 	void SetButtons();
 public:
 	OI();
-
+	std::unique_ptr<Joystick> stickLeft;
 	float GetDriveY();
 	float GetDriveRotation();
+	bool GetPIDButton();
 };
 
 #endif

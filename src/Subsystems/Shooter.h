@@ -30,6 +30,7 @@ private:
 public:
 	Shooter();
 	void Set(float x);
+	void PIDSet(float rate);
 	void InitDefaultCommand();
 	void EnablePID();
 	void DisablePID();

@@ -4,14 +4,15 @@
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class RotateX: public PIDCommand,CommandBase
+class RotateX: public PIDCommand
 {
 private:
 	float driveY;
 	float angle;
+	float p,i,d;
 public:
-	void PIDWrite (float output);
-	double PIDGet();
+	void UsePIDOutput(double x);
+	double ReturnPIDInput();
 
 	RotateX(float a);
 	void Initialize();
