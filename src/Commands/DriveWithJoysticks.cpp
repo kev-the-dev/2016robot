@@ -16,7 +16,10 @@ void DriveWithJoysticks::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoysticks::Execute()
 {
-	driveSystem->Drive(oi->GetDriveY(),oi->GetDriveRotation());
+	if (oi->GetReverseDriveButton()) {
+		driveSystem->Drive(-oi->GetDriveY(),-oi->GetDriveRotation());
+	}
+	else driveSystem->Drive(oi->GetDriveY(),oi->GetDriveRotation());
 }
 
 // Make this return true when this Command no longer needs to run execute()

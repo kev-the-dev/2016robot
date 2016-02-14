@@ -4,10 +4,23 @@
 #include "Commands/LifterSet.h"
 #include "Commands/LiftToSwitch.h"
 #include "Commands/RotateX.h"
+#include "Commands/Shoot.h"
+#include "Commands/ShooterSet.h"
 
 void OI::SetButtons()
 {
-	liftToSwitchCommand.reset((Command*) new LiftToSwitch());
+	shootCommand.reset(new Shoot());
+	badShootCommand.reset(new ShooterSet(1));
+	badIntakeCommand.reset(new ShooterSet(-1));
+	liftToSwitchCommand.reset( new LiftToSwitch());
+	stopShooterCommand.reset(new ShooterSet(0));
+
+	badIntakeButton->WhileHeld(badIntakeCommand.get());
+	badIntakeButton->WhenReleased(stopShooterCommand.get());
+	badShootButton->WhileHeld(badShootCommand.get());
+	badShootButton->WhenReleased(stopShooterCommand.get());
+	shootButton->WhenPressed(shootCommand.get());
+
 	SmartDashboard::PutData("Lift to Switch",liftToSwitchCommand.get());
 
 	SmartDashboard::PutData("Extend",new LifterSet(Lifter::kForward));

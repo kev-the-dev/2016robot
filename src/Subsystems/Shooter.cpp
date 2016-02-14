@@ -40,7 +40,7 @@ void Shooter::InitDefaultCommand()
 void Shooter::Set(float x)
 {
 	shooterLeft->Set(x);
-	shooterRight->Set(x);
+	shooterRight->Set(-x);
 }
 void Shooter::EnablePID()
 {

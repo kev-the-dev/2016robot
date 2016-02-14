@@ -39,8 +39,8 @@ void RobotMap::init()
 	//AnalogPotentiometer (int channel, double fullRange=1.0, double offset=0.0)
 	armPot.reset(new AnalogPotentiometer(0,1,0));
 
-	shooterLeft.reset(new Talon(5));
-	shooterRight.reset(new Talon(6));
+	shooterLeft.reset(new Talon(0));
+	shooterRight.reset(new Talon(1));
 	shooterLeftEncoder.reset(new Encoder(0,1));
 	shooterRightEncoder.reset(new Encoder(2,3));
 
