@@ -21,7 +21,3 @@ float OI::GetDriveRotation()
 {
 	return -stickMiddle->GetX();
 }
-bool OI::GetPIDButton()
-{
-	return stickLeft->GetRawButton(1);
-}

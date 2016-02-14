@@ -14,7 +14,6 @@ private:
 	std::unique_ptr<Command> autonomousCommand;
 	std::unique_ptr<Command> teleCommands;
 	std::unique_ptr<SendableChooser> chooser;
-    RotateX* c;
 	void RobotInit()
 	{
 		CommandBase::init();
@@ -69,16 +68,6 @@ private:
 	{
 		//Runs all current commands
 		Scheduler::GetInstance()->Run();
-/*
-		if (CommandBase::oi->GetPIDButton()) {
-			if (c != nullptr) {
-				c->Cancel();
-				delete c;
-			}
-			c = new RotateX(30);
-			c->Command::Start();
-		}
-		*/
 	}
 
 	void TestPeriodic()

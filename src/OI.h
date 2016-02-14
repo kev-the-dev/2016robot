@@ -24,7 +24,6 @@ public:
 	std::unique_ptr<Joystick> stickLeft;
 	float GetDriveY();
 	float GetDriveRotation();
-	bool GetPIDButton();
 };
 
 #endif

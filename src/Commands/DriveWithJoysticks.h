@@ -7,10 +7,7 @@
 class DriveWithJoysticks: public CommandBase
 {
 private:
-	float kP,kI;
-	float angle;
-	int stackSize;
-	std::deque<float > errors;
+
 public:
 	DriveWithJoysticks();
 	void Initialize();

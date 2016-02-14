@@ -21,8 +21,6 @@
  */
 class CommandBase: public Command
 {
-private:
-	static void SetButtons();
 public:
 	// Create a single static instance of all of your subsystems
 	static std::unique_ptr<DriveSystem> driveSystem;

@@ -8,8 +8,6 @@ class RotateX: public PIDCommand
 {
 private:
 	float driveY;
-	float angle;
-	float p,i,d;
 public:
 	void UsePIDOutput(double x);
 	double ReturnPIDInput();

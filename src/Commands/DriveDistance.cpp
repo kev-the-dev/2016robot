@@ -39,9 +39,9 @@ void DriveDistance::Interrupted()
 }
 double DriveDistance::PIDGet()
 {
-	return driveSystem->Distance();
+	return CommandBase::driveSystem->Distance();
 }
 void DriveDistance::PIDWrite(float output)
 {
-	driveSystem->Drive(output,0);
+	CommandBase::driveSystem->Drive(output,0);
 }

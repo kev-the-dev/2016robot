@@ -4,7 +4,7 @@
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class DriveDistance: public PIDCommand,CommandBase
+class DriveDistance: public PIDCommand
 {
 private:
 	double distance;

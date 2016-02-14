@@ -10,15 +10,9 @@ SmartDashboardInfo::SmartDashboardInfo()
 // Called just before this Command runs the first time
 void SmartDashboardInfo::Initialize()
 {
-	SmartDashboard::PutNumber("p",0);
-	SmartDashboard::PutNumber("i",0);
-	SmartDashboard::PutNumber("d",0);
-	SmartDashboard::PutNumber("Angle",0);
 	SmartDashboard::PutNumber("Pot1",0);
 	SmartDashboard::PutBoolean("Bimba Switch",false);
 	SmartDashboard::PutNumber("Gyro",0);
-	SmartDashboard::PutNumber("u",0);
-	SmartDashboard::PutNumber("Stack Size",0);
 }
 
 // Called repeatedly when this Command is scheduled to run

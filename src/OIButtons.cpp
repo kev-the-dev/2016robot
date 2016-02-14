@@ -3,7 +3,7 @@
 //Commands
 #include "Commands/LifterSet.h"
 #include "Commands/LiftToSwitch.h"
-
+#include "Commands/RotateX.h"
 
 void OI::SetButtons()
 {
@@ -14,5 +14,5 @@ void OI::SetButtons()
 	SmartDashboard::PutData("Retract",new LifterSet(Lifter::kReverse));
 	SmartDashboard::PutData("On",new LifterSet(Lifter::kOn));
 	SmartDashboard::PutData("Off", new LifterSet(Lifter::kOff));
-
+	SmartDashboard::PutData("RotateX", new RotateX(30));
 }
