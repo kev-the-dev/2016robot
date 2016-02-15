@@ -11,7 +11,7 @@ void OI::SetButtons()
 {
 	shootCommand.reset(new Shoot());
 	badShootCommand.reset(new ShooterSet(1));
-	badIntakeCommand.reset(new ShooterSet(-1));
+	badIntakeCommand.reset(new ShooterSet(-0.5));
 	liftToSwitchCommand.reset( new LiftToSwitch());
 	stopShooterCommand.reset(new ShooterSet(0));
 
@@ -19,7 +19,7 @@ void OI::SetButtons()
 	badIntakeButton->WhenReleased(stopShooterCommand.get());
 	badShootButton->WhileHeld(badShootCommand.get());
 	badShootButton->WhenReleased(stopShooterCommand.get());
-	shootButton->WhenPressed(shootCommand.get());
+	//shootButton->WhenPressed(shootCommand.get());
 
 	SmartDashboard::PutData("Lift to Switch",liftToSwitchCommand.get());
 
