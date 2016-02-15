@@ -39,8 +39,8 @@ void Shooter::InitDefaultCommand()
 // here. Call these from Commands.
 void Shooter::Set(float x)
 {
-	shooterLeft->Set(x);
-	shooterRight->Set(-x);
+	shooterLeft->Set(-x);
+	shooterRight->Set(x);
 }
 void Shooter::EnablePID()
 {
