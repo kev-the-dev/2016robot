@@ -8,8 +8,8 @@ OI::OI()
 	stickRight.reset(new Joystick(2));
 
 	shootButton.reset(new JoystickButton(stickRight.get(),1));
-	badShootButton.reset(new JoystickButton(stickMiddle.get(),2));
-	badIntakeButton.reset(new JoystickButton(stickMiddle.get(),3));
+	badShootButton.reset(new JoystickButton(stickRight.get(),3));
+	badIntakeButton.reset(new JoystickButton(stickRight.get(),2));
 
 	SetButtons();
 }
