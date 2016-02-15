@@ -13,13 +13,11 @@ private:
 	std::shared_ptr<Potentiometer> armPot;
 	std::unique_ptr<PIDController> armPID;
 
-	static float defP;
-	static float defI;
-	static float defD;
+	static float P;
+	static float I;
+	static float D;
 
-	float P;
-	float I;
-	float D;
+	static float percentageTolerance;
 public:
 	Arm();
 	void Set(double x);
@@ -29,7 +27,7 @@ public:
 	void DisablePID();
 	bool IsPIDEnabled();
 	void SetSetpoint(double x);
-	float GetPIDError();
+	bool OnTarget();
 	double GetPot();
 };
 

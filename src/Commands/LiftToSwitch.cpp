@@ -2,8 +2,7 @@
 
 LiftToSwitch::LiftToSwitch()
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(lifter.get());
 }
 
 // Called just before this Command runs the first time

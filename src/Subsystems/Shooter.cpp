@@ -1,9 +1,11 @@
 #include "Shooter.h"
 #include "../RobotMap.h"
 
-float Shooter::defP = 1;
-float Shooter::defI = 0;
-float Shooter::defD = 0;
+float Shooter::P = 1;
+float Shooter::I = 0;
+float Shooter::D = 0;
+
+float Shooter::percentageTolerance = 5;
 
 Shooter::Shooter() :
 		Subsystem("Arm")
@@ -13,18 +15,18 @@ Shooter::Shooter() :
 	shooterLeftEncoder = RobotMap::shooterLeftEncoder;
 	shooterRightEncoder = RobotMap::shooterRightEncoder;
 
-	P = defP;
-	I = defI;
-	D = defD;
-
 	//Ensure encoder uses rate, not distance
 	shooterLeftEncoder->SetPIDSourceType(PIDSourceType::kRate);
 	shooterRightEncoder->SetPIDSourceType(PIDSourceType::kRate);
 
 	leftPID.reset(new PIDController(P,I,D,shooterLeftEncoder.get(),shooterLeft.get()));
-	leftPID->SetOutputRange(-1,1);
 	rightPID.reset(new PIDController(P,I,D,shooterRightEncoder.get(),shooterRight.get()));
+
+	leftPID->SetOutputRange(-1,1);
 	rightPID->SetOutputRange(-1,1);
+
+	leftPID->SetPercentTolerance(percentageTolerance);
+	rightPID->SetPercentTolerance(percentageTolerance);
 
 	PIDenabled = false;
 }
@@ -71,11 +73,11 @@ void Shooter::PIDSet(float rate)
 	leftPID->SetSetpoint(rate);
 	rightPID->SetSetpoint(rate);
 }
-float Shooter::LeftError()
+bool Shooter::LeftOnTarget()
 {
 	return leftPID->GetError();
 }
-float Shooter::RightError()
+bool Shooter::RightOnTarget()
 {
-	return rightPID->GetError();
+	return rightPID->OnTarget();
 }

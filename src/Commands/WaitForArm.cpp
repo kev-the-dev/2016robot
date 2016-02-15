@@ -2,8 +2,7 @@
 
 WaitForArm::WaitForArm()
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(arm.get());
 }
 
 float WaitForArm::maxError = 1;
@@ -23,7 +22,7 @@ void WaitForArm::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool WaitForArm::IsFinished()
 {
-	return (std::abs(arm->GetPIDError()) < maxError);
+	return arm->OnTarget();
 }
 
 // Called once after isFinished returns true

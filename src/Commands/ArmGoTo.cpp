@@ -2,6 +2,7 @@
 
 ArmGoTo::ArmGoTo(double a)
 {
+	Requires(arm.get());
 	angle = a;
 }
 

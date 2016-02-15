@@ -9,15 +9,11 @@ class Shooter: public Subsystem
 private:
 	// It's desirable that everything possible under private except
 	// for methods that implement subsystem capabilities
-	static float defP;
-	static float defI;
-	static float defD;
+	static float P;
+	static float I;
+	static float D;
 
-
-	//PID values
-	float P;
-	float I;
-	float D;
+	static float percentageTolerance;
 
 	std::shared_ptr<SpeedController> shooterLeft;
 	std::shared_ptr<SpeedController> shooterRight;
@@ -36,8 +32,8 @@ public:
 	void DisablePID();
 	double LeftRate();
 	double RightRate();
-	float LeftError();
-	float RightError();
+	bool LeftOnTarget();
+	bool RightOnTarget();
 	bool IsPIDEnabled();
 	const double SHOOTING_RATE = 500;
 	const double INTAKE_RATE = -200;

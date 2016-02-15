@@ -2,8 +2,7 @@
 
 LifterSet::LifterSet(Lifter::State s)
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(lifter.get());
 	state = s;
 }
 

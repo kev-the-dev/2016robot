@@ -2,8 +2,7 @@
 
 ShooterPIDSet::ShooterPIDSet(double r)
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(shooter.get());
 	rate = r;
 }
 

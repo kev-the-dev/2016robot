@@ -2,8 +2,7 @@
 
 WaitForShooter::WaitForShooter()
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(shooter.get());
 }
 
 float WaitForShooter::maxError = 1;
@@ -23,7 +22,7 @@ void WaitForShooter::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool WaitForShooter::IsFinished()
 {
-	return (std::abs(shooter->LeftError()) < maxError) && (std::abs(shooter->RightError()) < maxError);
+	return shooter->LeftOnTarget() && shooter->RightOnTarget();
 }
 
 // Called once after isFinished returns true

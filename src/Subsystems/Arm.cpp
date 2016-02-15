@@ -1,19 +1,20 @@
 #include "Arm.h"
 #include "../RobotMap.h"
 
-float Arm::defP = 0;
-float Arm::defI = 0;
-float Arm::defD = 0;
+float Arm::P = 1;
+float Arm::I = 0;
+float Arm::D = 0;
+
+float Arm::percentageTolerance = 5;
 
 Arm::Arm() : Subsystem("Arm")
 {
 	armMotor = RobotMap::armMotor;
 	armPot = RobotMap::armPot;
-	P = defP;
-	I = defI;
-	D = defD;
+
 	armPID.reset(new PIDController(P,I,D,armPot.get(),armMotor.get()));
 	armPID->SetOutputRange(-1,1);
+	armPID->SetPercentTolerance(percentageTolerance);
 }
 
 void Arm::InitDefaultCommand()
@@ -48,7 +49,7 @@ double Arm::GetPot()
 {
 	return armPot->Get();
 }
-float Arm::GetPIDError()
+bool Arm::OnTarget()
 {
-	return armPID->GetError();
+	return armPID->OnTarget();
 }

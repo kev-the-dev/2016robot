@@ -2,8 +2,7 @@
 
 DriveDistance::DriveDistance(double d) : PIDCommand(1,0,0)
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(CommandBase::driveSystem.get());
 	distance = d;
 }
 

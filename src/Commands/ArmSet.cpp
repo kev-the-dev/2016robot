@@ -2,8 +2,7 @@
 
 ArmSet::ArmSet(double x)
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(arm.get());
 	set_val = x;
 }
 

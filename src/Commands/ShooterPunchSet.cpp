@@ -2,6 +2,7 @@
 
 ShooterPunchSet::ShooterPunchSet(DoubleSolenoid::Value v)
 {
+	Requires(shooterPunch.get());
 	state = v;
 }
 

@@ -2,8 +2,10 @@
 
 RotateX::RotateX(float a) : PIDCommand(1,0,0)
 {
+	Requires(CommandBase::driveSystem.get());
 	driveY = 0;
-	SetSetpoint(a);
+	angle = a;
+	SetSetpoint(angle);
 }
 
 // Called just before this Command runs the first time
