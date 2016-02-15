@@ -35,7 +35,7 @@ void RobotMap::init()
 
 	compressor.reset(new Compressor(0));
 
-	armMotor.reset(new Talon(4));
+	armMotor.reset(new Talon(6));
 	//AnalogPotentiometer (int channel, double fullRange=1.0, double offset=0.0)
 	armPot.reset(new AnalogPotentiometer(0,1,0));
 

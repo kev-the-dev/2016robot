@@ -13,6 +13,7 @@ void SmartDashboardInfo::Initialize()
 	SmartDashboard::PutNumber("Pot1",0);
 	SmartDashboard::PutBoolean("Bimba Switch",false);
 	SmartDashboard::PutNumber("Gyro",0);
+	SmartDashboard::PutNumber("Shoot Speed",0);
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -21,6 +22,7 @@ void SmartDashboardInfo::Execute()
 	SmartDashboard::PutNumber("Pot1",arm->GetPot());
 	SmartDashboard::PutBoolean("Bimba Switch",lifter->Switch());
 	SmartDashboard::PutNumber("Gyro",this->driveSystem->GyroAngle());
+	SmartDashboard::PutNumber("Shoot Speed",oi->GetOpZ());
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -6,19 +6,22 @@
 #include "Commands/RotateX.h"
 #include "Commands/Shoot.h"
 #include "Commands/ShooterSet.h"
+#include "Commands/ShooterWithJoystick.h"
 
 void OI::SetButtons()
 {
 	shootCommand.reset(new Shoot());
 	badShootCommand.reset(new ShooterSet(1));
-	badIntakeCommand.reset(new ShooterSet(-0.5));
+	badIntakeCommand.reset(new ShooterSet(-0.75));
 	liftToSwitchCommand.reset( new LiftToSwitch());
 	stopShooterCommand.reset(new ShooterSet(0));
+	manShooterCommand.reset(new ShooterWithJoystick());
 
 	badIntakeButton->WhileHeld(badIntakeCommand.get());
 	badIntakeButton->WhenReleased(stopShooterCommand.get());
 	badShootButton->WhileHeld(badShootCommand.get());
 	badShootButton->WhenReleased(stopShooterCommand.get());
+	manShooterButton->WhileHeld(manShooterCommand.get());
 	//shootButton->WhenPressed(shootCommand.get());
 
 	SmartDashboard::PutData("Lift to Switch",liftToSwitchCommand.get());

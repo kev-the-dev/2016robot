@@ -16,6 +16,7 @@ private:
 	std::unique_ptr<JoystickButton> shootButton;
 	std::unique_ptr<JoystickButton> badShootButton;
 	std::unique_ptr<JoystickButton> badIntakeButton;
+	std::unique_ptr<JoystickButton> manShooterButton;
 
 	//Commands used by buttons
 	std::unique_ptr<Command> liftToSwitchCommand;
@@ -23,12 +24,17 @@ private:
 	std::unique_ptr<Command> badShootCommand;
 	std::unique_ptr<Command> badIntakeCommand;
 	std::unique_ptr<Command> stopShooterCommand;
+	std::unique_ptr<Command> manShooterCommand;
 	void SetButtons();
 public:
 	OI();
 	bool GetReverseDriveButton();
+	bool GetManShoot();
+	bool GetManArm();
 	float GetDriveY();
 	float GetDriveRotation();
+	float GetOpY();
+	float GetOpZ();
 };
 
 #endif
