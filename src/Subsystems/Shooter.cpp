@@ -29,6 +29,11 @@ Shooter::Shooter() :
 	rightPID->SetPercentTolerance(percentageTolerance);
 
 	PIDenabled = false;
+
+	onePID.reset(new PIDController(P,I,D,shooterLeftEncoder.get(),this));
+	onePID->SetOutputRange(-1,1);
+	onePID->SetPercentTolerance(percentageTolerance);
+
 }
 
 void Shooter::InitDefaultCommand()
@@ -80,4 +85,8 @@ bool Shooter::LeftOnTarget()
 bool Shooter::RightOnTarget()
 {
 	return rightPID->OnTarget();
+}
+void Shooter::PIDWrite(float output)
+{
+	Set(output);
 }

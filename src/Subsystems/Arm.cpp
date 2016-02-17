@@ -7,6 +7,9 @@ float Arm::D = 0;
 
 float Arm::percentageTolerance = 5;
 
+double loweredPot = 0;
+double shootingPot = 45;
+
 Arm::Arm() : Subsystem("Arm")
 {
 	armMotor = RobotMap::armMotor;
@@ -15,6 +18,8 @@ Arm::Arm() : Subsystem("Arm")
 	armPID.reset(new PIDController(P,I,D,armPot.get(),armMotor.get()));
 	armPID->SetOutputRange(-1,1);
 	armPID->SetPercentTolerance(percentageTolerance);
+
+	LiveWindow::GetInstance()->AddActuator("Arm","Arm PID",armPID.get());
 }
 
 void Arm::InitDefaultCommand()

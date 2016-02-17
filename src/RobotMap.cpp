@@ -24,10 +24,10 @@ std::shared_ptr<DoubleSolenoid> RobotMap::shooterPunch;
 void RobotMap::init()
 {
 	//Init all sensors/actuators with proper port #, add to LiveWindow
-	leftOne.reset(new Talon(2));
-	leftTwo.reset(new Talon(3));
-	rightOne.reset(new Talon(4));
-	rightTwo.reset(new Talon(5));
+	leftOne.reset(new VictorSP(2));
+	leftTwo.reset(new VictorSP(3));
+	rightOne.reset(new VictorSP(4));
+	rightTwo.reset(new VictorSP(5));
 	drive.reset(new RobotDrive(leftOne,leftTwo,rightOne,rightTwo));
 	driveEncoderLeft.reset(new Encoder(4,5));
 	driveEncoderRight.reset(new Encoder(6,7));
@@ -35,12 +35,12 @@ void RobotMap::init()
 
 	compressor.reset(new Compressor(0));
 
-	armMotor.reset(new Talon(6));
+	armMotor.reset(new VictorSP(6));
 	//AnalogPotentiometer (int channel, double fullRange=1.0, double offset=0.0)
-	armPot.reset(new AnalogPotentiometer(0,1,0));
+	armPot.reset(new AnalogPotentiometer(0,360,0));
 
-	shooterLeft.reset(new Talon(0));
-	shooterRight.reset(new Talon(1));
+	shooterLeft.reset(new VictorSP(0));
+	shooterRight.reset(new VictorSP(1));
 	shooterLeftEncoder.reset(new Encoder(0,1));
 	shooterRightEncoder.reset(new Encoder(2,3));
 

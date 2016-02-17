@@ -23,6 +23,9 @@ public:
 	void Set(double x);
 	void InitDefaultCommand();
 
+	static double loweredPot;
+	static double shootingPot;
+
 	void EnablePID();
 	void DisablePID();
 	bool IsPIDEnabled();
