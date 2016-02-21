@@ -5,6 +5,7 @@ DriveWithJoysticks::DriveWithJoysticks()
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 	Requires(driveSystem.get());
+	reversed = false;
 }
 
 // Called just before this Command runs the first time
@@ -17,9 +18,14 @@ void DriveWithJoysticks::Initialize()
 void DriveWithJoysticks::Execute()
 {
 	if (oi->GetReverseDriveButton()) {
-		driveSystem->Drive(-oi->GetDriveY(),-oi->GetDriveRotation());
+		reversed  = !reversed;
 	}
-	else driveSystem->Drive(oi->GetDriveY(),oi->GetDriveRotation());
+
+	if (reversed) {
+		driveSystem->Drive(-oi->GetDriveY(),-oi->GetDriveRotation());
+	} else {
+		driveSystem->Drive(oi->GetDriveY(),oi->GetDriveRotation());
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
