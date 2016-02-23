@@ -4,6 +4,7 @@
 ShooterPunch::ShooterPunch() :
 		Subsystem("ExampleSubsystem")
 {
+	punch = RobotMap::shooterPunch;
 	state = DoubleSolenoid::Value::kOff;
 }
 

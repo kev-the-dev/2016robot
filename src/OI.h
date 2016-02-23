@@ -16,15 +16,17 @@ private:
 	std::unique_ptr<JoystickButton> shootButton;
 	std::unique_ptr<JoystickButton> badShootButton;
 	std::unique_ptr<JoystickButton> badIntakeButton;
-	std::unique_ptr<JoystickButton> manShooterButton;
 
 	//Commands used by buttons
 	std::unique_ptr<Command> liftToSwitchCommand;
 	std::unique_ptr<Command> shootCommand;
+	std::unique_ptr<Command> punchOutCommand;
+	std::unique_ptr<Command> punchInCommand;
 	std::unique_ptr<Command> badShootCommand;
 	std::unique_ptr<Command> badIntakeCommand;
 	std::unique_ptr<Command> stopShooterCommand;
-	std::unique_ptr<Command> manShooterCommand;
+	std::unique_ptr<Command> armToIntake;
+	std::unique_ptr<Command> armToShooting;
 	void SetButtons();
 public:
 	OI();

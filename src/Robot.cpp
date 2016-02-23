@@ -23,9 +23,10 @@ private:
 
 		//Autonomous choices
 		chooser->AddDefault("Do Nothing", (Command*) new DoNothing() );
-		chooser->AddObject("Drive Forward",new DoForTime(std::unique_ptr<Command>(new DriveAuto(1,0)),1));
+		chooser->AddObject("Drive Forward",new DoForTime(std::unique_ptr<Command>(new RotateX(0,1)),5));
 
 		SmartDashboard::PutData("Auto Modes", chooser.get());
+		SmartDashboard::PutData("Running Commands",Scheduler::GetInstance());
 	}
 
 	void DisabledInit()
@@ -53,6 +54,7 @@ private:
 
 	void TeleopInit()
 	{
+		CommandBase::shooterPunch->Set(DoubleSolenoid::kReverse);
 		//Starts compressing air at start of teleop
 		RobotMap::compressor->Start();
 

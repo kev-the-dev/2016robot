@@ -22,6 +22,7 @@ void DriveSystem::Drive(float y, float rotation)
 {
 	drive->ArcadeDrive(y,rotation);
 }
+//positive if right, negative if left
 float DriveSystem::GyroAngle()
 {
 	return gyro->GetAngle();
@@ -33,4 +34,8 @@ double DriveSystem::Distance()
 double DriveSystem::Rate()
 {
 	return (encoderLeft->GetRate() + encoderRight->GetRate()) / 2;
+}
+void DriveSystem::ResetGyro()
+{
+	gyro->Reset();
 }

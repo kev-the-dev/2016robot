@@ -7,28 +7,38 @@
 #include "Commands/Shoot.h"
 #include "Commands/ShooterSet.h"
 #include "Commands/ShooterWithJoystick.h"
+#include "Commands/Auto/DoForTime.h"
+#include "Commands/Auto/DriveAuto.h"
+#include "Commands/ShooterPunchSet.h"
+#include "Commands/ArmWithJoystick.h"
 
 void OI::SetButtons()
 {
 	shootCommand.reset(new Shoot());
+	punchInCommand.reset(new ShooterPunchSet(DoubleSolenoid::kReverse));
+	punchOutCommand.reset(new ShooterPunchSet(DoubleSolenoid::kForward));
 	badShootCommand.reset(new ShooterSet(1));
-	badIntakeCommand.reset(new ShooterSet(-0.75));
+	badIntakeCommand.reset(new ShooterSet(-1));
 	liftToSwitchCommand.reset( new LiftToSwitch());
 	stopShooterCommand.reset(new ShooterSet(0));
-	manShooterCommand.reset(new ShooterWithJoystick());
 
 	badIntakeButton->WhileHeld(badIntakeCommand.get());
 	badIntakeButton->WhenReleased(stopShooterCommand.get());
 	badShootButton->WhileHeld(badShootCommand.get());
 	badShootButton->WhenReleased(stopShooterCommand.get());
-	manShooterButton->WhileHeld(manShooterCommand.get());
-	//shootButton->WhenPressed(shootCommand.get());
+	shootButton->WhenPressed(punchOutCommand.get());
+	shootButton->WhenReleased(punchInCommand.get());
 
 	SmartDashboard::PutData("Lift to Switch",liftToSwitchCommand.get());
-
+	SmartDashboard::PutData("Punch Forward", new ShooterPunchSet(DoubleSolenoid::kForward));
+	SmartDashboard::PutData("Punch Reverse", new ShooterPunchSet(DoubleSolenoid::kReverse));
+	SmartDashboard::PutData("Punch Off", new ShooterPunchSet(DoubleSolenoid::kOff));
 	SmartDashboard::PutData("Extend",new LifterSet(Lifter::kForward));
 	SmartDashboard::PutData("Retract",new LifterSet(Lifter::kReverse));
 	SmartDashboard::PutData("On",new LifterSet(Lifter::kOn));
 	SmartDashboard::PutData("Off", new LifterSet(Lifter::kOff));
-	SmartDashboard::PutData("RotateX", new RotateX(30));
+	//SmartDashboard::PutData("RotateX", new RotateX(30));
+	SmartDashboard::PutData("Rotate to Zero", (PIDCommand*) new RotateX(0));
+	SmartDashboard::PutData("Forward Safe", new DoForTime(std::unique_ptr<Command>(new RotateX(0,0.5)),5));
+	SmartDashboard::PutData("Move Forward", (Command*) new DoForTime(std::unique_ptr<Command>(new DriveAuto(0.5,0)),5));
 }

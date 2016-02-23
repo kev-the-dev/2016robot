@@ -2,10 +2,9 @@
 
 Shoot::Shoot()
 {
-	shooterPIDSet.reset(new ShooterPIDSet(CommandBase::shooter->SHOOTING_RATE));
-	waitForShooter.reset(new WaitForShooter());
-	shooterPunchSet.reset(new ShooterPunchSet(DoubleSolenoid::Value::kForward));
-	AddSequential(shooterPIDSet.get());
-	AddSequential(waitForShooter.get());
-	AddSequential(shooterPunchSet.get());
+	punchForward.reset(new ShooterPunchSet(DoubleSolenoid::Value::kForward));
+	punchReverse.reset(new ShooterPunchSet(DoubleSolenoid::Value::kReverse));
+	doForTime.reset(new DoForTime(std::move(punchForward),1));
+	AddSequential(doForTime.get());
+	AddSequential(punchReverse.get());
 }

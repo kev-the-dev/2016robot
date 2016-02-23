@@ -29,13 +29,18 @@ void RobotMap::init()
 	rightOne.reset(new VictorSP(4));
 	rightTwo.reset(new VictorSP(5));
 	drive.reset(new RobotDrive(leftOne,leftTwo,rightOne,rightTwo));
+	drive->SetExpiration(5);
 	driveEncoderLeft.reset(new Encoder(4,5));
 	driveEncoderRight.reset(new Encoder(6,7));
 	gyro.reset(new ADXRS450_Gyro());
 
 	compressor.reset(new Compressor(0));
 
-	armMotor.reset(new VictorSP(6));
+	armMotor.reset(new Victor(6));
+	//Because wires are reversed
+	//armMotor->SetInverted(true);
+
+
 	//AnalogPotentiometer (int channel, double fullRange=1.0, double offset=0.0)
 	armPot.reset(new AnalogPotentiometer(0,360,0));
 
@@ -44,9 +49,9 @@ void RobotMap::init()
 	shooterLeftEncoder.reset(new Encoder(0,1));
 	shooterRightEncoder.reset(new Encoder(2,3));
 
-	lifterPistonForward.reset(new Solenoid(1,0));
-	lifterPistonReverse.reset(new Solenoid(1,1));
+	lifterPistonForward.reset(new Solenoid(1,2));
+	lifterPistonReverse.reset(new Solenoid(1,3));
 	lifterSwitch.reset(new DigitalInput(4));
 
-	shooterPunch.reset(new DoubleSolenoid(1,2,3));
+	shooterPunch.reset(new DoubleSolenoid(1,4,7));
 }

@@ -14,6 +14,7 @@ void DoForTime::Initialize()
 // Called once after isFinished returns true
 void DoForTime::End()
 {
+	std::cout << "DoForTime Ended" << std::endl;
 	command->Cancel();
 }
 

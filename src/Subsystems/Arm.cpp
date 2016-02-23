@@ -5,7 +5,7 @@ float Arm::P = 1;
 float Arm::I = 0;
 float Arm::D = 0;
 
-float Arm::percentageTolerance = 5;
+float Arm::percentageTolerance = 2;
 
 double loweredPot = 0;
 double shootingPot = 45;

@@ -21,6 +21,7 @@ public:
 	double Distance();
 	double Rate();
 	float GyroAngle();
+	void ResetGyro();
 };
 
 #endif
