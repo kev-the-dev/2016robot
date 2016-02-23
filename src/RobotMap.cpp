@@ -6,8 +6,6 @@ std::shared_ptr<SpeedController> RobotMap::leftTwo;
 std::shared_ptr<SpeedController> RobotMap::rightOne;
 std::shared_ptr<SpeedController> RobotMap::rightTwo;
 std::shared_ptr<RobotDrive> RobotMap::drive;
-std::shared_ptr<Encoder> RobotMap::driveEncoderLeft;
-std::shared_ptr<Encoder> RobotMap::driveEncoderRight;
 std::shared_ptr<Gyro> RobotMap::gyro;
 std::shared_ptr<Compressor> RobotMap::compressor;
 std::shared_ptr<SpeedController> RobotMap::armMotor;
@@ -29,9 +27,7 @@ void RobotMap::init()
 	rightOne.reset(new VictorSP(4));
 	rightTwo.reset(new VictorSP(5));
 	drive.reset(new RobotDrive(leftOne,leftTwo,rightOne,rightTwo));
-	drive->SetExpiration(5);
-	driveEncoderLeft.reset(new Encoder(4,5));
-	driveEncoderRight.reset(new Encoder(6,7));
+	drive->SetExpiration(2);
 	gyro.reset(new ADXRS450_Gyro());
 
 	compressor.reset(new Compressor(0));
@@ -39,7 +35,6 @@ void RobotMap::init()
 	armMotor.reset(new Victor(6));
 	//Because wires are reversed
 	//armMotor->SetInverted(true);
-
 
 	//AnalogPotentiometer (int channel, double fullRange=1.0, double offset=0.0)
 	armPot.reset(new AnalogPotentiometer(0,360,0));
@@ -54,4 +49,5 @@ void RobotMap::init()
 	lifterSwitch.reset(new DigitalInput(4));
 
 	shooterPunch.reset(new DoubleSolenoid(1,4,7));
+	LiveWindow::GetInstance()->AddActuator("Shooter","Punch",shooterPunch);
 }

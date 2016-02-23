@@ -1,7 +1,7 @@
 #include "Arm.h"
 #include "../RobotMap.h"
 
-float Arm::P = 1;
+float Arm::P = 0.01;
 float Arm::I = 0;
 float Arm::D = 0;
 

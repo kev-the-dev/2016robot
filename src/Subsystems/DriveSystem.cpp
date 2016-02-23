@@ -6,8 +6,6 @@ DriveSystem::DriveSystem() :
 {
 	drive = RobotMap::drive;
 	gyro = RobotMap::gyro;
-	encoderLeft = RobotMap::driveEncoderLeft;
-	encoderRight = RobotMap::driveEncoderRight;
 }
 
 void DriveSystem::InitDefaultCommand()
@@ -26,14 +24,6 @@ void DriveSystem::Drive(float y, float rotation)
 float DriveSystem::GyroAngle()
 {
 	return gyro->GetAngle();
-}
-double DriveSystem::Distance()
-{
-	return (encoderLeft->GetDistance() + encoderRight->GetDistance()) / 2;
-}
-double DriveSystem::Rate()
-{
-	return (encoderLeft->GetRate() + encoderRight->GetRate()) / 2;
 }
 void DriveSystem::ResetGyro()
 {

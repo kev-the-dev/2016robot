@@ -25,12 +25,12 @@ RotateX::RotateX(float a, float y) : PIDCommand(p,i,d)
 void RotateX::Initialize()
 {
 	CommandBase::driveSystem->Drive(0,0);
-	std::cout << "PID started" << std::endl;
+	//std::cout << "PID started" << std::endl;
 }
 // Called repeatedly when this Command is scheduled to run
 void RotateX::Execute()
 {
-	std::cout << "Running PID: P=" << this->GetPIDController()->GetP() << " Setpoint = " << this->GetPIDController()->GetSetpoint();
+	//std::cout << "Running PID: P=" << this->GetPIDController()->GetP() << " Setpoint = " << this->GetPIDController()->GetSetpoint();
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -54,11 +54,11 @@ void RotateX::Interrupted()
 double RotateX::ReturnPIDInput()
 {
 	float angle = CommandBase::driveSystem->GyroAngle();
-	std::cout << "Gyro: " << angle << std::endl;
+	//std::cout << "Gyro: " << angle << std::endl;
 	return angle;
 }
 void RotateX::UsePIDOutput(double output)
 {
-	std::cout << "Output: " << output << std::endl;
+	///std::cout << "Output: " << output << std::endl;
 	CommandBase::driveSystem->Drive(driveY,-output);
 }

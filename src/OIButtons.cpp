@@ -29,14 +29,6 @@ void OI::SetButtons()
 	shootButton->WhenPressed(punchOutCommand.get());
 	shootButton->WhenReleased(punchInCommand.get());
 
-	SmartDashboard::PutData("Lift to Switch",liftToSwitchCommand.get());
-	SmartDashboard::PutData("Punch Forward", new ShooterPunchSet(DoubleSolenoid::kForward));
-	SmartDashboard::PutData("Punch Reverse", new ShooterPunchSet(DoubleSolenoid::kReverse));
-	SmartDashboard::PutData("Punch Off", new ShooterPunchSet(DoubleSolenoid::kOff));
-	SmartDashboard::PutData("Extend",new LifterSet(Lifter::kForward));
-	SmartDashboard::PutData("Retract",new LifterSet(Lifter::kReverse));
-	SmartDashboard::PutData("On",new LifterSet(Lifter::kOn));
-	SmartDashboard::PutData("Off", new LifterSet(Lifter::kOff));
 	//SmartDashboard::PutData("RotateX", new RotateX(30));
 	SmartDashboard::PutData("Rotate to Zero", (PIDCommand*) new RotateX(0));
 	SmartDashboard::PutData("Forward Safe", new DoForTime(std::unique_ptr<Command>(new RotateX(0,0.5)),5));
