@@ -12,6 +12,10 @@
 #include "Commands/ShooterPunchSet.h"
 #include "Commands/ArmWithJoystick.h"
 #include "Commands/AutoAimShoot.h"
+#include "Commands/Auto/LowBarForward.h"
+#include "Commands/Auto/DoNothing.h"
+#include "Commands/Auto/LowBarScore.h"
+#include "Commands/Auto/SpyBoxAuto.h"
 
 void OI::SetButtons()
 {
@@ -33,11 +37,18 @@ void OI::SetButtons()
 	mac1Button->ToggleWhenPressed(mac1->NewRecordFileCommand("/home/lvuser/mac1.csv"));
 	mac2Button->ToggleWhenPressed(mac2->NewRecordFileCommand("/home/lvuser/mac2.csv"));
 
+
+	chooser->AddDefault("Do Nothing", (Command*) new DoNothing() );
+	chooser->AddObject("Low Bar Forward",new LowBarForward());
+	chooser->AddObject("Low Bar Score",new LowBarScore());
+	chooser->AddObject("Spy Box Score",new SpyBoxAuto());
+	chooser->AddObject("mac1", mac1->NewPlayFileCommand("/home/lvuser/mac1.csv"));
+	chooser->AddObject("mac2", mac2->NewPlayFileCommand("/home/lvuser/mac2.csv"));
+
+	SmartDashboard::PutData("Auto Modes", chooser);
 	//SmartDashboard::PutData("RotateX", new RotateX(30));
 	SmartDashboard::PutData("Rotate to Zero", (PIDCommand*) new RotateX(0));
 	SmartDashboard::PutData("Forward Safe", new DoForTime(std::unique_ptr<Command>(new RotateX(0,0.5)),5));
 	SmartDashboard::PutData("Move Forward", (Command*) new DoForTime(std::unique_ptr<Command>(new DriveAuto(0.5,0)),5));
 	SmartDashboard::PutData("AutoAimShoot",new AutoAimShoot());
-	SmartDashboard::PutData("Play1",mac1->NewPlayFileCommand("/home/lvuser/mac1.csv"));
-	SmartDashboard::PutData("Play2",mac1->NewPlayFileCommand("/home/lvuser/mac2.csv"));
 }

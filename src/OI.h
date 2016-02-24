@@ -7,6 +7,9 @@
 
 class OI
 {
+public:
+	Macro* mac1;
+	Macro* mac2;
 private:
 	//Joysticks
 
@@ -18,6 +21,7 @@ private:
 	std::unique_ptr<JoystickButton> shootButton;
 	std::unique_ptr<JoystickButton> badShootButton;
 	std::unique_ptr<JoystickButton> badIntakeButton;
+	std::unique_ptr<JoystickButton> armWithZButton;
 	std::unique_ptr<JoystickButton> mac1Button;
 	std::unique_ptr<JoystickButton> mac2Button;
 
@@ -31,9 +35,9 @@ private:
 	std::unique_ptr<Command> stopShooterCommand;
 	std::unique_ptr<Command> armToIntake;
 	std::unique_ptr<Command> armToShooting;
+	std::unique_ptr<Command> armWithJoysticks;
+	std::unique_ptr<Command> armWithZ;
 
-	Macro* mac1;
-	Macro* mac2;
 	void SetButtons();
 public:
 	OI();
@@ -44,6 +48,7 @@ public:
 	float GetDriveRotation();
 	float GetOpY();
 	float GetOpZ();
+	SendableChooser* chooser;
 };
 
 #endif

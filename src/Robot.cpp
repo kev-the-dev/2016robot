@@ -3,10 +3,8 @@
 
 //Import commands used in Robot.cpp
 #include "Commands/StartTeleCommands.h"
-#include "Commands/Auto/LowBarForward.h"
-#include "Commands/Auto/DoNothing.h"
-#include "Commands/Auto/LowBarScore.h"
-#include "Commands/Auto/SpyBoxAuto.h"
+
+#include "OI.h"
 
 #include "RiptideRecorder/RiptideRecorder.h"
 
@@ -16,22 +14,13 @@ class Robot: public IterativeRobot
 private:
 	std::unique_ptr<Command> autonomousCommand;
 	std::unique_ptr<Command> teleCommands;
-	std::unique_ptr<SendableChooser> chooser;
 	void RobotInit()
 	{
 		//CameraServer::GetInstance()->StartAutomaticCapture(0);
 		CommandBase::init();
 
 		teleCommands.reset(new StartTeleCommands());
-		chooser.reset(new SendableChooser());
 
-		//Autonomous choices
-		chooser->AddDefault("Do Nothing", (Command*) new DoNothing() );
-		chooser->AddObject("Low Bar Forward",new LowBarForward());
-		chooser->AddObject("Low Bar Score",new LowBarScore());
-		chooser->AddObject("Spy Box Score",new SpyBoxAuto());
-
-		SmartDashboard::PutData("Auto Modes", chooser.get());
 		SmartDashboard::PutData("Running Commands",Scheduler::GetInstance());
 	}
 
@@ -48,7 +37,7 @@ private:
 	void AutonomousInit()
 	{
 		//Grabs auto command from dashboard and runs it
-		autonomousCommand.reset((Command*) chooser->GetSelected());
+		autonomousCommand.reset((Command*) CommandBase::oi->chooser->GetSelected());
 		if (autonomousCommand.get() != NULL)
 			autonomousCommand->Start();
 	}
