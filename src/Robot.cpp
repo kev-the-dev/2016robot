@@ -3,10 +3,13 @@
 
 //Import commands used in Robot.cpp
 #include "Commands/StartTeleCommands.h"
+#include "Commands/Auto/LowBarForward.h"
 #include "Commands/Auto/DoNothing.h"
-#include "Commands/Auto/DoForTime.h"
-#include "Commands/Auto/DriveAuto.h"
-#include "Commands/RotateX.h"
+#include "Commands/Auto/LowBarScore.h"
+#include "Commands/Auto/SpyBoxAuto.h"
+
+#include "RiptideRecorder/RiptideRecorder.h"
+
 //This is the robot class
 class Robot: public IterativeRobot
 {
@@ -16,6 +19,7 @@ private:
 	std::unique_ptr<SendableChooser> chooser;
 	void RobotInit()
 	{
+		//CameraServer::GetInstance()->StartAutomaticCapture(0);
 		CommandBase::init();
 
 		teleCommands.reset(new StartTeleCommands());
@@ -23,7 +27,9 @@ private:
 
 		//Autonomous choices
 		chooser->AddDefault("Do Nothing", (Command*) new DoNothing() );
-		chooser->AddObject("Drive Forward",new DoForTime(std::unique_ptr<Command>(new RotateX(0,1)),5));
+		chooser->AddObject("Low Bar Forward",new LowBarForward());
+		chooser->AddObject("Low Bar Score",new LowBarScore());
+		chooser->AddObject("Spy Box Score",new SpyBoxAuto());
 
 		SmartDashboard::PutData("Auto Modes", chooser.get());
 		SmartDashboard::PutData("Running Commands",Scheduler::GetInstance());
@@ -56,7 +62,6 @@ private:
 	{
 		CommandBase::shooterPunch->Set(DoubleSolenoid::kReverse);
 		//Starts compressing air at start of teleop
-		RobotMap::compressor->Start();
 
 		// Makes sure Auto command is stopped
 		if (autonomousCommand.get() != NULL)
@@ -71,7 +76,10 @@ private:
 		//Runs all current commands
 		Scheduler::GetInstance()->Run();
 	}
-
+	void TestInit()
+	{
+		RobotMap::compressor->Start();
+	}
 	void TestPeriodic()
 	{
 		LiveWindow::GetInstance()->Run();

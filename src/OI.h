@@ -3,6 +3,8 @@
 
 #include "WPILib.h"
 
+#include "RiptideRecorder/RiptideRecorder.h"
+
 class OI
 {
 private:
@@ -16,6 +18,8 @@ private:
 	std::unique_ptr<JoystickButton> shootButton;
 	std::unique_ptr<JoystickButton> badShootButton;
 	std::unique_ptr<JoystickButton> badIntakeButton;
+	std::unique_ptr<JoystickButton> mac1Button;
+	std::unique_ptr<JoystickButton> mac2Button;
 
 	//Commands used by buttons
 	std::unique_ptr<Command> liftToSwitchCommand;
@@ -27,6 +31,9 @@ private:
 	std::unique_ptr<Command> stopShooterCommand;
 	std::unique_ptr<Command> armToIntake;
 	std::unique_ptr<Command> armToShooting;
+
+	Macro* mac1;
+	Macro* mac2;
 	void SetButtons();
 public:
 	OI();

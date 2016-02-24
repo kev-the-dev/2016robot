@@ -12,6 +12,8 @@ OI::OI()
 	badIntakeButton.reset(new JoystickButton(stickRight.get(),2));
 	shootButton.reset(new JoystickButton(stickRight.get(),1));
 
+	mac1Button.reset(new JoystickButton(stickLeft.get(),6));
+	mac2Button.reset(new JoystickButton(stickLeft.get(),7));
 	SetButtons();
 }
 float OI::GetDriveY()

@@ -4,11 +4,14 @@
 #include "WPILib.h"
 #include <string>
 
+#include "RiptideRecorder/RiptideRecorder.h"
+
 class RobotMap
 {
 public:
 	static void init();
 
+	static std::shared_ptr<Recorder> rec;
 	//Static pointers to all sensors and actuators
 
 	//Driving

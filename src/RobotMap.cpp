@@ -18,14 +18,21 @@ std::shared_ptr<Solenoid> RobotMap::lifterPistonForward;
 std::shared_ptr<Solenoid> RobotMap::lifterPistonReverse;
 std::shared_ptr<DigitalInput> RobotMap::lifterSwitch;
 std::shared_ptr<DoubleSolenoid> RobotMap::shooterPunch;
+std::shared_ptr<Recorder> RobotMap::rec;
 
 void RobotMap::init()
 {
+	rec.reset(Recorder::GetInstance());
+
 	//Init all sensors/actuators with proper port #, add to LiveWindow
 	leftOne.reset(new VictorSP(2));
+	rec->AddDevice("LeftOne",leftOne.get());
 	leftTwo.reset(new VictorSP(3));
+	rec->AddDevice("LeftTwo",leftTwo.get());
 	rightOne.reset(new VictorSP(4));
+	rec->AddDevice("RightOne",rightOne.get());
 	rightTwo.reset(new VictorSP(5));
+	rec->AddDevice("RightTwo",rightTwo.get());
 	drive.reset(new RobotDrive(leftOne,leftTwo,rightOne,rightTwo));
 	drive->SetExpiration(2);
 	gyro.reset(new ADXRS450_Gyro());
@@ -33,14 +40,20 @@ void RobotMap::init()
 	compressor.reset(new Compressor(0));
 
 	armMotor.reset(new Victor(6));
+	rec->AddDevice("armMotor",armMotor.get());
 	//Because wires are reversed
 	//armMotor->SetInverted(true);
 
 	//AnalogPotentiometer (int channel, double fullRange=1.0, double offset=0.0)
 	armPot.reset(new AnalogPotentiometer(0,360,0));
 
+	//6,11
+	//
+
 	shooterLeft.reset(new VictorSP(0));
+	rec->AddDevice("shooterLeft",shooterLeft.get());
 	shooterRight.reset(new VictorSP(1));
+	rec->AddDevice("shooterRight",shooterRight.get());
 	shooterLeftEncoder.reset(new Encoder(0,1));
 	shooterRightEncoder.reset(new Encoder(2,3));
 
@@ -49,5 +62,6 @@ void RobotMap::init()
 	lifterSwitch.reset(new DigitalInput(4));
 
 	shooterPunch.reset(new DoubleSolenoid(1,4,7));
+	rec->AddDevice("Punch",shooterPunch.get());
 	LiveWindow::GetInstance()->AddActuator("Shooter","Punch",shooterPunch);
 }

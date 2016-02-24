@@ -11,6 +11,7 @@
 #include "Commands/Auto/DriveAuto.h"
 #include "Commands/ShooterPunchSet.h"
 #include "Commands/ArmWithJoystick.h"
+#include "Commands/AutoAimShoot.h"
 
 void OI::SetButtons()
 {
@@ -29,8 +30,14 @@ void OI::SetButtons()
 	shootButton->WhenPressed(punchOutCommand.get());
 	shootButton->WhenReleased(punchInCommand.get());
 
+	mac1Button->ToggleWhenPressed(mac1->NewRecordFileCommand("/home/lvuser/mac1.csv"));
+	mac2Button->ToggleWhenPressed(mac2->NewRecordFileCommand("/home/lvuser/mac2.csv"));
+
 	//SmartDashboard::PutData("RotateX", new RotateX(30));
 	SmartDashboard::PutData("Rotate to Zero", (PIDCommand*) new RotateX(0));
 	SmartDashboard::PutData("Forward Safe", new DoForTime(std::unique_ptr<Command>(new RotateX(0,0.5)),5));
 	SmartDashboard::PutData("Move Forward", (Command*) new DoForTime(std::unique_ptr<Command>(new DriveAuto(0.5,0)),5));
+	SmartDashboard::PutData("AutoAimShoot",new AutoAimShoot());
+	SmartDashboard::PutData("Play1",mac1->NewPlayFileCommand("/home/lvuser/mac1.csv"));
+	SmartDashboard::PutData("Play2",mac1->NewPlayFileCommand("/home/lvuser/mac2.csv"));
 }
