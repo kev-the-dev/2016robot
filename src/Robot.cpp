@@ -67,7 +67,9 @@ private:
 	}
 	void TestInit()
 	{
+		#ifdef REAL
 		RobotMap::compressor->Start();
+		#endif
 	}
 	void TestPeriodic()
 	{

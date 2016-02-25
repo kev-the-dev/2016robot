@@ -7,7 +7,9 @@ std::shared_ptr<SpeedController> RobotMap::rightOne;
 std::shared_ptr<SpeedController> RobotMap::rightTwo;
 std::shared_ptr<RobotDrive> RobotMap::drive;
 std::shared_ptr<Gyro> RobotMap::gyro;
+#ifdef REAL
 std::shared_ptr<Compressor> RobotMap::compressor;
+#endif
 std::shared_ptr<SpeedController> RobotMap::armMotor;
 std::shared_ptr<Potentiometer> RobotMap::armPot;
 std::shared_ptr<SpeedController> RobotMap::shooterLeft;
@@ -25,19 +27,25 @@ void RobotMap::init()
 	rec.reset(Recorder::GetInstance());
 
 	//Init all sensors/actuators with proper port #, add to LiveWindow
-	leftOne.reset(new VictorSP(2));
+	leftOne.reset(new Victor(2));
 	rec->AddDevice("LeftOne",leftOne.get());
-	leftTwo.reset(new VictorSP(3));
+	leftTwo.reset(new Victor(3));
 	rec->AddDevice("LeftTwo",leftTwo.get());
-	rightOne.reset(new VictorSP(4));
+	rightOne.reset(new Victor(4));
 	rec->AddDevice("RightOne",rightOne.get());
-	rightTwo.reset(new VictorSP(5));
+	rightTwo.reset(new Victor(5));
 	rec->AddDevice("RightTwo",rightTwo.get());
 	drive.reset(new RobotDrive(leftOne,leftTwo,rightOne,rightTwo));
 	drive->SetExpiration(2);
+	#ifdef REAL
 	gyro.reset(new ADXRS450_Gyro());
+	#else
+	gyro.reset(new AnalogGyro(0));
+	#endif
 
+	#ifdef REAL
 	compressor.reset(new Compressor(0));
+	#endif
 
 	armMotor.reset(new Victor(6));
 	rec->AddDevice("armMotor",armMotor.get());
@@ -50,9 +58,9 @@ void RobotMap::init()
 	//6,11
 	//
 
-	shooterLeft.reset(new VictorSP(0));
+	shooterLeft.reset(new Victor(0));
 	rec->AddDevice("shooterLeft",shooterLeft.get());
-	shooterRight.reset(new VictorSP(1));
+	shooterRight.reset(new Victor(1));
 	rec->AddDevice("shooterRight",shooterRight.get());
 	shooterLeftEncoder.reset(new Encoder(0,1));
 	shooterRightEncoder.reset(new Encoder(2,3));
