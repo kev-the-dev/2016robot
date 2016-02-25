@@ -2,9 +2,7 @@
 
 Shoot::Shoot()
 {
-	punchForward.reset(new ShooterPunchSet(DoubleSolenoid::Value::kForward));
-	punchReverse.reset(new ShooterPunchSet(DoubleSolenoid::Value::kReverse));
-	doForTime.reset(new DoForTime(std::move(punchForward),1));
-	AddSequential(doForTime.get());
-	AddSequential(punchReverse.get());
+	AddSequential(new ShooterPunchSet(DoubleSolenoid::Value::kForward));
+	AddSequential(new WaitCommand(1));
+	AddSequential(new ShooterPunchSet(DoubleSolenoid::Value::kReverse));
 }

@@ -5,8 +5,10 @@
 
 LowBarForward::LowBarForward()
 {
-	AddSequential(new DoForTime(std::unique_ptr<Command>(new ArmSet(-0.3)),0.5));
+	AddSequential(new ArmSet(-0.3));
+	AddSequential(new WaitCommand(0.5));
 	AddSequential(new ArmSet(0));
-	AddSequential(new DoForTime(std::unique_ptr<Command>(new RotateX(0,-0.5)),4));
+	AddSequential(new RotateX(0,-0.5));
+	AddSequential(new WaitCommand(4));
 	AddSequential(new DriveAuto(0,0));
 }

@@ -14,7 +14,8 @@ LowBarScore::LowBarScore()
 	//AddSequential(new DoForTime(std::unique_ptr<Command>(new RotateX(turnAngle),4)));
 	AddParallel(new ShooterSet(1));
 	AddSequential(new ArmGoToNoPID(angle));
-	AddSequential(new DoForTime(std::unique_ptr<Command>(new ShooterPunchSet(DoubleSolenoid::kForward)),1));
+	AddSequential(new ShooterPunchSet(DoubleSolenoid::kForward));
+	AddSequential(new WaitCommand(1));
 	AddParallel(new ShooterPunchSet(DoubleSolenoid::kReverse));
 	AddParallel(new ShooterSet(0));
 }
