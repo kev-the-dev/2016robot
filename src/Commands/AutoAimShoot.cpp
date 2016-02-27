@@ -4,16 +4,11 @@ double AutoAimShoot::angle = 45;
 
 AutoAimShoot::AutoAimShoot()
 {
-	armGoTo.reset(new ArmGoToNoPID(angle));
-	spinUpShooter.reset(new ShooterSet(1));
-	turnOffShooter.reset(new ShooterSet(0));
-	shoot.reset(new DoForTime(std::unique_ptr<Command>(new ShooterPunchSet(DoubleSolenoid::kForward)),0.5 ));
-	shootIn.reset(new ShooterPunchSet(DoubleSolenoid::kReverse));
-
-	AddParallel(spinUpShooter.get());
-	AddSequential(armGoTo.get());
-	AddSequential(shoot.get());
-	AddParallel(shootIn.get());
-	AddParallel(turnOffShooter.get());
+	AddParallel(new ShooterSet(1));
+	AddSequential(new ArmGoToNoPID(angle));
+	AddSequential(new ShooterPunchSet(DoubleSolenoid::kForward));
+	AddSequential(new WaitCommand(0.5));
+	AddParallel(new ShooterPunchSet(DoubleSolenoid::kReverse));
+	AddParallel(new ShooterSet(0));
 
 }

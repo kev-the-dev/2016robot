@@ -7,7 +7,6 @@
 #include "Commands/Shoot.h"
 #include "Commands/ShooterSet.h"
 #include "Commands/ShooterWithJoystick.h"
-#include "Commands/Auto/DoForTime.h"
 #include "Commands/Auto/DriveAuto.h"
 #include "Commands/ShooterPunchSet.h"
 #include "Commands/ArmWithJoystick.h"
@@ -46,9 +45,4 @@ void OI::SetButtons()
 	chooser->AddObject("mac2", mac2->NewPlayFileCommand("/home/lvuser/mac2.csv"));
 
 	SmartDashboard::PutData("Auto Modes", chooser);
-	//SmartDashboard::PutData("RotateX", new RotateX(30));
-	SmartDashboard::PutData("Rotate to Zero", (PIDCommand*) new RotateX(0));
-	SmartDashboard::PutData("Forward Safe", new DoForTime(std::unique_ptr<Command>(new RotateX(0,0.5)),5));
-	SmartDashboard::PutData("Move Forward", (Command*) new DoForTime(std::unique_ptr<Command>(new DriveAuto(0.5,0)),5));
-	SmartDashboard::PutData("AutoAimShoot",new AutoAimShoot());
 }

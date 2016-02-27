@@ -23,7 +23,9 @@ public:
 	static std::shared_ptr<Gyro> gyro;
 
 	//Pnuematics
+	#ifdef REAL
 	static std::shared_ptr<Compressor> compressor;
+	#endif
 
 	//Arm
 	static std::shared_ptr<SpeedController> armMotor;

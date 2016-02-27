@@ -1,5 +1,7 @@
 /Debug/
-/linux_simulate/
 /.settings/*
 *~
 sysProps.xml
+/linux_simulate/
+/Windows Simulate/
+
