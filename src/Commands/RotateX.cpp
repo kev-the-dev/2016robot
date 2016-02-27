@@ -4,7 +4,7 @@ float RotateX::p = .04;
 float RotateX::i = 0.0005;
 float RotateX::d = 0;
 
-RotateX::RotateX(float a) : PIDCommand(p,i,d)
+RotateX::RotateX(float a) : PIDCommand("RotateX",p,i,d)
 {
 	std::cout << "Contructed PID" << std::endl;
 	Requires(CommandBase::driveSystem.get());
@@ -24,6 +24,9 @@ RotateX::RotateX(float a, float y) : PIDCommand(p,i,d)
 // Called just before this Command runs the first time
 void RotateX::Initialize()
 {
+	#ifdef DEBUG
+	std::cout << "RotateX a=" << angle << " driveY=" << driveY << std::endl;
+	#endif
 	CommandBase::driveSystem->Drive(0,0);
 	//std::cout << "PID started" << std::endl;
 }
@@ -42,6 +45,10 @@ bool RotateX::IsFinished()
 // Called once after isFinished returns true
 void RotateX::End()
 {
+	#ifdef DEBUG
+	std::cout << "RotateX End" << std::endl;
+	#endif
+	GetPIDController()->Disable();
 	CommandBase::driveSystem->Drive(0,0);
 }
 
@@ -49,7 +56,7 @@ void RotateX::End()
 // subsystems is scheduled to run
 void RotateX::Interrupted()
 {
-	CommandBase::driveSystem->Drive(0,0);
+	End();
 }
 double RotateX::ReturnPIDInput()
 {
@@ -59,6 +66,9 @@ double RotateX::ReturnPIDInput()
 }
 void RotateX::UsePIDOutput(double output)
 {
+#ifdef DEBUG
+	std::cout << "Output Y=" << driveY << " rotation=" << output << std::endl;
+#endif
 	///std::cout << "Output: " << output << std::endl;
 	CommandBase::driveSystem->Drive(driveY,-output);
 }

@@ -1,6 +1,6 @@
 #include "DoNothing.h"
 
-DoNothing::DoNothing()
+DoNothing::DoNothing() : CommandBase("DoNothing")
 {
 }
 void DoNothing::Initialize()

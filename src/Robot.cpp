@@ -22,10 +22,17 @@ private:
 		teleCommands.reset(new StartTeleCommands());
 
 		SmartDashboard::PutData("Running Commands",Scheduler::GetInstance());
+
+		#ifdef DEBUG
+		std::cout << "RobotInit" << std::endl;
+		#endif
 	}
 
 	void DisabledInit()
 	{
+		#ifdef DEBUG
+		std::cout << "DisabledInit" << std::endl;
+		#endif
 		Scheduler::GetInstance()->RemoveAll();
 	}
 
@@ -36,9 +43,19 @@ private:
 
 	void AutonomousInit()
 	{
+		#ifdef DEBUG
+		std::cout << "AutoInit" << std::endl;
+		#endif
+
+		CommandBase::driveSystem->ResetGyro();
+
 		//Grabs auto command from dashboard and runs it
+		autonomousCommand.release();
 		autonomousCommand.reset((Command*) CommandBase::oi->chooser->GetSelected());
-		if (autonomousCommand.get() != NULL)
+		if (autonomousCommand != nullptr)
+			#ifdef DEBUG
+			std::cout << "Auto Command: " << autonomousCommand->GetName() << std::endl;
+			#endif
 			autonomousCommand->Start();
 	}
 
@@ -49,11 +66,15 @@ private:
 
 	void TeleopInit()
 	{
+		#ifdef DEBUG
+		std::cout << "TeleInit" << std::endl;
+		#endif
+
 		CommandBase::shooterPunch->Set(DoubleSolenoid::kReverse);
 		//Starts compressing air at start of teleop
 
 		// Makes sure Auto command is stopped
-		if (autonomousCommand.get() != NULL)
+		if (autonomousCommand != nullptr)
 			autonomousCommand->Cancel();
 
 		//Start command you want to run in teleop
@@ -67,6 +88,10 @@ private:
 	}
 	void TestInit()
 	{
+		#ifdef DEBUG
+		std::cout << "TestInit" << std::endl;
+		#endif
+
 		#ifdef REAL
 		RobotMap::compressor->Start();
 		#endif

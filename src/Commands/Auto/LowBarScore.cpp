@@ -8,7 +8,7 @@
 double LowBarScore::turnAngle = 30;
 double LowBarScore::angle = 45;
 
-LowBarScore::LowBarScore()
+LowBarScore::LowBarScore() : CommandGroup("LowBarScore")
 {
 	AddSequential(new LowBarForward());
 	//AddSequential(new DoForTime(std::unique_ptr<Command>(new RotateX(turnAngle),4)));

@@ -7,7 +7,7 @@
 
 double SpyBoxAuto::angle = 45;
 
-SpyBoxAuto::SpyBoxAuto()
+SpyBoxAuto::SpyBoxAuto() : CommandGroup("SpyBoxAuto")
 {
 	AddSequential(new ArmGoTo(angle));
 	AddParallel(new ShooterSet(1));

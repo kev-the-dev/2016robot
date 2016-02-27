@@ -26,6 +26,15 @@ void RobotMap::init()
 {
 	rec.reset(Recorder::GetInstance());
 
+	#ifdef REAL
+	gyro.reset(new ADXRS450_Gyro());
+	compressor.reset(new Compressor(0));
+	shooterLeft.reset(new Victor(0));
+	#else
+	shooterLeft.reset(new Victor(7));
+	gyro.reset(new AnalogGyro(1));
+	#endif
+
 	//Init all sensors/actuators with proper port #, add to LiveWindow
 	leftOne.reset(new Victor(2));
 	rec->AddDevice("LeftOne",leftOne.get());
@@ -37,28 +46,13 @@ void RobotMap::init()
 	rec->AddDevice("RightTwo",rightTwo.get());
 	drive.reset(new RobotDrive(leftOne,leftTwo,rightOne,rightTwo));
 	drive->SetExpiration(2);
-	#ifdef REAL
-	gyro.reset(new ADXRS450_Gyro());
-	#else
-	gyro.reset(new AnalogGyro(0));
-	#endif
-
-	#ifdef REAL
-	compressor.reset(new Compressor(0));
-	#endif
 
 	armMotor.reset(new Victor(6));
 	rec->AddDevice("armMotor",armMotor.get());
-	//Because wires are reversed
 	//armMotor->SetInverted(true);
 
-	//AnalogPotentiometer (int channel, double fullRange=1.0, double offset=0.0)
 	armPot.reset(new AnalogPotentiometer(0,360,0));
 
-	//6,11
-	//
-
-	shooterLeft.reset(new Victor(0));
 	rec->AddDevice("shooterLeft",shooterLeft.get());
 	shooterRight.reset(new Victor(1));
 	rec->AddDevice("shooterRight",shooterRight.get());

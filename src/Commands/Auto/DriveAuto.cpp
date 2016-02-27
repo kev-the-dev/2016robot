@@ -2,6 +2,7 @@
 
 DriveAuto::DriveAuto(double u, double r)
 {
+	Requires(driveSystem.get());
 	y = u;
 	rotation = r;
 }
@@ -9,6 +10,9 @@ DriveAuto::DriveAuto(double u, double r)
 // Called just before this Command runs the first time
 void DriveAuto::Initialize()
 {
+	#ifdef DEBUG
+	std::cout << "Driving y=" << y << " rotation=" << rotation << std::endl;
+	#endif
 	driveSystem->Drive(y,rotation);
 }
 
@@ -27,7 +31,7 @@ bool DriveAuto::IsFinished()
 // Called once after isFinished returns true
 void DriveAuto::End()
 {
-	driveSystem->Drive(0,0);
+	//driveSystem->Drive(0,0);
 }
 
 // Called when another command which requires one or more of the same

@@ -15,6 +15,9 @@
 #include "WPILib.h"
 #include "RobotMap.h"
 
+
+#define DEBUG
+
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a

@@ -1,6 +1,6 @@
 #include "ArmSet.h"
 
-ArmSet::ArmSet(double x)
+ArmSet::ArmSet(double x) : CommandBase("ArmSet")
 {
 	Requires(arm.get());
 	set_val = x;
@@ -9,6 +9,9 @@ ArmSet::ArmSet(double x)
 // Called just before this Command runs the first time
 void ArmSet::Initialize()
 {
+	#ifdef DEBUG
+	std::cout << "Arm Set To: " << set_val << std::endl;
+	#endif
 	arm->DisablePID();
 	arm->Set(set_val);
 }
