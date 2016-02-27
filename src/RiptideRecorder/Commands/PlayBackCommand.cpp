@@ -9,11 +9,9 @@
 
 PlayBackCommand::PlayBackCommand(Macro* m) {
 	macro = m;
-	/*
-	for (std::vector<Subsystem*>::iterator sys = m->subsystems.begin(); sys != m->subsystems.end(); sys++) {
+	for(std::vector<Subsystem*>::iterator sys = m->subsystems.begin(); sys != m->subsystems.end(); sys++) {
 		Requires(*sys);
 	}
-	*/
 }
 void PlayBackCommand::Initialize() {
 	macro->PlayReset();
