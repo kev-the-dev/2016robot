@@ -21,7 +21,7 @@ Macro::Macro(std::vector<Device*> devices) {
 	position = 0;
 
 }
-Macro::Macro(std::vector<Device*> devices,std::vector<Subsystem* > s) : Macro(devices) {
+Macro::Macro(std::vector<Device*> devices,std::vector<Subsystem* > s) {
 	Values = Vals{};
 	for(std::vector<Device*>::iterator dev = devices.begin(); dev != devices.end(); dev++) {
 		Values.insert( std::pair<Device*,std::vector<float> >(*dev,std::vector<float>()) );

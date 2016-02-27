@@ -11,6 +11,7 @@ RecordCommand::RecordCommand(Macro* m) {
 	macro = m;
 }
 void RecordCommand::Initialize() {
+	std::cout << "Record Started" << std::endl;
 	macro->Reset();
 }
 

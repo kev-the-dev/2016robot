@@ -11,6 +11,7 @@ PlayBackFileCommand::PlayBackFileCommand(Macro* m, std::string f) : PlayBackComm
 	this->filename = f;
 }
 void PlayBackFileCommand::Initialize() {
+	std::cout << "Record Started" << std::endl;
 	macro->ReadFile(filename);
 	macro->PlayReset();
 }
