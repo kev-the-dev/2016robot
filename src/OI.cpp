@@ -2,6 +2,9 @@
 
 OI::OI()
 {
+	mac1 = RobotMap::rec->macro();
+	mac2 = RobotMap::rec->macro();
+
 	// Process operator interface input here.
 	stickLeft.reset(new Joystick(0));
 	stickMiddle.reset(new Joystick(1));

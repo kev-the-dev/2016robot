@@ -4,6 +4,7 @@
 #include "WPILib.h"
 
 #include "RiptideRecorder/RiptideRecorder.h"
+#include "RobotMap.h"
 
 class OI
 {
