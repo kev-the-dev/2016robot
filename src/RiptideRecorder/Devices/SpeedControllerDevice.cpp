@@ -9,11 +9,17 @@
 
 SpeedControllerDevice::SpeedControllerDevice(std::string x,SpeedController* c) : Device(x){
 	ctrl = c;
-
 }
-float SpeedControllerDevice::get() {
-	return ctrl->Get();
+float SpeedControllerDevice::restrict(float x)
+{
+	if (x > 1) return 1;
+	else if (x < -1) return -1;
+	return x;
+}
+float SpeedControllerDevice::get()
+{
+	return restrict(ctrl->Get());
 }
 void SpeedControllerDevice::set(float x) {
-	ctrl->Set(x);
+	ctrl->Set(restrict(x));
 }

@@ -44,5 +44,6 @@ void OI::SetButtons()
 	chooser->AddObject("mac1", mac1->NewPlayFileCommand("/home/lvuser/mac1.csv"));
 	chooser->AddObject("mac2", mac2->NewPlayFileCommand("/home/lvuser/mac2.csv"));
 
+	SmartDashboard::PutData("Record",mac1->NewRecordFileCommand("test.csv"));
 	SmartDashboard::PutData("Auto Modes", chooser);
 }

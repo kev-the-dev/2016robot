@@ -69,7 +69,6 @@ private:
 		#ifdef DEBUG
 		std::cout << "TeleInit" << std::endl;
 		#endif
-
 		CommandBase::shooterPunch->Set(DoubleSolenoid::kReverse);
 		//Starts compressing air at start of teleop
 
