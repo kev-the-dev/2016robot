@@ -10,6 +10,7 @@ OI::OI()
 	stickMiddle.reset(new Joystick(1));
 	stickRight.reset(new Joystick(2));
 
+
 	//shootButton.reset(new JoystickButton(stickRight.get(),1));
 	badShootButton.reset(new JoystickButton(stickRight.get(),3));
 	badIntakeButton.reset(new JoystickButton(stickRight.get(),2));
@@ -25,11 +26,19 @@ OI::OI()
 }
 float OI::GetDriveY()
 {
+	#ifdef REAL
 	return -stickLeft->GetY();
+	#else
+	return -stickLeft->GetRawAxis(1);
+	#endif
 }
 float OI::GetDriveRotation()
 {
+	#ifdef REAL
 	return -stickMiddle->GetX();
+	#else
+	return -stickMiddle->GetRawAxis(0);
+	#endif
 }
 bool OI::GetReverseDriveButton()
 {
