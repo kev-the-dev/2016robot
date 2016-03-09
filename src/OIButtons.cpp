@@ -33,17 +33,15 @@ void OI::SetButtons()
 	shootButton->WhenPressed(punchOutCommand.get());
 	shootButton->WhenReleased(punchInCommand.get());
 
-	mac1Button->ToggleWhenPressed(mac1->NewRecordFileCommand("/home/lvuser/mac1.csv"));
-	mac2Button->ToggleWhenPressed(mac2->NewRecordFileCommand("/home/lvuser/mac2.csv"));
+	//mac1Button->ToggleWhenPressed(mac1->NewRecordFileCommand("/home/lvuser/mac1.csv"));
+	//mac2Button->ToggleWhenPressed(mac2->NewRecordFileCommand("/home/lvuser/mac2.csv"));
 
 
 	chooser->AddDefault("Do Nothing", (Command*) new DoNothing() );
-	chooser->AddObject("Low Bar Forward",new LowBarForward());
-	chooser->AddObject("Low Bar Score",new LowBarScore());
-	chooser->AddObject("Spy Box Score",new SpyBoxAuto());
-	chooser->AddObject("mac1", mac1->NewPlayFileCommand("/home/lvuser/mac1.csv"));
-	chooser->AddObject("mac2", mac2->NewPlayFileCommand("/home/lvuser/mac2.csv"));
+	chooser->AddObject("Low Bar",new LowBarForward());
+	//chooser->AddObject("mac1", mac1->NewPlayFileCommand("/home/lvuser/mac1.csv"));
+	//chooser->AddObject("mac2", mac2->NewPlayFileCommand("/home/lvuser/mac2.csv"));
 
-	SmartDashboard::PutData("Record",mac1->NewRecordFileCommand("test.csv"));
+	//SmartDashboard::PutData("Record",mac1->NewRecordFileCommand("test.csv"));
 	SmartDashboard::PutData("Auto Modes", chooser);
 }

@@ -2,8 +2,8 @@
 
 OI::OI()
 {
-	mac1 = RobotMap::rec->macro();
-	mac2 = RobotMap::rec->macro();
+	//mac1 = RobotMap::rec->macro();
+	//mac2 = RobotMap::rec->macro();
 
 	// Process operator interface input here.
 	stickLeft.reset(new Joystick(0));
@@ -17,8 +17,8 @@ OI::OI()
 	shootButton.reset(new JoystickButton(stickRight.get(),1));
 
 	//armWithZButton.reset(new JoystickButton(stickRight.get()),11);
-	mac1Button.reset(new JoystickButton(stickLeft.get(),6));
-	mac2Button.reset(new JoystickButton(stickLeft.get(),7));
+	//mac1Button.reset(new JoystickButton(stickLeft.get(),6));
+	//mac2Button.reset(new JoystickButton(stickLeft.get(),7));
 
 	chooser = new SendableChooser();
 

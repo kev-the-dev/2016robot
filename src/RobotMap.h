@@ -11,7 +11,7 @@ class RobotMap
 public:
 	static void init();
 
-	static std::shared_ptr<Recorder> rec;
+	//static std::shared_ptr<Recorder> rec;
 	//Static pointers to all sensors and actuators
 
 	//Driving

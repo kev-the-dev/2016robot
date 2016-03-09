@@ -17,6 +17,7 @@
 
 
 #define DEBUG
+//#define REAL
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.

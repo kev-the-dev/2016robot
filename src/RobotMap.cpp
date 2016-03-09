@@ -20,11 +20,11 @@ std::shared_ptr<Solenoid> RobotMap::lifterPistonForward;
 std::shared_ptr<Solenoid> RobotMap::lifterPistonReverse;
 std::shared_ptr<DigitalInput> RobotMap::lifterSwitch;
 std::shared_ptr<DoubleSolenoid> RobotMap::shooterPunch;
-std::shared_ptr<Recorder> RobotMap::rec;
+//std::shared_ptr<Recorder> RobotMap::rec;
 
 void RobotMap::init()
 {
-	rec.reset(Recorder::GetInstance());
+	//rec.reset(Recorder::GetInstance());
 
 	#ifdef REAL
 	gyro.reset(new ADXRS450_Gyro());
@@ -37,25 +37,25 @@ void RobotMap::init()
 
 	//Init all sensors/actuators with proper port #, add to LiveWindow
 	leftOne.reset(new Victor(2));
-	rec->AddDevice("LeftOne",leftOne.get());
+	//rec->AddDevice("LeftOne",leftOne.get());
 	leftTwo.reset(new Victor(3));
-	rec->AddDevice("LeftTwo",leftTwo.get());
+	//rec->AddDevice("LeftTwo",leftTwo.get());
 	rightOne.reset(new Victor(4));
-	rec->AddDevice("RightOne",rightOne.get());
+	//rec->AddDevice("RightOne",rightOne.get());
 	rightTwo.reset(new Victor(5));
-	rec->AddDevice("RightTwo",rightTwo.get());
+	//rec->AddDevice("RightTwo",rightTwo.get());
 	drive.reset(new RobotDrive(leftOne,leftTwo,rightOne,rightTwo));
 	drive->SetExpiration(2);
 
 	armMotor.reset(new Victor(6));
-	rec->AddDevice("armMotor",armMotor.get());
+	//rec->AddDevice("armMotor",armMotor.get());
 	//armMotor->SetInverted(true);
 
 	armPot.reset(new AnalogPotentiometer(0,360,0));
 
-	rec->AddDevice("shooterLeft",shooterLeft.get());
+	//rec->AddDevice("shooterLeft",shooterLeft.get());
 	shooterRight.reset(new Victor(1));
-	rec->AddDevice("shooterRight",shooterRight.get());
+	//rec->AddDevice("shooterRight",shooterRight.get());
 	shooterLeftEncoder.reset(new Encoder(0,1));
 	shooterRightEncoder.reset(new Encoder(2,3));
 
@@ -64,6 +64,6 @@ void RobotMap::init()
 	lifterSwitch.reset(new DigitalInput(4));
 
 	shooterPunch.reset(new DoubleSolenoid(1,4,7));
-	rec->AddDevice("Punch",shooterPunch.get());
+	//rec->AddDevice("Punch",shooterPunch.get());
 	LiveWindow::GetInstance()->AddActuator("Shooter","Punch",shooterPunch);
 }

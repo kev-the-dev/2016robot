@@ -30,10 +30,10 @@ void CommandBase::init()
 	lifter.reset(new Lifter());
 	shooterPunch.reset(new ShooterPunch());
 
-	RobotMap::rec->AddSubsystem(driveSystem.get());
-	RobotMap::rec->AddSubsystem(arm.get());
-	RobotMap::rec->AddSubsystem(shooter.get());
-	RobotMap::rec->AddSubsystem(shooterPunch.get());
+	//RobotMap::rec->AddSubsystem(driveSystem.get());
+	//RobotMap::rec->AddSubsystem(arm.get());
+	//RobotMap::rec->AddSubsystem(shooter.get());
+	//RobotMap::rec->AddSubsystem(shooterPunch.get());
 	//Setup OI
 	oi.reset(new OI());
 }

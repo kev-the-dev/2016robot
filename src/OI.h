@@ -9,8 +9,8 @@
 class OI
 {
 public:
-	Macro* mac1;
-	Macro* mac2;
+	//Macro* mac1;
+	//Macro* mac2;
 private:
 	//Joysticks
 
@@ -23,8 +23,8 @@ private:
 	std::unique_ptr<JoystickButton> badShootButton;
 	std::unique_ptr<JoystickButton> badIntakeButton;
 	std::unique_ptr<JoystickButton> armWithZButton;
-	std::unique_ptr<JoystickButton> mac1Button;
-	std::unique_ptr<JoystickButton> mac2Button;
+	//std::unique_ptr<JoystickButton> mac1Button;
+	//std::unique_ptr<JoystickButton> mac2Button;
 
 	//Commands used by buttons
 	std::unique_ptr<Command> liftToSwitchCommand;
