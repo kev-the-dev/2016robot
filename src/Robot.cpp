@@ -4,6 +4,7 @@
 //Import commands used in Robot.cpp
 #include "Commands/StartTeleCommands.h"
 
+#include <string>
 #include "OI.h"
 
 #include "RiptideRecorder/RiptideRecorder.h"
@@ -14,9 +15,13 @@ class Robot: public IterativeRobot
 private:
 	std::unique_ptr<Command> autonomousCommand;
 	std::unique_ptr<Command> teleCommands;
+	std::shared_ptr<USBCamera> cam;
 	void RobotInit()
 	{
-		//CameraServer::GetInstance()->StartAutomaticCapture(0);
+
+		//cam.reset(new USBCamera("cam0",true));
+		//cam->OpenCamera();
+		//CameraServer::GetInstance()->StartAutomaticCapture(cam);
 		CommandBase::init();
 
 		teleCommands.reset(new StartTeleCommands());
@@ -43,6 +48,10 @@ private:
 
 	void AutonomousInit()
 	{
+		#ifdef REAL
+		RobotMap::compressor->Start();
+		#endif
+
 		#ifdef DEBUG
 		std::cout << "AutoInit" << std::endl;
 		#endif
@@ -66,6 +75,10 @@ private:
 
 	void TeleopInit()
 	{
+		#ifdef REAL
+		RobotMap::compressor->Start();
+		#endif
+
 		#ifdef DEBUG
 		std::cout << "TeleInit" << std::endl;
 		#endif

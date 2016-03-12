@@ -15,6 +15,10 @@
 #include "Commands/Auto/DoNothing.h"
 #include "Commands/Auto/LowBarScore.h"
 #include "Commands/Auto/SpyBoxAuto.h"
+#include "Commands/Auto/AutoDriveTest.h"
+#include "Commands/Auto/AutoArmTest.h"
+#include "Commands/Auto/LowArmAuto.h"
+
 
 void OI::SetButtons()
 {
@@ -44,4 +48,8 @@ void OI::SetButtons()
 
 	//SmartDashboard::PutData("Record",mac1->NewRecordFileCommand("test.csv"));
 	SmartDashboard::PutData("Auto Modes", chooser);
+
+	SmartDashboard::PutData("Auto Drive",new AutoDriveTest());
+	SmartDashboard::PutData("Auto Arm",new AutoArmTest());
+	SmartDashboard::PutData("Arm Lower Auto", new LowArmAuto());
 }

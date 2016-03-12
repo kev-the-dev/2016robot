@@ -48,7 +48,6 @@ void RotateX::End()
 	#ifdef DEBUG
 	std::cout << "RotateX End" << std::endl;
 	#endif
-	GetPIDController()->Disable();
 	CommandBase::driveSystem->Drive(0,0);
 }
 

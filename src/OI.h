@@ -45,6 +45,7 @@ public:
 	bool GetReverseDriveButton();
 	bool GetManShoot();
 	bool GetManArm();
+	bool GetHalfSpeedButton();
 	float GetDriveY();
 	float GetDriveRotation();
 	float GetOpY();
