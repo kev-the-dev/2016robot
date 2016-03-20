@@ -1,39 +1,37 @@
-#include "ShooterPIDSet.h"
+#include "WaitForArmSimple.h"
 
-ShooterPIDSet::ShooterPIDSet(double r)
+WaitForArmSimple::WaitForArmSimple(float x)
 {
-	Requires(shooter.get());
-	rate = r;
+	val = x;
 }
 
 // Called just before this Command runs the first time
-void ShooterPIDSet::Initialize()
+void WaitForArmSimple::Initialize()
 {
-	shooter->EnablePID();
-	shooter->PIDSet(rate);
+
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ShooterPIDSet::Execute()
+void WaitForArmSimple::Execute()
 {
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ShooterPIDSet::IsFinished()
+bool WaitForArmSimple::IsFinished()
 {
-	return true;
+	return std::abs(arm->GetPot() - val) < 1;
 }
 
 // Called once after isFinished returns true
-void ShooterPIDSet::End()
+void WaitForArmSimple::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ShooterPIDSet::Interrupted()
+void WaitForArmSimple::Interrupted()
 {
 
 }

@@ -1,20 +1,21 @@
-#ifndef ShooterPIDSet_H
-#define ShooterPIDSet_H
+#ifndef ArmSetBangBang_H
+#define ArmSetBangBang_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ShooterPIDSet: public CommandBase
+class ArmSetBangBang: public CommandBase
 {
-private:
-	double rate;
 public:
-	ShooterPIDSet(double r);
+	ArmSetBangBang(float a);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
+private:
+	float Error();
+	float angle;
 };
 
 #endif

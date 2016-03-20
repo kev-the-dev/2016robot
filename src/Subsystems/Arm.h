@@ -11,6 +11,7 @@ private:
 	std::shared_ptr<SpeedController> armMotor;
 	std::shared_ptr<Potentiometer> armPot;
 	std::unique_ptr<PIDController> armPID;
+	std::shared_ptr<DigitalInput> bottomSwitch;
 
 	static float P;
 	static float I;
@@ -31,6 +32,7 @@ public:
 	void SetSetpoint(double x);
 	bool OnTarget();
 	double GetPot();
+	bool BottomSwitch();
 };
 
 #endif

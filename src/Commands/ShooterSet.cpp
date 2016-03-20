@@ -9,8 +9,9 @@ ShooterSet::ShooterSet(double s)
 // Called just before this Command runs the first time
 void ShooterSet::Initialize()
 {
-	shooter->DisablePID();
+	//shooter->DisablePID();
 	shooter->Set(speed);
+	RobotMap::compressor->Stop();
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -28,6 +29,7 @@ bool ShooterSet::IsFinished()
 // Called once after isFinished returns true
 void ShooterSet::End()
 {
+	RobotMap::compressor->Start();
 //	shooter->Set(0);
 }
 

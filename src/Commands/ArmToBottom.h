@@ -1,15 +1,13 @@
-#ifndef WaitForShooter_H
-#define WaitForShooter_H
+#ifndef ArmToBottom_H
+#define ArmToBottom_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class WaitForShooter: public CommandBase
+class ArmToBottom: public CommandBase
 {
-private:
-	static float maxError;
 public:
-	WaitForShooter();
+	ArmToBottom();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

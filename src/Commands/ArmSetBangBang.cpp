@@ -1,41 +1,44 @@
-#include "ArmWithJoystick.h"
+#include "ArmSetBangBang.h"
 
-ArmWithJoystick::ArmWithJoystick()
+ArmSetBangBang::ArmSetBangBang(float a)
 {
+	angle = a;
 	Requires(arm.get());
 }
 
 // Called just before this Command runs the first time
-void ArmWithJoystick::Initialize()
+void ArmSetBangBang::Initialize()
 {
-	arm->DisablePID();
-	arm->Set(0);
+
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ArmWithJoystick::Execute()
+void ArmSetBangBang::Execute()
 {
-	float input = oi->GetOpY();
-	if (oi->GetHalfSpeedButton()) input *= 0.5;
-	arm->Set(input);
-
+	float err = Error();
+	if (err < 1) arm->Set(-0.2);
+	if (err > 1) arm->Set(0.2);
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ArmWithJoystick::IsFinished()
+bool ArmSetBangBang::IsFinished()
 {
 	return false;
 }
 
 // Called once after isFinished returns true
-void ArmWithJoystick::End()
+void ArmSetBangBang::End()
 {
-	arm->Set(0);
+
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ArmWithJoystick::Interrupted()
+void ArmSetBangBang::Interrupted()
 {
-	End();
+
+}
+float ArmSetBangBang::Error()
+{
+	return angle - arm->GetPot();
 }

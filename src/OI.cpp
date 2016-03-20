@@ -1,5 +1,7 @@
 #include "OI.h"
 
+#define REAL
+
 OI::OI()
 {
 	//mac1 = RobotMap::rec->macro();
@@ -55,4 +57,8 @@ bool OI::GetManShoot()
 float OI::GetOpZ()
 {
 	return stickRight->GetZ();
+}
+bool OI::GetHalfSpeedButton()
+{
+	return stickRight->GetRawButton(9);
 }

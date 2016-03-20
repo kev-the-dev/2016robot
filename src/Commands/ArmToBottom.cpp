@@ -1,41 +1,39 @@
-#include "ArmWithJoystick.h"
+#include "ArmToBottom.h"
 
-ArmWithJoystick::ArmWithJoystick()
+ArmToBottom::ArmToBottom()
 {
 	Requires(arm.get());
 }
 
 // Called just before this Command runs the first time
-void ArmWithJoystick::Initialize()
+void ArmToBottom::Initialize()
 {
 	arm->DisablePID();
-	arm->Set(0);
+	arm->Set(-0.2);
+	SetTimeout(3);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ArmWithJoystick::Execute()
+void ArmToBottom::Execute()
 {
-	float input = oi->GetOpY();
-	if (oi->GetHalfSpeedButton()) input *= 0.5;
-	arm->Set(input);
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ArmWithJoystick::IsFinished()
+bool ArmToBottom::IsFinished()
 {
-	return false;
+	return arm->BottomSwitch() || IsTimedOut();
 }
 
 // Called once after isFinished returns true
-void ArmWithJoystick::End()
+void ArmToBottom::End()
 {
 	arm->Set(0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ArmWithJoystick::Interrupted()
+void ArmToBottom::Interrupted()
 {
 	End();
 }

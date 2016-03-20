@@ -4,6 +4,7 @@
 //Import commands used in Robot.cpp
 #include "Commands/StartTeleCommands.h"
 
+#include <string>
 #include "OI.h"
 
 #include "RiptideRecorder/RiptideRecorder.h"
@@ -14,12 +15,18 @@ class Robot: public IterativeRobot
 private:
 	std::unique_ptr<Command> autonomousCommand;
 	std::unique_ptr<Command> teleCommands;
+	std::shared_ptr<USBCamera> cam;
 	void RobotInit()
 	{
-		//CameraServer::GetInstance()->StartAutomaticCapture(0);
+
+		//cam.reset(new USBCamera("cam0",true));
+		//cam->OpenCamera();
+		//CameraServer::GetInstance()->StartAutomaticCapture(cam);
 		CommandBase::init();
 
 		teleCommands.reset(new StartTeleCommands());
+
+		SmartDashboard::PutBoolean("Pressure Switch", RobotMap::pressureSwitch->Get());
 
 		SmartDashboard::PutData("Running Commands",Scheduler::GetInstance());
 
@@ -43,6 +50,10 @@ private:
 
 	void AutonomousInit()
 	{
+//		#ifdef REAL
+//		RobotMap::compressor->Start();
+//		#endif
+
 		#ifdef DEBUG
 		std::cout << "AutoInit" << std::endl;
 		#endif
@@ -61,11 +72,20 @@ private:
 
 	void AutonomousPeriodic()
 	{
+		if (RobotMap::pressureSwitch->Get()) {
+			RobotMap::compressor->Stop();
+		} else RobotMap::compressor->Start();
+
 		Scheduler::GetInstance()->Run();
 	}
 
 	void TeleopInit()
 	{
+//		#ifdef REAL
+//		RobotMap::compressor->Start();
+//		#endif
+//		RobotMap::compressor->Stop();
+
 		#ifdef DEBUG
 		std::cout << "TeleInit" << std::endl;
 		#endif
@@ -83,7 +103,12 @@ private:
 	void TeleopPeriodic()
 	{
 		//Runs all current commands
+		SmartDashboard::PutBoolean("Pressure Switch", RobotMap::pressureSwitch->Get());
 		Scheduler::GetInstance()->Run();
+
+		if (RobotMap::pressureSwitch->Get()) {
+			RobotMap::compressor->Stop();
+		} else RobotMap::compressor->Start();
 	}
 	void TestInit()
 	{

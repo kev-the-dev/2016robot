@@ -16,7 +16,7 @@
 #include "RobotMap.h"
 
 
-#define DEBUG
+//#define DEBUG
 //#define REAL
 
 /**
