@@ -1,15 +1,13 @@
-#ifndef ShooterPIDSet_H
-#define ShooterPIDSet_H
+#ifndef ArmToBottom_H
+#define ArmToBottom_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ShooterPIDSet: public CommandBase
+class ArmToBottom: public CommandBase
 {
-private:
-	double rate;
 public:
-	ShooterPIDSet(double r);
+	ArmToBottom();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

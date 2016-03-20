@@ -20,6 +20,8 @@ Arm::Arm() : Subsystem("Arm")
 	armPID->SetPercentTolerance(percentageTolerance);
 
 	LiveWindow::GetInstance()->AddActuator("Arm","Arm PID",armPID.get());
+
+	bottomSwitch = RobotMap::armBottomSwitch;
 }
 
 void Arm::InitDefaultCommand()
@@ -57,4 +59,8 @@ double Arm::GetPot()
 bool Arm::OnTarget()
 {
 	return armPID->OnTarget();
+}
+bool Arm::BottomSwitch()
+{
+	return !bottomSwitch->Get();
 }

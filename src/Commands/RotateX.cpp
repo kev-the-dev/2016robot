@@ -48,7 +48,8 @@ void RotateX::End()
 	#ifdef DEBUG
 	std::cout << "RotateX End" << std::endl;
 	#endif
-	CommandBase::driveSystem->Drive(0,0);
+	//This would cause a error, I think. 
+	//CommandBase::driveSystem->Drive(0,0);
 }
 
 // Called when another command which requires one or more of the same

@@ -9,7 +9,7 @@ ShooterSet::ShooterSet(double s)
 // Called just before this Command runs the first time
 void ShooterSet::Initialize()
 {
-	shooter->DisablePID();
+	//shooter->DisablePID();
 	shooter->Set(speed);
 	RobotMap::compressor->Stop();
 }

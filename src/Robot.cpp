@@ -26,6 +26,8 @@ private:
 
 		teleCommands.reset(new StartTeleCommands());
 
+		SmartDashboard::PutBoolean("Pressure Switch", RobotMap::pressureSwitch->Get());
+
 		SmartDashboard::PutData("Running Commands",Scheduler::GetInstance());
 
 		#ifdef DEBUG
@@ -48,9 +50,9 @@ private:
 
 	void AutonomousInit()
 	{
-		#ifdef REAL
-		RobotMap::compressor->Start();
-		#endif
+//		#ifdef REAL
+//		RobotMap::compressor->Start();
+//		#endif
 
 		#ifdef DEBUG
 		std::cout << "AutoInit" << std::endl;
@@ -70,14 +72,19 @@ private:
 
 	void AutonomousPeriodic()
 	{
+		if (RobotMap::pressureSwitch->Get()) {
+			RobotMap::compressor->Stop();
+		} else RobotMap::compressor->Start();
+
 		Scheduler::GetInstance()->Run();
 	}
 
 	void TeleopInit()
 	{
-		#ifdef REAL
-		RobotMap::compressor->Start();
-		#endif
+//		#ifdef REAL
+//		RobotMap::compressor->Start();
+//		#endif
+//		RobotMap::compressor->Stop();
 
 		#ifdef DEBUG
 		std::cout << "TeleInit" << std::endl;
@@ -96,7 +103,12 @@ private:
 	void TeleopPeriodic()
 	{
 		//Runs all current commands
+		SmartDashboard::PutBoolean("Pressure Switch", RobotMap::pressureSwitch->Get());
 		Scheduler::GetInstance()->Run();
+
+		if (RobotMap::pressureSwitch->Get()) {
+			RobotMap::compressor->Stop();
+		} else RobotMap::compressor->Start();
 	}
 	void TestInit()
 	{

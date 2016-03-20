@@ -5,6 +5,7 @@
 #include "Commands/Auto/LowArmAuto.h"
 #include "Commands/ArmSetBangBang.h"
 #include "Commands/WaitForArmSimple.h"
+#include "Commands/ArmToBottom.h"
 
 LowBarForward::LowBarForward() : CommandGroup("LowBarForward")
 {
@@ -15,10 +16,11 @@ LowBarForward::LowBarForward() : CommandGroup("LowBarForward")
 
 	//Arm Stuff
 	//AddSequential(new LowArmAuto());
-	AddParallel(new ArmSetBangBang(0));
-	AddSequential(new WaitForArmSimple(0));
+	//AddParallel(new ArmSetBangBang(0));
+	//AddSequential(new WaitForArmSimple(0));
+	AddSequential(new ArmToBottom());
 	AddSequential(new DriveAuto(-0.75,0));
-	AddSequential(new WaitCommand(3.75));
+	AddSequential(new WaitCommand(4.5));
 	AddSequential(new DriveAuto(0,0));
 	AddSequential(new ArmSet(0));
 }

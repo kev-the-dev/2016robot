@@ -1,39 +1,39 @@
-#include "ShooterPIDSet.h"
+#include "ArmToBottom.h"
 
-ShooterPIDSet::ShooterPIDSet(double r)
+ArmToBottom::ArmToBottom()
 {
-	Requires(shooter.get());
-	rate = r;
+	Requires(arm.get());
 }
 
 // Called just before this Command runs the first time
-void ShooterPIDSet::Initialize()
+void ArmToBottom::Initialize()
 {
-	shooter->EnablePID();
-	shooter->PIDSet(rate);
+	arm->DisablePID();
+	arm->Set(-0.2);
+	SetTimeout(3);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ShooterPIDSet::Execute()
+void ArmToBottom::Execute()
 {
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ShooterPIDSet::IsFinished()
+bool ArmToBottom::IsFinished()
 {
-	return true;
+	return arm->BottomSwitch() || IsTimedOut();
 }
 
 // Called once after isFinished returns true
-void ShooterPIDSet::End()
+void ArmToBottom::End()
 {
-
+	arm->Set(0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ShooterPIDSet::Interrupted()
+void ArmToBottom::Interrupted()
 {
-
+	End();
 }
