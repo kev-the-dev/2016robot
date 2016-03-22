@@ -1,8 +1,8 @@
 #include "RotateX.h"
 
-float RotateX::p = .04;
-float RotateX::i = 0.0005;
-float RotateX::d = 0;
+double RotateX::p = .04;
+double RotateX::i = 0.0005;
+double RotateX::d = 0;
 
 RotateX::RotateX(float a) : PIDCommand("RotateX",p,i,d)
 {
