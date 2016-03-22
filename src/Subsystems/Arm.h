@@ -10,7 +10,7 @@ private:
 	// for methods that implement subsystem capabilities
 	std::shared_ptr<SpeedController> armMotor;
 	std::shared_ptr<Potentiometer> armPot;
-	std::unique_ptr<PIDController> armPID;
+	std::shared_ptr<PIDController> armPID;
 	std::shared_ptr<DigitalInput> bottomSwitch;
 
 	static float P;

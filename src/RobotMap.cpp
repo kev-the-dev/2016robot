@@ -31,7 +31,9 @@ void RobotMap::init()
 
 	gyro.reset(new ADXRS450_Gyro());
 	compressor.reset(new Compressor(1));
+
 	shooterLeft.reset(new Victor(0));
+	shooterRight.reset(new Victor(1));
 
 	//Init all sensors/actuators with proper port #, add to LiveWindow
 	leftOne.reset(new Victor(2));
@@ -52,10 +54,7 @@ void RobotMap::init()
 	armPot.reset(new AnalogPotentiometer(0,360,0));
 
 	//rec->AddDevice("shooterLeft",shooterLeft.get());
-	shooterRight.reset(new Victor(1));
 	//rec->AddDevice("shooterRight",shooterRight.get());
-//	shooterLeftEncoder.reset(new Encoder(0,1));
-//	shooterRightEncoder.reset(new Encoder(2,3));
 
 	lifterPistonForward.reset(new Solenoid(1,2));
 	lifterPistonReverse.reset(new Solenoid(1,3));
@@ -63,7 +62,6 @@ void RobotMap::init()
 
 	shooterPunch.reset(new DoubleSolenoid(1,4,7));
 	//rec->AddDevice("Punch",shooterPunch.get());
-	LiveWindow::GetInstance()->AddActuator("Shooter","Punch",shooterPunch);
 
 	armBottomSwitch.reset(new DigitalInput(0));
 }

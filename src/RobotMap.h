@@ -6,13 +6,16 @@
 
 #include "RiptideRecorder/RiptideRecorder.h"
 
+/*
+ * The RobotMap classs is used to construct and configure all the sensors and actuators on the robot
+ * Various subsstems copy the static memebers of RobotMap
+ */
 class RobotMap
 {
 public:
 	static void init();
 
 	//static std::shared_ptr<Recorder> rec;
-	//Static pointers to all sensors and actuators
 
 	//Driving
 	static std::shared_ptr<SpeedController> leftOne;
@@ -34,8 +37,6 @@ public:
 	//Shooter
 	static std::shared_ptr<SpeedController> shooterLeft;
 	static std::shared_ptr<SpeedController> shooterRight;
-//	static std::shared_ptr<Encoder> shooterLeftEncoder;
-//	static std::shared_ptr<Encoder> shooterRightEncoder;
 
 	//Lifter
 	static std::shared_ptr<Solenoid> lifterPistonForward;
@@ -43,6 +44,7 @@ public:
 	static std::shared_ptr<DigitalInput> lifterSwitch;
 
 	static std::shared_ptr<DigitalInput> armBottomSwitch;
+
 	//Shooter punch
 	static std::shared_ptr<DoubleSolenoid> shooterPunch;
 
