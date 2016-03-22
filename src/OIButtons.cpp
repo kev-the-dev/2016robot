@@ -10,7 +10,6 @@
 #include "Commands/Auto/DoNothing.h"
 #include "Commands/Auto/SpyBoxAuto.h"
 #include "Commands/Auto/AutoDriveTest.h"
-#include "Commands/Auto/AutoArmTest.h"
 #include "Commands/Auto/LowArmAuto.h"
 
 
