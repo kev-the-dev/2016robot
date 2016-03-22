@@ -1,7 +1,7 @@
 #ifndef ArmGoTo_H
 #define ArmGoTo_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class ArmGoTo: public CommandBase

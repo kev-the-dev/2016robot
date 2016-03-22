@@ -4,7 +4,7 @@
 #include "Commands/CommandGroup.h"
 #include "WPILib.h"
 
-#include "ArmGoToNoPID.h"
+#include "Commands/Arm/ArmGoToNoPID.h"
 #include "ShooterSet.h"
 #include "ShooterPunchSet.h"
 

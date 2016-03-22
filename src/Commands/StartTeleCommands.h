@@ -8,7 +8,7 @@
 //Commands for tele
 #include "DriveWithJoysticks.h"
 #include "SmartDashboardInfo.h"
-#include "ArmWithJoystick.h"
+#include "Commands/Arm/ArmWithJoystick.h"
 
 class StartTeleCommands: public CommandGroup
 {

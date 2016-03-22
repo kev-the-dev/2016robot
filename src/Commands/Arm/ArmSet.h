@@ -1,7 +1,7 @@
 #ifndef ArmSet_H
 #define ArmSet_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class ArmSet: public CommandBase

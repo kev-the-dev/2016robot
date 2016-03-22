@@ -1,7 +1,7 @@
 #ifndef ArmSetBangBang_H
 #define ArmSetBangBang_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class ArmSetBangBang: public CommandBase

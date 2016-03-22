@@ -1,7 +1,7 @@
 #ifndef ArmWithJoystick_H
 #define ArmWithJoystick_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class ArmWithJoystick: public CommandBase

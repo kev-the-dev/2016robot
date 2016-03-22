@@ -1,11 +1,11 @@
 #include "LowBarForward.h"
 
-#include "Commands/ArmSet.h"
+#include "Commands/Arm/ArmSet.h"
 #include "Commands/Auto/DriveAuto.h"
 #include "Commands/Auto/LowArmAuto.h"
-#include "Commands/ArmSetBangBang.h"
+#include "Commands/Arm/ArmSetBangBang.h"
 #include "Commands/WaitForArmSimple.h"
-#include "Commands/ArmToBottom.h"
+#include "Commands/Arm/ArmToBottom.h"
 
 LowBarForward::LowBarForward() : CommandGroup("LowBarForward")
 {

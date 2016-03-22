@@ -9,7 +9,7 @@
 #include "Commands/ShooterWithJoystick.h"
 #include "Commands/Auto/DriveAuto.h"
 #include "Commands/ShooterPunchSet.h"
-#include "Commands/ArmWithJoystick.h"
+#include "Commands/Arm/ArmWithJoystick.h"
 #include "Commands/AutoAimShoot.h"
 #include "Commands/Auto/LowBarForward.h"
 #include "Commands/Auto/DoNothing.h"

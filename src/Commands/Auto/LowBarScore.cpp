@@ -1,7 +1,7 @@
 #include "LowBarScore.h"
 
 #include "Commands/Auto/LowBarForward.h"
-#include "Commands/ArmGoToNoPID.h"
+#include "Commands/Arm/ArmGoToNoPID.h"
 #include "Commands/ShooterPunchSet.h"
 #include "Commands/ShooterSet.h"
 

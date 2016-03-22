@@ -1,7 +1,7 @@
 #ifndef ArmGoToNoPID_H
 #define ArmGoToNoPID_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class ArmGoToNoPID: public CommandBase

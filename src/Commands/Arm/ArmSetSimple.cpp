@@ -1,6 +1,6 @@
 #include "ArmSetSimple.h"
 
-#include "Commands/ArmSet.h"
+#include "Commands/Arm/ArmSet.h"
 #include "Commands/WaitForArmSimple.h"
 
 ArmSetSimple::ArmSetSimple(float speed, float val)
