@@ -17,15 +17,6 @@ void DriveWithJoysticks::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoysticks::Execute()
 {
-//	if (oi->GetReverseDriveButton()) {
-//		reversed  = !reversed;
-//	}
-//
-//	if (reversed) {
-//		driveSystem->Drive(-oi->GetDriveY(),-oi->GetDriveRotation());
-//	} else {
-//
-//	}
 	#ifdef DEBUG
 	std::cout << "Joystick Y=" << oi->GetDriveY() << " R=" << oi->GetDriveRotation() << std::endl;
 	#endif

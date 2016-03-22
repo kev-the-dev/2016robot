@@ -1,7 +1,7 @@
 #ifndef WaitForArm_H
 #define WaitForArm_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class WaitForArm: public CommandBase

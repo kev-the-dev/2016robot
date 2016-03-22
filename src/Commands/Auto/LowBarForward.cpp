@@ -4,7 +4,7 @@
 #include "Commands/Auto/DriveAuto.h"
 #include "Commands/Auto/LowArmAuto.h"
 #include "Commands/Arm/ArmSetBangBang.h"
-#include "Commands/WaitForArmSimple.h"
+#include "Commands/Arm/WaitForArmSimple.h"
 #include "Commands/Arm/ArmToBottom.h"
 
 LowBarForward::LowBarForward() : CommandGroup("LowBarForward")

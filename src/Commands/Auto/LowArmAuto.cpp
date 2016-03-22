@@ -1,7 +1,7 @@
 #include "LowArmAuto.h"
 
 #include "Commands/Arm/ArmSet.h"
-#include "Commands/WaitForArmSimple.h"
+#include "Commands/Arm/WaitForArmSimple.h"
 
 LowArmAuto::LowArmAuto()
 {

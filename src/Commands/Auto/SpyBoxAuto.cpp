@@ -3,7 +3,7 @@
 #include "Commands/Arm/ArmGoTo.h"
 #include "Commands/Shooter/ShooterSet.h"
 #include "Commands/Punch/ShooterPunchSet.h"
-#include "Commands/WaitForArm.h"
+#include "Commands/Arm/WaitForArm.h"
 
 double SpyBoxAuto::angle = 45;
 
