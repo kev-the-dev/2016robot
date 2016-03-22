@@ -1,7 +1,7 @@
 #ifndef ShooterPunchSet_H
 #define ShooterPunchSet_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class ShooterPunchSet: public CommandBase

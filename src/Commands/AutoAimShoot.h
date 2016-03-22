@@ -6,7 +6,7 @@
 
 #include "Commands/Arm/ArmGoToNoPID.h"
 #include "Commands/Shooter/ShooterSet.h"
-#include "ShooterPunchSet.h"
+#include "Commands/Punch/ShooterPunchSet.h"
 
 class AutoAimShoot: public CommandGroup
 {

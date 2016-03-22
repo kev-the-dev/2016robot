@@ -4,10 +4,9 @@
 #include "Commands/LifterSet.h"
 #include "Commands/LiftToSwitch.h"
 #include "Commands/Drive/RotateX.h"
-#include "Commands/Shoot.h"
 #include "Commands/Shooter/ShooterSet.h"
 #include "Commands/Auto/DriveAuto.h"
-#include "Commands/ShooterPunchSet.h"
+#include "Commands/Punch/ShooterPunchSet.h"
 #include "Commands/Arm/ArmWithJoystick.h"
 #include "Commands/AutoAimShoot.h"
 #include "Commands/Auto/LowBarForward.h"
@@ -21,7 +20,6 @@
 
 void OI::SetButtons()
 {
-	shootCommand.reset(new Shoot());
 	punchInCommand.reset(new ShooterPunchSet(DoubleSolenoid::kReverse));
 	punchOutCommand.reset(new ShooterPunchSet(DoubleSolenoid::kForward));
 	badShootCommand.reset(new ShooterSet(1));

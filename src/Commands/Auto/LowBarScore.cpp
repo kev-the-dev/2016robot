@@ -2,7 +2,7 @@
 
 #include "Commands/Auto/LowBarForward.h"
 #include "Commands/Arm/ArmGoToNoPID.h"
-#include "Commands/ShooterPunchSet.h"
+#include "Commands/Punch/ShooterPunchSet.h"
 #include "Commands/Shooter/ShooterSet.h"
 
 double LowBarScore::turnAngle = 30;

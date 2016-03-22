@@ -28,7 +28,6 @@ private:
 
 	//Commands used by buttons
 	std::unique_ptr<Command> liftToSwitchCommand;
-	std::unique_ptr<Command> shootCommand;
 	std::unique_ptr<Command> punchOutCommand;
 	std::unique_ptr<Command> punchInCommand;
 	std::unique_ptr<Command> badShootCommand;
