@@ -5,7 +5,7 @@
 #include "WPILib.h"
 
 #include "Commands/Arm/ArmGoToNoPID.h"
-#include "ShooterSet.h"
+#include "Commands/Shooter/ShooterSet.h"
 #include "ShooterPunchSet.h"
 
 class AutoAimShoot: public CommandGroup

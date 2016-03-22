@@ -1,7 +1,7 @@
 #include "SpyBoxAuto.h"
 
 #include "Commands/Arm/ArmGoTo.h"
-#include "Commands/ShooterSet.h"
+#include "Commands/Shooter/ShooterSet.h"
 #include "Commands/ShooterPunchSet.h"
 #include "Commands/WaitForArm.h"
 

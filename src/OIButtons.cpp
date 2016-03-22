@@ -3,10 +3,9 @@
 //Commands
 #include "Commands/LifterSet.h"
 #include "Commands/LiftToSwitch.h"
-#include "Commands/RotateX.h"
+#include "Commands/Drive/RotateX.h"
 #include "Commands/Shoot.h"
-#include "Commands/ShooterSet.h"
-#include "Commands/ShooterWithJoystick.h"
+#include "Commands/Shooter/ShooterSet.h"
 #include "Commands/Auto/DriveAuto.h"
 #include "Commands/ShooterPunchSet.h"
 #include "Commands/Arm/ArmWithJoystick.h"

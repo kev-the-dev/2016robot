@@ -1,7 +1,7 @@
 #ifndef DriveWithJoysticks_H
 #define DriveWithJoysticks_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class DriveWithJoysticks: public CommandBase

@@ -1,7 +1,7 @@
 #ifndef ROTATEX_H
 #define ROTATEX_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
 class RotateX: public PIDCommand
