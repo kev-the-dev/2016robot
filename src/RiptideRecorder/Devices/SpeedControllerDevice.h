@@ -18,7 +18,6 @@ public:
 	virtual float get();
 	virtual void set(float x);
 private:
-	static float restrict(float x);
 	SpeedController* ctrl;
 };
 

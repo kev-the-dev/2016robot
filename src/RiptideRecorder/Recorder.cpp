@@ -18,18 +18,18 @@ void Recorder::AddDevice(Device* dev) {
 void Recorder::AddDevice(std::string n,SpeedController* c) {
 	AddDevice(new SpeedControllerDevice(n,c));
 }
-//void Recorder::AddDevice(std::string n,Relay* r) {
-//	AddDevice(new RelayDevice(n,r));
-//}
+void Recorder::AddDevice(std::string n,Relay* r) {
+	AddDevice(new RelayDevice(n,r));
+}
 void Recorder::AddDevice(std::string n,Solenoid* s) {
 	AddDevice(new SolenoidDevice(n,s));
 }
 void Recorder::AddDevice(std::string n,DoubleSolenoid* ds) {
 	AddDevice(new DoubleSolenoidDevice(n,ds));
 }
-//void Recorder::AddDevice(std::string n, Servo* s) {
-//	AddDevice(new ServoDevice(n,s));
-//}
+void Recorder::AddDevice(std::string n, Servo* s) {
+	AddDevice(new ServoDevice(n,s));
+}
 void Recorder::AddSubsystem(Subsystem* s) {
 	subsystems.push_back(s);
 }
