@@ -8,7 +8,6 @@
 #include "Commands/Arm/ArmWithJoystick.h"
 #include "Commands/Auto/LowBarForward.h"
 #include "Commands/Auto/DoNothing.h"
-#include "Commands/Auto/LowBarScore.h"
 #include "Commands/Auto/SpyBoxAuto.h"
 #include "Commands/Auto/AutoDriveTest.h"
 #include "Commands/Auto/AutoArmTest.h"
