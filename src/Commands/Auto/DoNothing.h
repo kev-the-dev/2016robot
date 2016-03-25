@@ -9,6 +9,10 @@ class DoNothing: public CommandBase
 public:
 	DoNothing();
 	bool IsFinished();
+	virtual void End();
+	virtual void Execute();
+	virtual void Initialize();
+	virtual void Interrupted();
 };
 
 #endif

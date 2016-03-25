@@ -1,10 +1,11 @@
-#include "Commands/DriveWithJoysticks.h"
+#include "DriveWithJoysticks.h"
 
 DriveWithJoysticks::DriveWithJoysticks()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
 	Requires(driveSystem.get());
+	reversed = false;
 }
 
 // Called just before this Command runs the first time
@@ -16,7 +17,10 @@ void DriveWithJoysticks::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoysticks::Execute()
 {
-	driveSystem->Drive(-oi->GetDriveY(),oi->GetDriveRotation());
+	#ifdef DEBUG
+	std::cout << "Joystick Y=" << oi->GetDriveY() << " R=" << oi->GetDriveRotation() << std::endl;
+	#endif
+	driveSystem->Drive(oi->GetDriveY(),oi->GetDriveRotation());
 }
 
 // Make this return true when this Command no longer needs to run execute()

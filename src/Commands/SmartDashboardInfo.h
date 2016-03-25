@@ -1,13 +1,13 @@
-#ifndef ShiftHighGear_H
-#define ShiftHighGear_H
+#ifndef SmartDashboardInfo_H
+#define SmartDashboardInfo_H
 
 #include "../CommandBase.h"
 #include "WPILib.h"
 
-class ShiftHighGear: public CommandBase
+class SmartDashboardInfo: public CommandBase
 {
 public:
-	ShiftHighGear();
+	SmartDashboardInfo();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

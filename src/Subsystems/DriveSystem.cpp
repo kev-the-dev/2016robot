@@ -5,6 +5,7 @@ DriveSystem::DriveSystem() :
 		Subsystem("DriveSystem")
 {
 	drive = RobotMap::drive;
+	gyro = RobotMap::gyro;
 }
 
 void DriveSystem::InitDefaultCommand()
@@ -18,4 +19,13 @@ void DriveSystem::InitDefaultCommand()
 void DriveSystem::Drive(float y, float rotation)
 {
 	drive->ArcadeDrive(y,rotation);
+}
+//positive if right, negative if left
+float DriveSystem::GyroAngle()
+{
+	return gyro->GetAngle();
+}
+void DriveSystem::ResetGyro()
+{
+	gyro->Reset();
 }

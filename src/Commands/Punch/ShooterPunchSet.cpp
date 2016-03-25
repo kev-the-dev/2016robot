@@ -1,38 +1,38 @@
-#include "ShiftHighGear.h"
+#include "ShooterPunchSet.h"
 
-ShiftHighGear::ShiftHighGear()
+ShooterPunchSet::ShooterPunchSet(DoubleSolenoid::Value v)
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(shooterPunch.get());
+	state = v;
 }
 
 // Called just before this Command runs the first time
-void ShiftHighGear::Initialize()
+void ShooterPunchSet::Initialize()
 {
-
+	shooterPunch->Set(state);
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ShiftHighGear::Execute()
+void ShooterPunchSet::Execute()
 {
-	driveTransmission->SetHighGear();
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ShiftHighGear::IsFinished()
+bool ShooterPunchSet::IsFinished()
 {
-	return true;;
+	return true;
 }
 
 // Called once after isFinished returns true
-void ShiftHighGear::End()
+void ShooterPunchSet::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ShiftHighGear::Interrupted()
+void ShooterPunchSet::Interrupted()
 {
 
 }

@@ -1,10 +1,27 @@
 #include "Arm.h"
 #include "../RobotMap.h"
 
-Arm::Arm() :
-		Subsystem("Arm")
+float Arm::P = 0.01;
+float Arm::I = 0;
+float Arm::D = 0;
+
+float Arm::percentageTolerance = 2;
+
+double loweredPot = 0;
+double shootingPot = 45;
+
+Arm::Arm() : Subsystem("Arm")
 {
-	std::shared_ptr<SpeedController> armMotor = RobotMap::armMotor;
+	armMotor = RobotMap::armMotor;
+	armPot = RobotMap::armPot;
+
+	armPID.reset(new PIDController(P,I,D,armPot.get(),armMotor.get()));
+	armPID->SetOutputRange(-1,1);
+	armPID->SetPercentTolerance(percentageTolerance);
+
+	LiveWindow::GetInstance()->AddActuator("Arm","Arm PID",armPID);
+
+	bottomSwitch = RobotMap::armBottomSwitch;
 }
 
 void Arm::InitDefaultCommand()
@@ -15,7 +32,35 @@ void Arm::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void Arm::Set(float x)
+void Arm::Set(double x)
 {
 	armMotor->Set(x);
+}
+void Arm::EnablePID()
+{
+	armPID->Enable();
+}
+void Arm::DisablePID()
+{
+	armPID->Disable();
+}
+bool Arm::IsPIDEnabled()
+{
+	return armPID->IsEnabled();
+}
+void Arm::SetSetpoint(double x)
+{
+	armPID->SetSetpoint(x);
+}
+double Arm::GetPot()
+{
+	return armPot->Get();
+}
+bool Arm::OnTarget()
+{
+	return armPID->OnTarget();
+}
+bool Arm::BottomSwitch()
+{
+	return !bottomSwitch->Get();
 }

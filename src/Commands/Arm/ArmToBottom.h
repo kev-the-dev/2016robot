@@ -1,13 +1,13 @@
-#ifndef ShiftLowGear_H
-#define ShiftLowGear_H
+#ifndef ArmToBottom_H
+#define ArmToBottom_H
 
-#include "../CommandBase.h"
+#include "CommandBase.h"
 #include "WPILib.h"
 
-class ShiftLowGear: public CommandBase
+class ArmToBottom: public CommandBase
 {
 public:
-	ShiftLowGear();
+	ArmToBottom();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

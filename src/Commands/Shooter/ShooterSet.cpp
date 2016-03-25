@@ -1,38 +1,41 @@
-#include "ShiftLowGear.h"
+#include "ShooterSet.h"
 
-ShiftLowGear::ShiftLowGear()
+ShooterSet::ShooterSet(double s)
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	Requires(shooter.get());
+	speed = s;
 }
 
 // Called just before this Command runs the first time
-void ShiftLowGear::Initialize()
+void ShooterSet::Initialize()
 {
-	driveTransmission->SetLowGear();
+	//shooter->DisablePID();
+	shooter->Set(speed);
+	RobotMap::compressor->Stop();
 }
 
 // Called repeatedly when this Command is scheduled to run
-void ShiftLowGear::Execute()
+void ShooterSet::Execute()
 {
 
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool ShiftLowGear::IsFinished()
+bool ShooterSet::IsFinished()
 {
 	return true;
 }
 
 // Called once after isFinished returns true
-void ShiftLowGear::End()
+void ShooterSet::End()
 {
-
+	RobotMap::compressor->Start();
+//	shooter->Set(0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void ShiftLowGear::Interrupted()
+void ShooterSet::Interrupted()
 {
-
+	End();
 }

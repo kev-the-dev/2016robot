@@ -11,9 +11,14 @@ private:
 	// for methods that implement subsystem capabilities
 	std::shared_ptr<RobotDrive> drive;
 public:
+	std::shared_ptr<Gyro> gyro;
 	DriveSystem();
 	void InitDefaultCommand();
 	void Drive(float y, float rotation);
+	double Distance();
+	double Rate();
+	float GyroAngle();
+	void ResetGyro();
 };
 
 #endif

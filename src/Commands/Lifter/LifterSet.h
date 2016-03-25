@@ -1,16 +1,15 @@
-#ifndef DoForTime_H
-#define DoForTime_H
+#ifndef LifterSet_H
+#define LifterSet_H
 
 #include "CommandBase.h"
 #include "WPILib.h"
 
-class DoForTime: public CommandBase
+class LifterSet: public CommandBase
 {
 private:
-	double time;
-	std::unique_ptr<Command> command;
+	Lifter::State state;
 public:
-	DoForTime(Command* c,double t);
+	LifterSet(Lifter::State s);
 	void Initialize();
 	void Execute();
 	bool IsFinished();

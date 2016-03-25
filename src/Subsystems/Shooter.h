@@ -4,11 +4,9 @@
 #include "Commands/Subsystem.h"
 #include "WPILib.h"
 
-class Shooter: public Subsystem
+class Shooter: public Subsystem //,PIDOutput
 {
 private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
 	std::shared_ptr<SpeedController> shooterLeft;
 	std::shared_ptr<SpeedController> shooterRight;
 public:

@@ -1,10 +1,41 @@
 #include "OI.h"
 
 //Commands
-#include "Commands/ShiftLowGear.h"
+#include "Commands/Drive/RotateX.h"
+#include "Commands/Shooter/ShooterSet.h"
+#include "Commands/Auto/DriveAuto.h"
+#include "Commands/Punch/ShooterPunchSet.h"
+#include "Commands/Arm/ArmWithJoystick.h"
+#include "Commands/Auto/LowBarForward.h"
+#include "Commands/Auto/DoNothing.h"
+#include "Commands/Auto/SpyBoxAuto.h"
+#include "Commands/Auto/AutoDriveTest.h"
+#include "Commands/Auto/LowArmAuto.h"
+
 
 void OI::SetButtons()
 {
-	shiftLowGearCommand.reset(new ShiftLowGear());
-	shiftLowButton->WhenPressed(shiftLowGearCommand.get());
+	punchInCommand.reset(new ShooterPunchSet(DoubleSolenoid::kReverse));
+	punchOutCommand.reset(new ShooterPunchSet(DoubleSolenoid::kForward));
+	badShootCommand.reset(new ShooterSet(1));
+	badIntakeCommand.reset(new ShooterSet(-1));
+	stopShooterCommand.reset(new ShooterSet(0));
+
+	badIntakeButton->WhileHeld(badIntakeCommand.get());
+	badIntakeButton->WhenReleased(stopShooterCommand.get());
+	badShootButton->WhileHeld(badShootCommand.get());
+	badShootButton->WhenReleased(stopShooterCommand.get());
+	shootButton->WhenPressed(punchOutCommand.get());
+	shootButton->WhenReleased(punchInCommand.get());
+
+	//mac1Button->ToggleWhenPressed(mac1->NewRecordFileCommand("/home/lvuser/mac1.csv"));
+	//mac2Button->ToggleWhenPressed(mac2->NewRecordFileCommand("/home/lvuser/mac2.csv"));
+
+
+	chooser->AddDefault("Do Nothing", (Command*) new DoNothing() );
+	chooser->AddObject("Low Bar",new LowBarForward());
+	//chooser->AddObject("mac1", mac1->NewPlayFileCommand("/home/lvuser/mac1.csv"));
+	//chooser->AddObject("mac2", mac2->NewPlayFileCommand("/home/lvuser/mac2.csv"));
+
+	SmartDashboard::PutData("Auto Modes", chooser);
 }
