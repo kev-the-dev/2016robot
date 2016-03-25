@@ -7,7 +7,7 @@ std::shared_ptr<SpeedController> RobotMap::rightOne;
 std::shared_ptr<SpeedController> RobotMap::rightTwo;
 std::shared_ptr<RobotDrive> RobotMap::drive;
 std::shared_ptr<Gyro> RobotMap::gyro;
-#ifdef REAL
+#ifndef SIMULATION
 std::shared_ptr<Compressor> RobotMap::compressor;
 #endif
 std::shared_ptr<SpeedController> RobotMap::armMotor;

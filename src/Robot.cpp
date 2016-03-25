@@ -50,9 +50,6 @@ private:
 
 	void AutonomousInit()
 	{
-//		#ifdef REAL
-//		RobotMap::compressor->Start();
-//		#endif
 
 		#ifdef DEBUG
 		std::cout << "AutoInit" << std::endl;
@@ -81,10 +78,6 @@ private:
 
 	void TeleopInit()
 	{
-//		#ifdef REAL
-//		RobotMap::compressor->Start();
-//		#endif
-//		RobotMap::compressor->Stop();
 
 		#ifdef DEBUG
 		std::cout << "TeleInit" << std::endl;
@@ -116,9 +109,9 @@ private:
 		std::cout << "TestInit" << std::endl;
 		#endif
 
-		#ifdef REAL
-		RobotMap::compressor->Start();
-		#endif
+		if (RobotMap::pressureSwitch->Get()) {
+			RobotMap::compressor->Stop();
+		} else RobotMap::compressor->Start();
 	}
 	void TestPeriodic()
 	{

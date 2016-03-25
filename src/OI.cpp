@@ -28,7 +28,7 @@ OI::OI()
 }
 float OI::GetDriveY()
 {
-	#ifdef REAL
+	#ifndef SIMULATION
 	return -stickLeft->GetY();
 	#else
 	return -stickLeft->GetRawAxis(1);
@@ -36,7 +36,7 @@ float OI::GetDriveY()
 }
 float OI::GetDriveRotation()
 {
-	#ifdef REAL
+	#ifndef SIMULATION
 	return -stickMiddle->GetX();
 	#else
 	return -stickMiddle->GetRawAxis(0);
